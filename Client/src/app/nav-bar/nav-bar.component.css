@@ -1,0 +1,17 @@
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
+}
+
+.nav li {
+    display: block;
+    
+}
+
+.nav>li>a {
+    text-decoration: none;
+    color: black;
+}
+
+
