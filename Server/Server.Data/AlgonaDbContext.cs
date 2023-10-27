@@ -15,6 +15,8 @@ namespace Server.Data
         public DbSet<Truck> Trucks { get; set; }
         public DbSet<Cargo> Cargoes { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
