@@ -1,16 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace Server.Data.Entites
 {
     public class Truck
     {
-        public Truck()
-        {
-            Id = new Guid().ToString();
-        }
         
         [Key]
-        public string Id { get; set; }
+        public string Id { get; init; } = Guid.NewGuid().ToString();
 
         [Required]
         public string Brand { get; set; }
