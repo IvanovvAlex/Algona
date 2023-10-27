@@ -18,7 +18,6 @@ namespace Server.Data.Entites
         public string Password { get; set; }
 
         [Required]
-
         public Type Type { get; set; }
     }
 }
