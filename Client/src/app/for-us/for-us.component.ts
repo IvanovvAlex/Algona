@@ -25,9 +25,7 @@ export class ForUsComponent {
           console.log(this.data);
         }},
         error => {
-          if(error.status !== 200) {
             this.badRequest = true;
-          }
         }
         
         
