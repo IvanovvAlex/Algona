@@ -19,5 +19,7 @@ namespace Server.Data.Entites
 
         [Required]
         public Type Type { get; set; }
+
+        public ICollection<Cargo> Cargos { get; set; }
     }
 }
