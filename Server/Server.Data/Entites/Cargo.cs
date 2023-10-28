@@ -15,8 +15,8 @@ namespace Server.Data.Entites
         public string Id { get; init; } = Guid.NewGuid().ToString();
 
         [Required]
-        public string FromCity { get; set; } 
-        
+        public string FromCity { get; set; }
+
         [Required]
         public string ToCity { get; set; }
 
@@ -45,5 +45,9 @@ namespace Server.Data.Entites
         [ForeignKey("Truck")]
         public string TruckId { get; set; }
         public Truck Truck { get; set; }
+
+        [Required]
+        public string UserId { get; set; }
+        public User User { get; set; }
     }
 }
