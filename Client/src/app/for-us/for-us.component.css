@@ -1,0 +1,15 @@
+div.error {
+    width: 45ch;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 6px;
+    background-color: #d2b8b895;
+}
+
+p.errorText {
+    padding: 1em;
+    margin: 0;
+    text-shadow: 1px 1px #d2b8b8;
+    line-height: 1.8;
+}
