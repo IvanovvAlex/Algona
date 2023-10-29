@@ -9,12 +9,14 @@ import { MaterialModule } from './material.module';
 import { ForUsComponent } from './for-us/for-us.component';
 
 import { HttpClientModule } from  '@angular/common/http';
+import { HeroComponent } from './hero/hero.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavBarComponent,
-        ForUsComponent
+        ForUsComponent,
+        HeroComponent
     ],
     imports: [
         BrowserModule,
