@@ -25,5 +25,7 @@ namespace Server.Data.Entites
 
         [Required]
         public decimal CleanIncome { get; set; }
+
+        public ICollection<Cargo> Cargoes { get; set; } = new List<Cargo>();
     }
 }
