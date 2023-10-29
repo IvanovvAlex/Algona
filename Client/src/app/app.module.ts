@@ -6,17 +6,22 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { ForUsComponent } from './for-us/for-us.component';
+
+import { HttpClientModule } from  '@angular/common/http';
 
 @NgModule({
     declarations: [
         AppComponent,
-        NavBarComponent
+        NavBarComponent,
+        ForUsComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         MaterialModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [ AppComponent ]
