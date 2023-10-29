@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Type = Server.Core.Enums.Type;
 
 namespace Server.Data.Entites
 {
