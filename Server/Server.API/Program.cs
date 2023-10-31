@@ -6,10 +6,9 @@ using Server.Data.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 // DB Context
-builder.Services.AddDbContext<AlgonaDbContext>(options =>
-    options.UseSqlServer(connectionString));
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<AlgonaDbContext>(options => options.UseSqlServer(connectionString));
 
 // Add services to the container.
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -31,10 +30,9 @@ if (app.Environment.IsDevelopment())
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    var dbContext = services.GetService<AlgonaDbContext>();
+    var dbContext = services.GetService<AlgonaDbContext>()!;
     await dbContext.Database.EnsureCreatedAsync();
 }
-
 
 app.UseHttpsRedirection();
 

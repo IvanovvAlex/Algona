@@ -6,6 +6,7 @@ namespace Server.API.Controllers
     [ApiController]
     public class ContactController : ControllerBase
     {
+        [HttpGet]
         public async Task<IActionResult> Index([FromBody] string info)
         {
             throw new NotImplementedException();

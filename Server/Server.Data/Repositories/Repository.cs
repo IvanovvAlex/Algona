@@ -1,9 +1,4 @@
 ﻿using Server.Data.Interfaces.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace Server.Data.Repositories
@@ -20,6 +15,7 @@ namespace Server.Data.Repositories
         public virtual async Task AddAsync(TEntity entity)
         {
             await Context.Set<TEntity>().AddAsync(entity);
+            await Context.SaveChangesAsync();
         }
 
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
@@ -27,14 +23,15 @@ namespace Server.Data.Repositories
             return await Context.Set<TEntity>().ToListAsync();
         }
 
-        public virtual ValueTask<TEntity> GetByIdAsync(string id)
+        public virtual async ValueTask<TEntity?> GetByIdAsync(string id)
         {
-            return Context.Set<TEntity>().FindAsync(id);
+            return await Context.Set<TEntity>().FindAsync(id);
         }
 
-        public void Remove(TEntity entity)
+        public virtual async void Remove(TEntity entity)
         {
             Context.Set<TEntity>().Remove(entity);
+            await Context.SaveChangesAsync();
         }
     }
 }
