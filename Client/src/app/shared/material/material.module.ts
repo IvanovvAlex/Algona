@@ -10,22 +10,26 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatTableModule } from "@angular/material/table";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 //TODO: Here can add more modules if needed
 
 @NgModule({
-    exports: [
-        MatCardModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatSelectModule,
-        MatButtonModule,
-        MatCheckboxModule,
-        MatRadioModule,
-        MatDialogModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatSortModule,
-    ]
+  exports: [
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatDialogModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatSnackBarModule,
+  ],
+
+
 })
 export class MaterialModule {
 
