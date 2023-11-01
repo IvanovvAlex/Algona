@@ -1,5 +1,8 @@
 import { Component} from '@angular/core';
-import { ApiService } from '../api.service';
+import { ApiService } from '../../core/core-services/api-service/api.service';
+
+
+// Moved Api service inside core-service folder
 
 
 
