@@ -1,0 +1,41 @@
+h1 {
+    text-align: center;
+    padding-bottom: 0px;
+    font-weight: 300;
+    font-size: 2rem;
+    color: #494949;
+}
+
+.card {
+    transition: scale 0.2s ease-in-out;
+    max-width: 500px;
+    min-width: none;
+}
+
+.card:hover {
+    scale: 1.03;
+}
+
+.shadow-effect {
+    border: none;
+    box-shadow: 0px 0px 24px -12px rgb(0, 0, 0);
+}
+
+#btn-back-to-top {
+    width: auto;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--accent-theme-color);
+    border-radius: 50%;
+}
+
+@media screen and (max-width:500px) {
+    section h1 {
+        font-size: 1.5rem;
+    }
+
+    section .card:hover {
+        scale: none;
+    }
+}

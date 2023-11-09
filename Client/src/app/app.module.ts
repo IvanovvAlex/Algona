@@ -14,6 +14,7 @@ import { ForUsComponent } from './components-WIP-folder/for-us/for-us.component'
 import { HeroComponent } from './components-WIP-folder/hero/hero.component';
 import { ContactFormComponent } from './components-WIP-folder/contact-form/contact-form.component';
 import { NotFoundComponent } from './components-WIP-folder/not-found/not-found.component';
+import { GarageComponent } from './components-WIP-folder/garage/garage.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { NotFoundComponent } from './components-WIP-folder/not-found/not-found.c
         ForUsComponent,
         HeroComponent,
         ContactFormComponent,
-        NotFoundComponent
+        NotFoundComponent,
+        GarageComponent
     ],
     imports: [
         AuthModule,
