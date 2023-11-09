@@ -1,17 +1,18 @@
-.nav {
+nav {
     display: flex;
     justify-content: flex-end;
-    gap: 1em;
 }
+
+.navBar {
+    padding: 0.8rem 1.5rem; 
+}
+
 
 .nav li {
     display: block;
     
 }
 
-.nav>li>a {
-    text-decoration: none;
-    color: black;
-}
+
 
 

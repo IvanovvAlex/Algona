@@ -1,30 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Server.Data.Entites
 {
     public class Cargo
     {
         [Key]
-        [Required]
         public string Id { get; init; } = Guid.NewGuid().ToString();
 
         [Required]
-        public string FromCity { get; set; }
+        public string FromCity { get; set; } = null!;
 
         [Required]
-        public string ToCity { get; set; }
+        public string ToCity { get; set; } = null!;
 
         [Required]
-        public string FromCountry { get; set; }
+        public string FromCountry { get; set; } = null!;
 
         [Required]
-        public string ToCountry { get; set; }
+        public string ToCountry { get; set; } = null!;
 
         [Required]
         public DateTime FromDateTime { get; set; }
@@ -41,13 +35,13 @@ namespace Server.Data.Entites
         [Required]
         public double TotalPrice { get; set; }
 
-        [Required]
-        [ForeignKey("Truck")]
-        public string TruckId { get; set; }
-        public Truck Truck { get; set; }
+        [ForeignKey(nameof(Truck))]
+        public string TruckId { get; set; } = null!;
 
-        [Required]
-        public string UserId { get; set; }
-        public User User { get; set; }
+        [ForeignKey(nameof(User))]
+        public string UserId { get; set; } = null!;
+
+        public Truck Truck { get; set; } = null!;
+        public User User { get; set; } = null!;
     }
 }

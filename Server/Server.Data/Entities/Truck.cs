@@ -1,5 +1,6 @@
 using Server.Core.Enums;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Server.Data.Entites
 {
@@ -26,6 +27,10 @@ namespace Server.Data.Entites
         [Required]
         public decimal CleanIncome { get; set; }
 
-        public ICollection<Cargo> Cargoes { get; set; } = new List<Cargo>();
+
+        [ForeignKey(nameof(Cargo))]
+        public string CargoId { get; set; } = null!;
+
+        public Cargo Cargo { get; set; } = null!;
     }
 }

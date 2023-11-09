@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
 using Server.Data.Entites;
 using Server.Data.Interfaces.Repositories;
 
@@ -10,28 +6,22 @@ namespace Server.Data.Repositories
 {
     public class TruckRepository : Repository<Truck>, ITruckRepository
     {
-        private AlgonaDbContext AlgonaDbContext => Context as AlgonaDbContext;
+        private AlgonaDbContext AlgonaDbContext => (Context as AlgonaDbContext)!;
 
         public TruckRepository(AlgonaDbContext context) : base(context) { }
 
-        public ValueTask<Truck> GetByIdAsync(string id)
+        public override async Task<IEnumerable<Truck>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await AlgonaDbContext.Trucks
+                .Include(t => t.Cargo)
+                .ToListAsync();
         }
 
-        public Task<IEnumerable<Truck>> GetAllAsync()
+        public override async ValueTask<Truck?> GetByIdAsync(string id)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task AddAsync(Truck entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Remove(Truck entity)
-        {
-            throw new NotImplementedException();
+            return await AlgonaDbContext.Trucks
+                .Include(t => t.Cargo)
+                .FirstOrDefaultAsync(t => t.Id == id);
         }
     }
 }
