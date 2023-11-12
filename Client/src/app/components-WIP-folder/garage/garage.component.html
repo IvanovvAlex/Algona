@@ -1,0 +1,38 @@
+<section id="garage-photos"
+         class="container-fluid pt-4 mb-5">
+    <div class="bg-light pb-4 pt-4">
+        <h1>OUR FLEET OF VEHICLES</h1>
+        <hr class="col-md-3 mb-2 col-6 mx-auto">
+    </div>
+    <div class="row mx-md-2 mx-1 mt-4">
+        <div class="d-flex flex-md-row flex-wrap flex-column gap-3 align-items-center justify-content-center mb-5">
+
+            <ng-container *ngIf="photos; else dummyTemplate">
+                <article class="card shadow-effect col-md-4 col-10"
+                         *ngFor="let photo of photos">
+                    <img src="{{photo}}"
+                         alt="Algona Fleet Vehicle"
+                         class="img-fluid rounded-1">
+                </article>
+            </ng-container>
+
+        </div>
+
+        <button type="button"
+                *ngIf="isVisible"
+                (click)="gotoTop()"
+                class="btn text-white btn-lg"
+                id="btn-back-to-top">
+            &#9651;
+        </button>
+    </div>
+</section>
+
+<ng-template #dummyTemplate>
+    <article class="card shadow-effect col-md-4 col-10"
+             *ngFor="let _ of [].constructor(10)">
+        <img src="assets/static-images/img-placeholder.png"
+             alt="Image placeholder"
+             class="img-fluid rounded-1">
+    </article>
+</ng-template>
