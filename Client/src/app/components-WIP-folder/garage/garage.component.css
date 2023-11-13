@@ -7,13 +7,21 @@ h1 {
 }
 
 .card {
-    transition: scale 0.2s ease-in-out;
-    max-width: 500px;
+    /* transition: scale 0.2s ease-in-out; */
+    max-width: 400px;
     min-width: none;
 }
 
-.card:hover {
+/* .card:hover {
     scale: 1.03;
+} */
+
+button.preview {
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    outline: 0;
+    border-radius: inherit;
 }
 
 .shadow-effect {
