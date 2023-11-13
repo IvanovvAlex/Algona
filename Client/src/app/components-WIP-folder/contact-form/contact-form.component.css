@@ -1,0 +1,38 @@
+.form-cont,
+.contact-form-cont,
+.heading {
+    display: flex;
+    flex-direction: column;
+}
+
+.screen-cont {
+    margin-top: 5em;
+}
+
+.heading {
+    align-items: center;
+}
+
+.form-cont {
+    gap: 0.5em
+}
+
+.contact-form-cont {
+    max-width: 35em;
+    margin: auto;
+    border: 0.15em solid black;
+    border-radius: 1em;
+    padding: 2em
+
+}
+
+#data {
+    height: 7em;
+}
+
+.error {
+    color: red;
+    background-color: rgb(238, 205, 205);
+    border-radius: 5%;
+    text-align: center;
+}

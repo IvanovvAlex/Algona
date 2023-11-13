@@ -1,0 +1,42 @@
+<div class="screen-cont">
+    <div class="contact-form-cont">
+        <div class="heading">
+            <h2>Contact us</h2>
+            <p>If you have any questions?</p>
+        </div>
+
+        <form [formGroup]="contactForm" (ngSubmit)="sendData()">
+            <div class="form-cont">
+                <label for="name">Name:</label>
+                <input type="text" name="name" formControlName="name">
+                <ng-container *ngIf="contactForm.get('name')?.touched">
+                    <p class="error" *ngIf="contactForm.get('name')?.errors?.['required']">
+                        A name is required!
+                    </p>
+                </ng-container>
+
+
+                <label for="email">Email:</label>
+                <input type="email" name="email" formControlName="email">
+                <ng-container *ngIf="contactForm.get('email')?.touched">
+                    <p class="error" *ngIf="contactForm.get('email')?.errors?.['required']">
+                        Email is required!
+                    </p>
+                </ng-container>
+
+
+
+                <label for="data">Description:</label>
+                <textarea name="data" id="data" formControlName="data"></textarea>
+                <ng-container *ngIf="contactForm.get('data')?.touched">
+                    <p class="error" *ngIf="contactForm.get('data')?.errors?.['required']">
+                        Description is required!
+                    </p>
+                </ng-container>
+
+
+                <button [disabled]="contactForm.invalid">Send</button>
+            </div>
+        </form>
+    </div>
+</div>

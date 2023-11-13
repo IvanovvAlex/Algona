@@ -1,0 +1,25 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+.navBar {
+    padding: 0.8rem 1.5rem; 
+}
+
+
+.nav li {
+    display: block;
+    
+}
+
+.logo {
+    width: 12%;
+}
+
+.logo img {
+    width: 100%;
+}
+
+

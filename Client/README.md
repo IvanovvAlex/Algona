@@ -25,3 +25,59 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+
+<!-- Architecture Description-->
+
+## Root Module
+<!-- used to inject other modules, services, global routing and to bootstrap the app -->
+
+! --- App module --- ! 
+        - app.component.html
+        - app.component.css
+        - app.component.ts
+        - app.component.spec.ts
+
+! --- App-routing module --- ! 
+
+
+## Core Module
+<!-- - to contain singleton services and components
+needed only once in the application -->
+
+
+## Shared Module
+<!-- - to contain all common components,
+directives and pipes used by a lot of places -->
+    - Interfaces/types/enums - typization folder
+	- material module
+	- pipes
+	- validators
+    - interceptors
+
+## Auth Module 
+<!-- To contain auth guards, auth components (Login, Regsiter) and their services -->
+    - Guards
+    - Login component 
+    - Register component
+    - Auth Service -> Logout functionality
+
+
+## Features Module
+<!-- to contain Feature sub-modules with their components and their services -->
+
+
+
+<!-- Desing and Typography information -->
+
+## Coloration
+Color codes: use codes from material
+	- Primary:
+	- Accent:
+	- Warn:
+
+
+## Language
+Main language: English
