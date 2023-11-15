@@ -32,7 +32,6 @@ import { MatInputModule } from '@angular/material/input';
         
     ],
     imports: [
-        AuthModule,
         CoreModule,
         SharedModule,
         BrowserModule,
