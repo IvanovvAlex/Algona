@@ -1,0 +1,60 @@
+<section id="login-section"
+         class="row py-5">
+    <div class="col-lg-5 col-md-6 col-11 mx-auto">
+        <form [formGroup]="loginForm"
+              (ngSubmit)="onSubmit()">
+            <mat-card class="shadow-effect">
+                <mat-card-header>
+                    <h1 class="text-black-50 text-center mb-1">LOGIN TO YOUR ACCOUNT</h1>
+                    <hr>
+                </mat-card-header>
+
+                <div id="content"
+                     class="col-lg-10 col-md-12 col-12">
+                    <mat-card-content>
+
+                        <mat-error *ngIf="errorFormServer"
+                                   class="pb-3">{{errorFormServer}}</mat-error>
+                        <mat-form-field>
+                            <mat-label>Email</mat-label>
+                            <input formControlName="email"
+                                   type="email"
+                                   autocomplete="email"
+                                   matInput>
+                            <ng-container *ngIf="fc.email.touched && fc.email.invalid">
+                                <mat-error *ngIf="fc.email.errors?.['required']">Email is
+                                    required!</mat-error>
+                                <mat-error *ngIf="fc.email.errors?.['email']">Email is
+                                    not valid!</mat-error>
+                            </ng-container>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <mat-label>Password</mat-label>
+                            <input formControlName="password"
+                                   type="password"
+                                   autocomplete="current-password"
+                                   matInput>
+                            <ng-container *ngIf="fc.password.touched && fc.password.invalid">
+                                <mat-error *ngIf="fc.password.errors?.['required']">Password is
+                                    required!</mat-error>
+                            </ng-container>
+                        </mat-form-field>
+                        <a class="pt-0 mt-0 small"
+                           href="#">Forgot password?</a>
+
+                    </mat-card-content>
+                </div>
+
+                <mat-card-actions class="pb-4">
+                    <button mat-raised-button
+                            color="primary">Login</button>
+                </mat-card-actions>
+                <mat-card-footer>
+                    <p class="pt-4 text-center">Not a Member? <a>Register Now</a></p>
+                </mat-card-footer>
+                <div id="border-line"></div>
+            </mat-card>
+        </form>
+    </div>
+</section>
