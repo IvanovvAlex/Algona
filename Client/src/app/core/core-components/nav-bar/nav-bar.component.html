@@ -27,13 +27,14 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/vehicles">FLEET OF VEHICLES</a>
+                    <a class="nav-link" routerLink="/vehicles">VEHICLE PARK</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/orders">ORDERS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/request">SEND REQUEST</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" routerLink="/request" role="button" data-bs-toggle="dropdown" aria-expanded="false">REQUEST</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="request/transport">Transport</a></li>
+                        <li><a class="dropdown-item" href="request/spedition">Spedition</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/contact">CONTACT US</a>
