@@ -6,11 +6,19 @@ namespace Server.Data.Repositories
 {
     public class CargoRepository : Repository<Cargo>, ICargoRepository
     {
+<<<<<<< HEAD
+        private AlgonaDbContext AlgonaDbContext => Context as AlgonaDbContext;
+
+        public CargoRepository(AlgonaDbContext context) : base(context) { }
+
+        public async ValueTask<Cargo> GetByIdAsync(string id)
+=======
         private AlgonaDbContext AlgonaDbContext => (Context as AlgonaDbContext)!;
 
         public CargoRepository(AlgonaDbContext context) : base(context) { }
 
         public override async ValueTask<Cargo?> GetByIdAsync(string id)
+>>>>>>> 5d0396a11669fdaa7fdb4d11041954c4035f3af9
         {
             return await AlgonaDbContext.Cargoes
                 .Include(c => c.Truck)
@@ -46,7 +54,11 @@ namespace Server.Data.Repositories
             await Context.SaveChangesAsync();
         }
 
+<<<<<<< HEAD
+        public void Remove(Cargo entity)
+=======
         public override void Remove(Cargo entity)
+>>>>>>> 5d0396a11669fdaa7fdb4d11041954c4035f3af9
         {
             Context.Remove(entity);
             Context.SaveChangesAsync();

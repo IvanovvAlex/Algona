@@ -15,6 +15,8 @@ namespace Server.Data
 
         private readonly ITruckRepository truckRepository;
 
+        private readonly ICargoRepository cargoRepository;
+
         public UnitOfWork(AlgonaDbContext context, ITruckRepository truckRepository)
         {
             this.context = context;
@@ -22,6 +24,8 @@ namespace Server.Data
         }
 
         public ITruckRepository Trucks => truckRepository ?? new TruckRepository(context);
+
+        public ICargoRepository Cargoes => cargoRepository ?? new CargoRepository(context);
 
         public void Dispose()
         {
