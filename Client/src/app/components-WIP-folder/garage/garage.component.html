@@ -1,18 +1,56 @@
 <section id="garage-photos"
          class="container-fluid pt-4 mb-5">
     <div class="bg-light pb-4 pt-4">
-        <h1>OUR FLEET OF VEHICLES</h1>
+        <h1>OUR VEHICLE PARK</h1>
         <hr class="col-md-3 mb-2 col-6 mx-auto">
     </div>
     <div class="row mx-md-2 mx-1 mt-4">
-        <div class="d-flex flex-md-row flex-wrap flex-column gap-3 align-items-center justify-content-center mb-5">
+        <div class="d-flex flex-md-row flex-wrap flex-column gap-3 align-items-center justify-content-center">
 
             <ng-container *ngIf="photos; else dummyTemplate">
+
                 <article class="card shadow-effect col-md-4 col-10"
-                         *ngFor="let photo of photos">
-                    <img src="{{photo}}"
-                         alt="Algona Fleet Vehicle"
-                         class="img-fluid rounded-1">
+                         *ngFor="let photo of photos; let i = index">
+                    <div class="modal fade"
+                         id="exampleModalToggle{{i}}"
+                         aria-hidden="true"
+                         aria-labelledby="exampleModalToggleLabel"
+                         tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button"
+                                            class="btn-close"
+                                            data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="{{photo}}"
+                                         alt="Image from Algona LTD gallery"
+                                         class="img-preview img-fluid rounded-1">
+                                </div>
+                                <div class="modal-footer bg-light">
+                                    <button [disabled]="i<=0"
+                                            class="btn btn-sm btn-outline-secondary"
+                                            [attr.data-bs-target]="'#exampleModalToggle'+(i-1)"
+                                            data-bs-toggle="modal">Previous</button>
+                                    <button [disabled]="i>=photos.length-1"
+                                            class="btn btn-sm btn-outline-secondary"
+                                            [attr.data-bs-target]="'#exampleModalToggle'+(i+1)"
+                                            data-bs-toggle="modal">Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="preview"
+                            type="button"
+                            [attr.data-bs-target]="'#exampleModalToggle'+i"
+                            data-bs-toggle="modal">
+                        <img src="{{photo}}"
+                             alt="Image placeholder"
+                             class="img-fluid rounded-1">
+                    </button>
                 </article>
             </ng-container>
 
@@ -30,9 +68,48 @@
 
 <ng-template #dummyTemplate>
     <article class="card shadow-effect col-md-4 col-10"
-             *ngFor="let _ of [].constructor(10)">
-        <img src="assets/static-images/img-placeholder.png"
-             alt="Image placeholder"
-             class="img-fluid rounded-1">
+             *ngFor="let _ of [].constructor(10); let i = index">
+
+        <div class="modal fade"
+             id="exampleModalToggle{{i}}"
+             aria-hidden="true"
+             aria-labelledby="exampleModalToggleLabel"
+             tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{i}}</p>
+                        <img src="assets/static-images/img-placeholder.png"
+                             alt="Image placeholder"
+                             class="img-preview img-fluid rounded-1">
+                    </div>
+                    <div class="modal-footer bg-light">
+                        <button [disabled]="i<=0"
+                                class="btn btn-sm btn-outline-secondary"
+                                [attr.data-bs-target]="'#exampleModalToggle'+(i-1)"
+                                data-bs-toggle="modal">Previous</button>
+                        <button [disabled]="i>=9"
+                                class="btn btn-sm btn-outline-secondary"
+                                [attr.data-bs-target]="'#exampleModalToggle'+(i+1)"
+                                data-bs-toggle="modal">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="preview"
+                type="button"
+                [attr.data-bs-target]="'#exampleModalToggle'+i"
+                data-bs-toggle="modal">
+            <img src="assets/static-images/img-placeholder.png"
+                 alt="Image placeholder"
+                 class="img-fluid rounded-1">
+        </button>
     </article>
 </ng-template>
