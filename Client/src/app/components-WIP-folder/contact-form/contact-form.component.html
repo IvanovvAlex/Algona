@@ -7,7 +7,7 @@
 
         <form [formGroup]="contactForm" (ngSubmit)="sendData()">
             <div class="form-cont">
-                <label for="name">Name:</label>
+                <label for="name">Name</label>
                 <input type="text" name="name" formControlName="name">
                 <ng-container *ngIf="contactForm.get('name')?.touched">
                     <p class="error" *ngIf="contactForm.get('name')?.errors?.['required']">
@@ -15,8 +15,16 @@
                     </p>
                 </ng-container>
 
+                <label for="companyName">Company Name</label>
+                <input type="text" name="companyName" formControlName="companyName">
+                <ng-container *ngIf="contactForm.get('companyName')?.touched">
+                    <p class="error" *ngIf="contactForm.get('companyName')?.errors?.['required']">
+                        A name is required!
+                    </p>
+                </ng-container>
 
-                <label for="email">Email:</label>
+
+                <label for="email">Email</label>
                 <input type="email" name="email" formControlName="email">
                 <ng-container *ngIf="contactForm.get('email')?.touched">
                     <p class="error" *ngIf="contactForm.get('email')?.errors?.['required']">
@@ -24,13 +32,20 @@
                     </p>
                 </ng-container>
 
+                <label for="phone">Phone</label>
+                <input type="phone" name="phone" formControlName="phone">
+                <ng-container *ngIf="contactForm.get('phone')?.touched">
+                    <p class="error" *ngIf="contactForm.get('phone')?.errors?.['required']">
+                        Phone is required!
+                    </p>
+                </ng-container>
 
 
-                <label for="data">Description:</label>
+                <label for="data">Message</label>
                 <textarea name="data" id="data" formControlName="data"></textarea>
                 <ng-container *ngIf="contactForm.get('data')?.touched">
                     <p class="error" *ngIf="contactForm.get('data')?.errors?.['required']">
-                        Description is required!
+                        Message is required!
                     </p>
                 </ng-container>
 
