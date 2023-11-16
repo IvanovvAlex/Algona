@@ -4,9 +4,9 @@ import { Subscription, fromEvent } from 'rxjs';
 import { ApiService } from 'src/app/core/core-services/api-service/api.service';
 
 @Component({
-  selector: 'app-garage',
-  templateUrl: './garage.component.html',
-  styleUrls: ['./garage.component.css']
+    selector: 'app-garage',
+    templateUrl: './garage.component.html',
+    styleUrls: [ './garage.component.css' ]
 })
 export class GarageComponent implements OnInit, OnDestroy {
     isVisible = false;
@@ -15,12 +15,13 @@ export class GarageComponent implements OnInit, OnDestroy {
     eventSubscription = fromEvent(window, 'scroll').subscribe(e => {
         this.checkScroll();
     });
-
+    
+    ///TODO: Remove 'dummy template' from view
     photos: any = null;
     subscription: Subscription = new Subscription();
 
     constructor(private apiService: ApiService) { }
-    
+
     ngOnInit(): void {
         this.subscription = this.apiService.getGaragePhotos().subscribe({
             next: data => {
