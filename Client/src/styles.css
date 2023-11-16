@@ -16,3 +16,20 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.modal.fade .modal-dialog {
+    transition: all .8s ease-out;
+    opacity: 0.3;
+    transform: scale(0.9);
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.modal-backdrop {
+    --bs-backdrop-bg: lightgray;
+    --bs-backdrop-opacity: .8;
+    transition: opacity 0.3s linear;
+}
