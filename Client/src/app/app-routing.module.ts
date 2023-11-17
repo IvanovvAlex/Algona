@@ -20,7 +20,7 @@ const routes: Routes = [
         path: 'about', component: ForUsComponent,
     },
     {
-        path: 'services', 
+        path: 'services',
         children: [
             {
                 path: 'spedition', component: NotFoundComponent
@@ -29,7 +29,7 @@ const routes: Routes = [
                 path: 'international-transport', component: NotFoundComponent,
             }
         ]
-        
+
     },
     {
         path: 'vehicles', component: GarageComponent,
@@ -38,7 +38,7 @@ const routes: Routes = [
         path: 'orders', component: NotFoundComponent,
     },
     {
-        path: 'request', 
+        path: 'request',
         children: [
             {
                 path: 'spedition', component: SpeditionRequestComponent
@@ -47,7 +47,11 @@ const routes: Routes = [
                 path: 'transport', component: TransportRequestComponent,
             }
         ]
-        
+
+    },
+    {
+        path: 'auth',
+        loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
     },
     {
         path: 'contact', component: ContactFormComponent,
