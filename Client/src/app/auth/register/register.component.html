@@ -1,0 +1,113 @@
+<section id="register-section"
+         class="row py-5">
+    <div class="col-lg-5 col-md-8 col-11 mx-auto">
+        <form [formGroup]="registerForm"
+              (ngSubmit)="onSubmit()"
+              class="d-flex justify-content-center">
+            <mat-card class="shadow-effect">
+                <mat-card-header>
+                    <h1 class="text-black-50 text-center mb-1">REGISTER AN ACCOUNT</h1>
+                    <hr>
+                </mat-card-header>
+
+                <div id="content"
+                     class="col-lg-10 col-md-12 col-12">
+                    <mat-card-content class="pb-0">
+
+                        <div class="d-flex flex-md-row gap-lg-2 gap-md-1 gap-0 justify-content-md-between flex-column">
+                            <mat-form-field class="flex-grow-1">
+                                <mat-label>First Name</mat-label>
+                                <input formControlName="firstName"
+                                       name="firstName"
+                                       type="string"
+                                       autocomplete="given-name"
+                                       matInput>
+                                <ng-container *ngIf="hasErrors('firstName')">
+                                    <mat-error *ngIf="formControl.firstName.errors?.['required']"
+                                               [@fade]>First Name is
+                                        required!</mat-error>
+                                </ng-container>
+                            </mat-form-field>
+                            <mat-form-field class="flex-grow-1">
+                                <mat-label>Last Name</mat-label>
+                                <input formControlName="lastName"
+                                       name="lastName"
+                                       type="string"
+                                       autocomplete="family-name"
+                                       matInput>
+                                <ng-container *ngIf="hasErrors('lastName')">
+                                    <mat-error *ngIf="formControl.lastName.errors?.['required']"
+                                               [@fade]>Last Name is
+                                        required!</mat-error>
+                                </ng-container>
+                            </mat-form-field>
+                        </div>
+
+                        <mat-form-field>
+                            <mat-label><mat-icon>email</mat-icon>Email</mat-label>
+                            <input formControlName="email"
+                                   name="email"
+                                   type="email"
+                                   autocomplete="email"
+                                   matInput>
+                            <ng-container *ngIf="hasErrors('email')">
+                                <mat-error *ngIf="formControl.email.errors?.['required']"
+                                           [@fade]>Email is
+                                    required!</mat-error>
+                                <mat-error *ngIf="formControl.email.errors?.['email']"
+                                           [@fade]>Email is
+                                    not valid!</mat-error>
+                            </ng-container>
+                        </mat-form-field>
+
+                        <ng-container formGroupName="passGroup">
+                            <mat-form-field>
+                                <mat-label><mat-icon>vpn_key</mat-icon>Password</mat-label>
+                                <input formControlName="password"
+                                       name="password"
+                                       type="password"
+                                       autocomplete="off"
+                                       matInput>
+                                <ng-container *ngIf="getPass.touched && getPass.invalid">
+                                    <mat-error *ngIf="getPass.errors?.['required']"
+                                               [@fade]>Password is required!</mat-error>
+                                    <mat-error *ngIf="getPass.errors?.['minlength']"
+                                               [@fade]>Password must be at least 6
+                                        characters long.</mat-error>
+                                </ng-container>
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <mat-label><mat-icon>vpn_key</mat-icon>Confirm Password</mat-label>
+                                <input formControlName="rePassword"
+                                       name="rePassword"
+                                       type="password"
+                                       autocomplete="off"
+                                       matInput>
+                                <ng-container *ngIf="getRePass.touched">
+                                    <mat-error *ngIf="getRePass.errors?.['required']"
+                                               [@fade]>Confirm password is
+                                        required.</mat-error>
+                                    <mat-error *ngIf="registerForm.get('passGroup')?.errors?.['matchPasswordsValidator']"
+                                               [@fade]>Passwords don't match.
+                                    </mat-error>
+                                </ng-container>
+                            </mat-form-field>
+                        </ng-container>
+
+                    </mat-card-content>
+                </div>
+
+                <mat-card-actions class="pb-4">
+                    <button [disabled]="registerForm.invalid"
+                            mat-raised-button
+                            color="accent">Register</button>
+                </mat-card-actions>
+                <mat-card-footer>
+                    <p class="pt-4 text-center">Already a Member? <a routerLink="/auth/login">Click Here to Login</a></p>
+                </mat-card-footer>
+                <div id="border-line"></div>
+            </mat-card>
+        </form>
+    </div>
+</section>

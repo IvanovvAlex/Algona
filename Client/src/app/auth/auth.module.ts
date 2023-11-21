@@ -5,13 +5,15 @@ import { AuthRoutingModule } from './auth-routing/auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
+import { RegisterComponent } from './register/register.component';
 
 
 
 
 @NgModule({
     declarations: [
-        LoginComponent
+        LoginComponent,
+        RegisterComponent
     ],
     imports: [
         CommonModule,
