@@ -13,30 +13,28 @@
                      class="col-lg-10 col-md-12 col-12">
                     <mat-card-content>
 
-                        <mat-error *ngIf="errorFormServer"
-                                   class="pb-3">{{errorFormServer}}</mat-error>
                         <mat-form-field>
-                            <mat-label>Email</mat-label>
+                            <mat-label><mat-icon>email</mat-icon>Email</mat-label>
                             <input formControlName="email"
                                    type="email"
                                    autocomplete="email"
                                    matInput>
                             <ng-container *ngIf="fc.email.touched && fc.email.invalid">
-                                <mat-error *ngIf="fc.email.errors?.['required']">Email is
+                                <mat-error *ngIf="fc.email.errors?.['required']" [@fade]>Email is
                                     required!</mat-error>
-                                <mat-error *ngIf="fc.email.errors?.['email']">Email is
+                                <mat-error *ngIf="fc.email.errors?.['email']" [@fade]>Email is
                                     not valid!</mat-error>
                             </ng-container>
                         </mat-form-field>
 
                         <mat-form-field>
-                            <mat-label>Password</mat-label>
+                            <mat-label><mat-icon>vpn_key</mat-icon>Password</mat-label>
                             <input formControlName="password"
                                    type="password"
                                    autocomplete="current-password"
                                    matInput>
                             <ng-container *ngIf="fc.password.touched && fc.password.invalid">
-                                <mat-error *ngIf="fc.password.errors?.['required']">Password is
+                                <mat-error *ngIf="fc.password.errors?.['required']" [@fade]>Password is
                                     required!</mat-error>
                             </ng-container>
                         </mat-form-field>
@@ -47,11 +45,12 @@
                 </div>
 
                 <mat-card-actions class="pb-4">
-                    <button mat-raised-button
+                    <button [disabled]="loginForm.invalid"
+                            mat-raised-button
                             color="primary">Login</button>
                 </mat-card-actions>
                 <mat-card-footer>
-                    <p class="pt-4 text-center">Not a Member? <a>Register Now</a></p>
+                    <p class="pt-4 text-center">Not a Member? <a routerLink="/auth/register">Register Now</a></p>
                 </mat-card-footer>
                 <div id="border-line"></div>
             </mat-card>
