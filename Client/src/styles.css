@@ -2,9 +2,20 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 :root {
-    --primary-theme-color: #3f51b5;
-    --accent-theme-color: #ff4081;
-    --warn-theme-color: #f44538;
+    /* -------------- angular material theme color palettes ------------- */
+    
+        /* light blue 700 */
+        --primary-theme-color: #0288D1;
+        /* teal 600 */
+        --accent-theme-color: #00897B;
+        /* red 500 */
+        --warn-theme-color: #F44336;
+    
+        /* ----------- colors for texts highlights or custom styling ----------- */
+        --gray-styling-color: #414141;
+        --primary-styling-color: #01579B;
+        --secondary-styling-color: #81D4FA;
+        --light-styling-color: #80CBC4;
 }
 
 html,
