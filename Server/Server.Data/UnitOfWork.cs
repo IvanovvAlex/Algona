@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Server.Data.Interfaces;
+﻿using Server.Data.Interfaces;
 using Server.Data.Interfaces.Repositories;
 using Server.Data.Repositories;
 
@@ -17,15 +12,24 @@ namespace Server.Data
 
         private readonly ICargoRepository cargoRepository;
 
-        public UnitOfWork(AlgonaDbContext context, ITruckRepository truckRepository)
+        private readonly IJobRepository jobRepository;
+
+        public UnitOfWork(AlgonaDbContext context,
+            ICargoRepository cargoRepository,
+            ITruckRepository truckRepository,
+            IJobRepository jobRepository)
         {
             this.context = context;
+            this.cargoRepository = cargoRepository;
             this.truckRepository = truckRepository;
+            this.jobRepository = jobRepository;
         }
 
         public ITruckRepository Trucks => truckRepository ?? new TruckRepository(context);
 
         public ICargoRepository Cargoes => cargoRepository ?? new CargoRepository(context);
+
+        public IJobRepository Jobs => jobRepository ?? new JobRepository(context);
 
         public void Dispose()
         {
