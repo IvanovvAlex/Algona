@@ -1,38 +1,224 @@
-.form-cont,
+/* Containers */
 .contact-form-cont,
+.field-box,
+.msg-cont,
 .heading {
     display: flex;
     flex-direction: column;
 }
 
+/* container - screen wrapper styling*/
 .screen-cont {
-    margin-top: 5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 0em 0em 20em -10em rgb(39, 39, 39);
+    background-color: #cdf5fd75;
+    border-radius: 25em 0 8.5em 25em;
 }
 
+
+
+/* form - container and elements styling */
+
+
+/* Form heading */
 .heading {
     align-items: center;
 }
 
-.form-cont {
-    gap: 0.5em
+/* main element - form wrapper */
+main {
+    flex: 4 3 15em;
+    display: flex;
+    justify-content:space-evenly;
 }
 
+/* 1st div inside main wrapper - contains heading + form elements */
 .contact-form-cont {
-    max-width: 35em;
-    margin: auto;
-    border: 0.15em solid black;
+    max-width: 50em;
+    margin: 0 0 0 10em;
     border-radius: 1em;
-    padding: 2em
-
+    padding: 2em;
 }
 
+
+/* 1st div inside form element */
+.form-cont {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    justify-content: center;
+}
+
+/* container for input fields */
+.field-box {
+    flex: 1 5 2em;
+    padding: 0 0.2em;
+    align-items: stretch;
+    gap: 0.5em;
+}
+
+/* container for text field and button */
+.msg-cont {
+    flex: 6 1 2em;
+    gap: 1em;
+}
+
+/* label for textfield */
+.msg-lbl {
+    flex: 2 1 1;
+    align-self: center;
+}
+
+/* text field element */
 #data {
-    height: 7em;
+    height: 10em;
+    resize: none;
 }
 
+/* input field elements */
+input {
+    height: 2.5em;
+    border: 0em none wheat;
+}
+
+
+input,
+#data {
+    border-radius: 0.5em;
+    outline-style: none;
+    border: 0em none white;
+}
+
+/* error conditional element */
 .error {
-    color: red;
+    color: #ff4081;
     background-color: rgb(238, 205, 205);
-    border-radius: 5%;
+    border-radius: 0.5em;
     text-align: center;
+    text-wrap: wrap;
+    padding: 0.5em 0;
+}
+
+/* send button element */
+.sndBtn {
+    flex: 1 1 2.5em;
+    width: 6em;
+    align-self: flex-end;
+    border-radius: 1em;
+    font-size: medium;
+    margin-top: 1em;
+}
+
+/* form horizonalt line element */
+hr {
+    border: 0.1em solid black;
+}
+
+/* empty filler row dummy div */
+.break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+/* ------------------------------------------------- */
+/* Information banner styling */
+
+/* info banner based container */
+.description-cont {
+    flex: 2 1 10em;
+    background-color: #89CFF3;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5em;
+    padding: 2em;
+    border-radius: 2em 0 5em 0;
+    font-size: 0.9em;
+}
+
+/* info banner headers container */
+.desc-heads {
+    display: flex;
+    flex-direction: row;
+    padding: 0 2em;
+    margin: 0.2em 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* headers h4 elements */
+.desc-heads>h4 {
+    font: inherit;
+    font-size: 20px;
+    margin: 0 0.5em;
+}
+
+/* paragraph container */
+.info-cont {
+    padding: 2em;
+    box-shadow: 0em 0em 1em -0.4em rgb(39, 39, 39);
+    margin: 0.5em 0;
+    background-color: #E0F2F1;
+    border-radius: 1em;
+}
+
+
+
+
+/* ---------------- */
+/* responsive media queries */
+
+@media screen and (min-width: 1300px) {
+    /* increase info banner font on big screens */
+    .description-cont {
+        font-size: 1.4em;
+    }
+    .contact-form-cont {
+        font-size: 1.4em;
+    }
+}
+
+
+/* style for mobile screens up to 250px width */
+@media screen and (max-width: 750px) {
+    /* change screen container to column flexbox */
+    .screen-cont {
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    /* remove border styling */
+    .screen-cont,
+    .description-cont {
+        border-radius: 0;
+    }
+
+    /* center form wrapper */
+    .contact-form-cont {
+        margin: auto
+    }
+
+    /* center info banner */
+    .description-cont {
+        margin: 0
+    }
+
+    /* switch info banner headers to column flexbox and style responsively */
+    .desc-heads {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5em;
+        padding-bottom: 1em;
+    }
+
+    /* stretch info banner paragraph boxes to fill out screen width and center text */
+    .info-cont {
+        text-align: center;
+        flex: 1 1 10em;
+        width: 80vw;
+    }
+
 }

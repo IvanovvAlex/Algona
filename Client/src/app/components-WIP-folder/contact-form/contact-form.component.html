@@ -1,57 +1,96 @@
 <div class="screen-cont">
-    <div class="contact-form-cont">
-        <div class="heading">
-            <h2>Contact us</h2>
-            <p>If you have any questions?</p>
-        </div>
 
-        <form [formGroup]="contactForm" (ngSubmit)="sendData()">
-            <div class="form-cont">
-                <label for="name">Name</label>
-                <input type="text" name="name" formControlName="name">
-                <ng-container *ngIf="contactForm.get('name')?.touched">
-                    <p class="error" *ngIf="contactForm.get('name')?.errors?.['required']">
-                        A name is required!
-                    </p>
-                </ng-container>
-
-                <label for="companyName">Company Name</label>
-                <input type="text" name="companyName" formControlName="companyName">
-                <ng-container *ngIf="contactForm.get('companyName')?.touched">
-                    <p class="error" *ngIf="contactForm.get('companyName')?.errors?.['required']">
-                        A name is required!
-                    </p>
-                </ng-container>
-
-
-                <label for="email">Email</label>
-                <input type="email" name="email" formControlName="email">
-                <ng-container *ngIf="contactForm.get('email')?.touched">
-                    <p class="error" *ngIf="contactForm.get('email')?.errors?.['required']">
-                        Email is required!
-                    </p>
-                </ng-container>
-
-                <label for="phone">Phone</label>
-                <input type="phone" name="phone" formControlName="phone">
-                <ng-container *ngIf="contactForm.get('phone')?.touched">
-                    <p class="error" *ngIf="contactForm.get('phone')?.errors?.['required']">
-                        Phone is required!
-                    </p>
-                </ng-container>
-
-
-                <label for="data">Message</label>
-                <textarea name="data" id="data" formControlName="data"></textarea>
-                <ng-container *ngIf="contactForm.get('data')?.touched">
-                    <p class="error" *ngIf="contactForm.get('data')?.errors?.['required']">
-                        Message is required!
-                    </p>
-                </ng-container>
-
-
-                <button [disabled]="contactForm.invalid">Send</button>
+    <main>
+        <div class="contact-form-cont">
+            <div class="heading">
+                <h2>Contact us</h2>
+                <p>If you have any questions?</p>
             </div>
-        </form>
+            <hr>
+
+            <form [formGroup]="contactForm" (ngSubmit)="sendData()">
+                <div class="form-cont">
+
+                    <div class="field-box">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" formControlName="name">
+                        <ng-container *ngIf="contactForm.get('name')?.touched">
+                            <p class="error" *ngIf="contactForm.get('name')?.errors?.['required']">
+                                A name is required!
+                            </p>
+                        </ng-container>
+
+                        <label for="companyName">Company Name</label>
+                        <input type="text" name="companyName" formControlName="companyName">
+                        <ng-container *ngIf="contactForm.get('companyName')?.touched">
+                            <p class="error" *ngIf="contactForm.get('companyName')?.errors?.['required']">
+                                A Company name is required!
+                            </p>
+                        </ng-container>
+                    </div>
+
+                    <div class="field-box">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" formControlName="email">
+                        <ng-container *ngIf="contactForm.get('email')?.touched">
+                            <p class="error" *ngIf="contactForm.get('email')?.errors?.['required']">
+                                Email is required!
+                            </p>
+                        </ng-container>
+
+                        <label for="phone">Phone</label>
+                        <input type="phone" name="phone" formControlName="phone">
+                        <ng-container *ngIf="contactForm.get('phone')?.touched">
+                            <p class="error" *ngIf="contactForm.get('phone')?.errors?.['required']">
+                                Phone is required!
+                            </p>
+                        </ng-container>
+                    </div>
+
+                    <div class="break"></div>
+
+                    <div class="msg-cont">
+                        <label for="data" class="msg-lbl">Message</label>
+                        <textarea name="data" id="data" formControlName="data"></textarea>
+                        <ng-container *ngIf="contactForm.get('data')?.touched">
+                            <p class="error" *ngIf="contactForm.get('data')?.errors?.['required']">
+                                Message is required!
+                            </p>
+                        </ng-container>
+                        <button mat-raised-button class="sndBtn" [disabled]="contactForm.invalid"
+                            color="primary">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <div class="description-cont">
+        <div class="info-cont">
+            <div class="desc-heads">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="email"></mat-icon>
+                <h4>EMAIL</h4>
+            </div>
+            <p>Lorem ipsum, dolor sit amet consectetur </p>
+        </div>
+        <div class="info-cont">
+            <div class="desc-heads">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="phone"></mat-icon>
+                <h4>PHONE</h4>
+            </div>
+            <p>Lorem ipsum, dolor sit amet consectetur </p>
+            <p>Lorem ipsum, dolor sit amet consectetur </p>
+            <p>Lorem ipsum, dolor sit amet consectetur </p>
+            <p>Lorem ipsum, dolor sit amet consectetur </p>
+            <p>Lorem ipsum, dolor sit amet consectetur </p>
+        </div>
+        <div class="info-cont">
+            <div class="desc-heads">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+                <h4>ADDRESS</h4>
+            </div>
+            <p>Lorem ipsum, dolor sit amet consectetur </p>
+            <p>Lorem ipsum, dolor sit amet consectetur </p>
+        </div>
     </div>
+
 </div>
