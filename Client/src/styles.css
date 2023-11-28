@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
     /* -------------- angular material theme color palettes ------------- */
@@ -16,16 +17,23 @@
         --primary-styling-color: #01579B;
         --secondary-styling-color: #81D4FA;
         --light-styling-color: #80CBC4;
+        /* ---------- font for texts ----------- */
+        --body-font: 'Figtree', sans-serif;
+        
 }
 
 html,
 body {
     height: 100%;
+   
+}
+
+* {
+    font-family:  var(--body-font) !important;
 }
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .modal.fade .modal-dialog {
