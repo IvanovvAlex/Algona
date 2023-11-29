@@ -15,7 +15,7 @@ namespace Server.Data.Repositories
 =======
         private AlgonaDbContext AlgonaDbContext => (Context as AlgonaDbContext)!;
 
-        public CargoRepository(AlgonaDbContext context) : base(context) { }
+        public CargoRepository(AlgonaDbContext context) : base(context) { }update
 
         public override async ValueTask<Cargo?> GetByIdAsync(string id)
 >>>>>>> 5d0396a11669fdaa7fdb4d11041954c4035f3af9

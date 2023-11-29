@@ -17,7 +17,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Server.Common\Server.Common.csproj" />
+    <ProjectReference Include="..\Server.Core\Server.Core.csproj" />
     <ProjectReference Include="..\Server.Data\Server.Data.csproj" />
+    <ProjectReference Include="..\Server.Domain\Server.Domain.csproj" />
   </ItemGroup>
 
 </Project>
