@@ -29,7 +29,7 @@ body {
 }
 
 * {
-    font-family:  var(--body-font) !important;
+    font-family: var(--body-font);
 }
 
 body {

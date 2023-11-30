@@ -1,0 +1,45 @@
+<section id="careers-section"
+         class="container-fluid pt-4 mb-5">
+    <div class="bg-light pb-4 pt-4">
+        <h1 class="px-4">Available positions</h1>
+        <h6 class="px-4"><span>Looking for a job?</span> View available positions for which you may apply right away
+        </h6>
+        <hr class="mb-2 col-6 mx-auto">
+    </div>
+    <div *ngIf="jobs?.at(0); else noContentTemplate"
+         class="d-flex justify-content-center my-5 col-md-8 m-auto">
+        <table id="table"
+               class="bg-light rounded align-middle flex-grow-1">
+            <tbody>
+                <tr *ngFor="let job of jobs">
+                    <td id="job-title"
+                        class="fw-semibold px-md-4 px-1">{{job.title}}</td>
+                    <td class="benefits">
+                        <span class="shadow-sm"
+                              *ngIf="job.fullTime">Full time</span>
+                        <span class="shadow-sm"
+                              *ngIf="job.fixedSalary">Fixed salary</span>
+                        <span class="shadow-sm"
+                              *ngIf="job.insurance">Health insurance</span>
+                        <span class="shadow-sm"
+                              *ngIf="job.payedLeave">Payed leave</span>
+                    </td>
+                    <td class="text-secondary"><small>Published:<br>
+                            {{job.createdAt | date: 'MMM dd yyy, hh:mm a'}}</small>
+                    </td>
+                    <td class="px-md-4 px-1"><a [routerLink]="['/jobs/details', job.id]"
+                           mat-raised-button
+                           color="primary">View details and apply</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<ng-template #noContentTemplate>
+    <div class="bg-light d-flex flex-column">
+        <h3 class="my-5 text-black-50 lh-base fw-light text-center">Unfortunately, there is currently no vacancy in
+            Algona LTD.<br>Check back
+            soon.</h3>
+    </div>
+</ng-template>
