@@ -7,6 +7,7 @@ import { NotFoundComponent } from './components-WIP-folder/not-found/not-found.c
 import { GarageComponent } from './components-WIP-folder/garage/garage.component';
 import { SpeditionRequestComponent } from './components-WIP-folder/spedition-request/spedition-request.component';
 import { TransportRequestComponent } from './components-WIP-folder/transport-request/transport-request.component';
+import { JobsComponent } from './components-WIP-folder/jobs/jobs.component';
 
 
 const routes: Routes = [
@@ -52,6 +53,9 @@ const routes: Routes = [
     {
         path: 'auth',
         loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
+    },
+    {
+        path: 'jobs', component: JobsComponent,
     },
     {
         path: 'contact', component: ContactFormComponent,
