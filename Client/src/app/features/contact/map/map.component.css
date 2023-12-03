@@ -1,0 +1,33 @@
+/* map container styles */
+.map-cont {
+    flex: 1 1 100%;
+    margin: 1em auto;
+    padding-top: 2em;
+    width: 98vw;
+    height: 40em;
+}
+
+/* Info window styles */
+.info-window {
+    text-align: center;
+}
+
+.info-window>p {
+    font-size: 1.5em;
+}
+
+/* anchor styles */
+.link-to {
+    font-size: 1em;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+@media screen and (max-width: 900px) {
+    .info-window>p{
+        font-size: 1.2em;
+    }
+}
+

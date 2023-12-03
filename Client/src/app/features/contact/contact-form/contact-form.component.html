@@ -1,6 +1,6 @@
-<div class="screen-cont">
+<main>
 
-    <main>
+    <section>
         <div class="contact-form-cont">
             <div class="heading">
                 <h2>Contact us</h2>
@@ -13,7 +13,7 @@
 
                     <div class="field-box">
                         <label for="name">Name</label>
-                        <input type="text" name="name" formControlName="name">
+                        <input autocomplete="Name" id="name" type="text" name="name" formControlName="name">
                         <ng-container *ngIf="contactForm.get('name')?.touched">
                             <p class="error" *ngIf="contactForm.get('name')?.errors?.['required']">
                                 A name is required!
@@ -21,7 +21,8 @@
                         </ng-container>
 
                         <label for="companyName">Company Name</label>
-                        <input type="text" name="companyName" formControlName="companyName">
+                        <input autocomplete="Company Name" id="companyName" type="text" name="companyName"
+                            formControlName="companyName">
                         <ng-container *ngIf="contactForm.get('companyName')?.touched">
                             <p class="error" *ngIf="contactForm.get('companyName')?.errors?.['required']">
                                 A Company name is required!
@@ -31,7 +32,7 @@
 
                     <div class="field-box">
                         <label for="email">Email</label>
-                        <input type="email" name="email" formControlName="email">
+                        <input autocomplete="Email" id="email" type="email" name="email" formControlName="email">
                         <ng-container *ngIf="contactForm.get('email')?.touched">
                             <p class="error" *ngIf="contactForm.get('email')?.errors?.['required']">
                                 Email is required!
@@ -39,7 +40,7 @@
                         </ng-container>
 
                         <label for="phone">Phone</label>
-                        <input type="phone" name="phone" formControlName="phone">
+                        <input autocomplete="Phone" id="phone" type="phone" name="phone" formControlName="phone">
                         <ng-container *ngIf="contactForm.get('phone')?.touched">
                             <p class="error" *ngIf="contactForm.get('phone')?.errors?.['required']">
                                 Phone is required!
@@ -51,7 +52,7 @@
 
                     <div class="msg-cont">
                         <label for="data" class="msg-lbl">Message</label>
-                        <textarea name="data" id="data" formControlName="data"></textarea>
+                        <textarea autocomplete="Message" name="data" id="data" formControlName="data"></textarea>
                         <ng-container *ngIf="contactForm.get('data')?.touched">
                             <p class="error" *ngIf="contactForm.get('data')?.errors?.['required']">
                                 Message is required!
@@ -63,34 +64,9 @@
                 </div>
             </form>
         </div>
-    </main>
-    <div class="description-cont">
-        <div class="info-cont">
-            <div class="desc-heads">
-                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="email"></mat-icon>
-                <h4>EMAIL</h4>
-            </div>
-            <p>Lorem ipsum, dolor sit amet consectetur </p>
-        </div>
-        <div class="info-cont">
-            <div class="desc-heads">
-                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="phone"></mat-icon>
-                <h4>PHONE</h4>
-            </div>
-            <p>Lorem ipsum, dolor sit amet consectetur </p>
-            <p>Lorem ipsum, dolor sit amet consectetur </p>
-            <p>Lorem ipsum, dolor sit amet consectetur </p>
-            <p>Lorem ipsum, dolor sit amet consectetur </p>
-            <p>Lorem ipsum, dolor sit amet consectetur </p>
-        </div>
-        <div class="info-cont">
-            <div class="desc-heads">
-                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
-                <h4>ADDRESS</h4>
-            </div>
-            <p>Lorem ipsum, dolor sit amet consectetur </p>
-            <p>Lorem ipsum, dolor sit amet consectetur </p>
-        </div>
+    </section>
+    <div class="content-container">
+        <ng-content></ng-content>
     </div>
 
-</div>
+</main>
