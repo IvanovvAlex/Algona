@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { AuthModule } from './auth/auth.module';
+
 import { ReactiveFormsModule } from "@angular/forms";
 
 // Component imports
@@ -20,8 +20,7 @@ import { SpeditionRequestComponent } from './components-WIP-folder/spedition-req
 import { TransportRequestComponent } from './components-WIP-folder/transport-request/transport-request.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ContactModule } from './features/contact/contact.module';
-
+import { JobsComponent } from './components-WIP-folder/jobs/jobs.component';
 
 @NgModule({
     declarations: [
@@ -29,8 +28,9 @@ import { ContactModule } from './features/contact/contact.module';
         ForUsComponent,
         HeroComponent,
         NotFoundComponent,
-        GarageComponent
-
+        GarageComponent,
+        JobsComponent
+        
     ],
     imports: [
         CoreModule,

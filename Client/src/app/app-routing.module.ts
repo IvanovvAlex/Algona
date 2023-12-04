@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HeroComponent } from './components-WIP-folder/hero/hero.component';
 import { ForUsComponent } from './components-WIP-folder/for-us/for-us.component';
-import { ContactFormComponent } from './features/contact/contact-form/contact-form.component';
 import { NotFoundComponent } from './components-WIP-folder/not-found/not-found.component';
 import { GarageComponent } from './components-WIP-folder/garage/garage.component';
 import { SpeditionRequestComponent } from './components-WIP-folder/spedition-request/spedition-request.component';
 import { TransportRequestComponent } from './components-WIP-folder/transport-request/transport-request.component';
-import { ContactContainerComponent } from './features/contact/contact-container/contact-container.component';
+import { JobsComponent } from './components-WIP-folder/jobs/jobs.component';
+
 
 
 const routes: Routes = [
@@ -55,9 +55,15 @@ const routes: Routes = [
         loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
     },
     {
+
         path: 'features',
         loadChildren: () => import('./features/features.module').then(m => m.FeaturesModule),
     },
+
+    {
+        path: 'jobs', component: JobsComponent,
+    },
+
     {
         path: '404', component: NotFoundComponent
     },
@@ -67,7 +73,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [ RouterModule.forRoot(routes) ],
-    exports: [ RouterModule ]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }
