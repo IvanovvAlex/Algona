@@ -3,6 +3,8 @@ using Server.Data;
 using Server.Data.Interfaces;
 using Server.Data.Interfaces.Repositories;
 using Server.Data.Repositories;
+using Server.Domain.Interfaces;
+using Server.Domain.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,7 @@ builder.Services.AddDbContext<AlgonaDbContext>(options => options.UseSqlServer(c
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddScoped<ITruckRepository, TruckRepository>();
+builder.Services.AddScoped<ISharedService, SharedService>();
     
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
