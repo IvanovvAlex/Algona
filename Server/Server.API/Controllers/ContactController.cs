@@ -1,15 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
+using Server.Common.Requests.ContactRequests;
+using Server.Domain.Interfaces;
+
 namespace Server.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class ContactController : ControllerBase
     {
-        [HttpGet]
-        public async Task<IActionResult> Index([FromBody] string info)
+        private ISharedService sharedService;
+
+        public ContactController(ISharedService sharedService)
         {
-            throw new NotImplementedException();
+            this.sharedService = sharedService;
+        }
+
+        [HttpPost]
+        public async Task Send(CreateContactRequest request)
+        {
+            await this.sharedService.EmailSender(request);
         }
     }
 }

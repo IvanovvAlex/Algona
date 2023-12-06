@@ -39,7 +39,7 @@ namespace Server.API.Controllers
             var job = await jobService.GetById(id);
             if (job == null)
             {
-                throw new  HttpRequestException("Job not found");
+                throw new HttpRequestException("Job not found");
             }
             return job;
         }
