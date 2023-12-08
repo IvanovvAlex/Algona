@@ -14,12 +14,6 @@ namespace Server.Data.Repositories
         {
             return await AlgonaDbContext
                 .Jobs
-                //.Select(j => new Job
-                //{
-                //    Id = j.Id,
-                //    Title = j.Title,
-                //    Salary = j.Salary
-                //})
                 .ToListAsync();
         }
 

@@ -8,7 +8,7 @@ namespace Server.Data.Repositories
     {
         private AlgonaDbContext AlgonaContext => (Context as AlgonaDbContext)!;
 
-        public UserRepository(DbContext context) : base(context) { }
+        public UserRepository(AlgonaDbContext context) : base(context) { }
 
         public override async Task AddAsync(User entity)
         {
