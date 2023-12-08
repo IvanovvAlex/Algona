@@ -45,10 +45,3 @@ namespace Server.API.Controllers
         }
     }
 }
-/*
-Create Jobs Controller
-Actions:
-index (returns all the jobs (id - title  - salary))
-
-details/{id} (returns full info for the job or not found error code)
- */
