@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Server.Data.Entites;
+using Server.Data.Entities;
 
 namespace Server.Data
 {
@@ -19,10 +20,18 @@ namespace Server.Data
         public DbSet<User> Users { get; set; }
 
         public DbSet<Job> Jobs { get; set; }
+        public DbSet<Request> Requests { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Cargo>( e =>
+            {
+                e.HasOne(c => c.Truck)
+                .WithOne(t => t.Cargo)
+                .OnDelete(DeleteBehavior.NoAction);
+            });
         }
     }
 }

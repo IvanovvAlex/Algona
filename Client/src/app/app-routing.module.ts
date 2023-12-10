@@ -7,7 +7,10 @@ import { NotFoundComponent } from './components-WIP-folder/not-found/not-found.c
 import { GarageComponent } from './components-WIP-folder/garage/garage.component';
 import { SpeditionRequestComponent } from './components-WIP-folder/spedition-request/spedition-request.component';
 import { TransportRequestComponent } from './components-WIP-folder/transport-request/transport-request.component';
+
 import { ContactContainerComponent } from './features/contact/contact-container/contact-container.component';
+import { JobsComponent } from './components-WIP-folder/jobs/jobs.component';
+
 
 
 const routes: Routes = [
@@ -57,6 +60,9 @@ const routes: Routes = [
     {
         path: 'features',
         loadChildren: () => import('./features/features.module').then(m => m.FeaturesModule),
+    },
+    {
+        path: 'jobs', component: JobsComponent,
     },
     {
         path: '404', component: NotFoundComponent
