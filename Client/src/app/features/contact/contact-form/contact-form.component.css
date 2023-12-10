@@ -1,0 +1,159 @@
+/* Containers */
+.contact-form-cont,
+.field-box,
+.msg-cont,
+.heading {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* form - container and elements styling */
+
+
+/* Form heading */
+.heading {
+    align-items: center;
+}
+
+/* main element - form wrapper */
+main {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+
+
+section {
+    display: flex;
+    flex: 20 20 100%;
+}
+
+.content-container {
+    display: flex;
+    flex: 5 15 50%;
+}
+
+/* 1st div inside main wrapper - contains heading + form elements */
+.contact-form-cont {
+    max-width: 50em;
+    margin: 0 0 0 10em;
+    border-radius: 1em;
+    padding: 2em;
+}
+
+
+/* 1st div inside form element */
+.form-cont {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    justify-content: center;
+}
+
+/* container for input fields */
+.field-box {
+    flex: 1 5 2em;
+    padding: 0 0.2em;
+    align-items: stretch;
+    gap: 0.5em;
+}
+
+/* container for text field and button */
+.msg-cont {
+    flex: 6 1 2em;
+    gap: 1em;
+}
+
+/* label for textfield */
+.msg-lbl {
+    flex: 2 1 1;
+    align-self: center;
+}
+
+/* text field element */
+#data {
+    height: 10em;
+    resize: none;
+}
+
+/* input field elements */
+input {
+    height: 2.5em;
+    border: 0em none wheat;
+}
+
+
+input,
+#data {
+    border-radius: 0.5em;
+    outline-style: none;
+    border: 0em none white;
+}
+
+/* error conditional element */
+.error {
+    color: #ff4081;
+    background-color: rgb(238, 205, 205);
+    border-radius: 0.5em;
+    text-align: center;
+    text-wrap: wrap;
+    padding: 0.5em 0;
+}
+
+/* send button element */
+.sndBtn {
+    flex: 1 1 2.5em;
+    width: 6em;
+    align-self: flex-end;
+    border-radius: 1em;
+    font-size: medium;
+    margin-top: 1em;
+}
+
+/* form horizonalt line element */
+hr {
+    border: 0.1em solid black;
+}
+
+/* empty filler row dummy div */
+.break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+
+
+/* ---------------- */
+/* responsive media queries */
+@media screen and (min-width: 1450px) {
+    main {
+        gap: 20em;
+        font-size: 1.8em;
+    }
+}
+
+/* style for mobile screens up to 250px width */
+@media screen and (max-width: 900px) {
+    /* change screen container to column flexbox */
+
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* center form wrapper */
+    .contact-form-cont {
+        margin: auto
+    }
+
+    .content-container {
+        flex: 25 35 100%;
+        
+    }
+
+
+}
+
+

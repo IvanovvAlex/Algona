@@ -16,7 +16,9 @@ export class ContactFormComponent {
 
   contactForm = this.fb.group({
     name: ['', [Validators.required]],
+    companyName: ['', [Validators.required]],
     email: ['', [Validators.required]],
+    phone: ['', [Validators.required]],
     data: ['', [Validators.required]]
   }
   )
@@ -26,11 +28,13 @@ export class ContactFormComponent {
       return
     }
 
-    const { name, email, data } = this.contactForm.value;
+    const { name, companyName, email, phone, data } = this.contactForm.value;
 
     const contactFormData = {
       name: name as string,
+      companyName: companyName as string,
       email: email as string,
+      phone: phone as string,
       data: data as string
     }
 
