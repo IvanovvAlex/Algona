@@ -7,57 +7,35 @@
     flex-direction: column;
 }
 
-
-/* form - container and elements styling */
-
-
 /* Form heading */
 .heading {
     align-items: center;
 }
 
-/* main element - form wrapper */
-main {
-    display: flex;
-    flex-direction: row;
-    gap: 2em;
-}
-
-
-
-section {
-    display: flex;
-    flex: 20 20 100%;
-}
-
 .content-container {
     display: flex;
-    flex: 5 15 50%;
 }
 
 /* 1st div inside main wrapper - contains heading + form elements */
 .contact-form-cont {
-    max-width: 50em;
-    margin: 0 0 0 10em;
-    border-radius: 1em;
-    padding: 2em;
+    max-width: 50rem;
+    padding: 2rem;
 }
-
 
 /* 1st div inside form element */
 .form-cont {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5em;
+    gap: 1.5rem;
     justify-content: center;
 }
 
 /* container for input fields */
 .field-box {
-    flex: 1 5 2em;
-    padding: 0 0.2em;
+    flex: 1 5 2rem;
+    padding: 0 0.2rem;
     align-items: stretch;
-    gap: 0.5em;
+    gap: 0.5rem;
 }
 
 /* container for text field and button */
@@ -125,35 +103,5 @@ hr {
 
 
 
-/* ---------------- */
-/* responsive media queries */
-@media screen and (min-width: 1450px) {
-    main {
-        gap: 20em;
-        font-size: 1.8em;
-    }
-}
-
-/* style for mobile screens up to 250px width */
-@media screen and (max-width: 900px) {
-    /* change screen container to column flexbox */
-
-    main {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* center form wrapper */
-    .contact-form-cont {
-        margin: auto
-    }
-
-    .content-container {
-        flex: 25 35 100%;
-        
-    }
-
-
-}
 
 

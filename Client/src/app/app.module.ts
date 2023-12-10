@@ -29,8 +29,7 @@ import { JobsComponent } from './components-WIP-folder/jobs/jobs.component';
         HeroComponent,
         NotFoundComponent,
         GarageComponent,
-        JobsComponent
-        
+        JobsComponent 
     ],
     imports: [
         CoreModule,

@@ -1,46 +1,37 @@
 /* container - screen wrapper styling*/
 .screen-cont {
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0em 0em 20em -10em rgb(39, 39, 39);
-    background-color: #cdf5fd75;
-    border-radius: 15em 0 0 0;
-    align-items: center;
-    font-family: inherit;
-    margin: auto;
-    padding-top: 2em;
-}
 
+    box-shadow: 0 0 20px -10px rgb(39, 39, 39);
+    background-color: #cdf5fd75;
+    border-radius: 15rem 0 0 0;
+    font-family: inherit;
+    padding-top: 2rem;
+}
 
 /* ------------------------------------------------- */
 /* Information banner styling */
 
 /* info banner based container */
 .description-cont {
-    flex: 2 1 10em;
     background-color: #89CFF3;
     display: flex;
     flex-direction: column;
-    padding: 1em;
-    border-radius: 2em 0 0 2em;
-    font-size: 0.9em
+    padding: 1rem;
+    border-radius: 2rem 0 0 2rem;
+    font-size: 0.9rem;
 }
-
-
-
-
 
 /* info banner headers container */
 .desc-heads {
     display: flex;
     flex-direction: row;
-    padding: 0.5em 2em;
+    padding: 0.5rem 2rem;
     align-items: center;
     justify-content: center;
 }
 
 /* headers h4 elements */
-.desc-heads>h4 {
+.desc-heads > h4 {
     font: inherit;
     font-size: 1.3em;
     margin: 0 0.5em;
@@ -55,13 +46,14 @@
 
 /* paragraph container */
 .info-cont {
-    padding: 2em;
-    box-shadow: 0em 0em 1em -0.4em rgb(39, 39, 39);
-    margin: 0.5em 1em;
+    padding: 2rem;
+    padding-left: 4rem;
+    box-shadow: 0rem 0rem 1rem -0.4rem rgb(39, 39, 39);
+    margin: 0.5rem 1rem;
     background-color: #E0F2F1;
-    border-radius: 1em;
+    border-radius: 1rem;
     text-align: center;
-    border-radius: 2em 0 0 8em;
+    border-radius: 2rem 0 0 8rem;
 
 }
 
@@ -92,37 +84,35 @@
     /* center info banner */
     .description-cont {
         margin: auto;
-        border-radius: 5em;
-        width: 100vw;
-
+        border-radius: 5rem;
     }
 
     /* switch info banner headers to column flexbox and style responsively */
     .desc-heads {
         flex-direction: column;
         align-items: center;
-        gap: 0.5em;
-        padding-bottom: 1em;
+        gap: 0.5rem;
+        padding-bottom: 1rem;
     }
 
     /* stretch info banner paragraph boxes to fill out screen width and center text */
     .info-cont {
         text-align: center;
         flex: 13 15 100%;
-        padding: 1.5em 3em;
-        font-size: 1.2em;
-        border-radius: 2em 8em;
-        margin: 2em
+        padding: 1.5rem 3rem;
+        font-size: 1.2rem;
+        border-radius: 2rem 8rem;
+        margin: 2rem
     }
-
-
-
 }
 
 @media screen and (max-width: 400px) {
+    .description-cont{
+        max-width: 320px;
+        border-radius: 0;
+    }
     .info-cont {
-        font-size: 0.9em;
+        font-size: 0.9rem;
         border-radius: 0;
     }
 }
-
