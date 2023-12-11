@@ -1,0 +1,98 @@
+h1,
+h6 {
+    text-align: center;
+    padding-bottom: 0px;
+    font-weight: 300;
+    color: #494949;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h6 {
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+h6 span {
+    color: var(--primary-styling-color);
+    font-weight: 700;
+}
+
+tr:not(:last-of-type) {
+    border-bottom: .5px solid var(--primary-styling-color);
+}
+
+table td {
+    padding: 24px 10px 24px 10px;
+}
+
+td#job-title {
+    color: var(--primary-theme-color);
+}
+
+td.benefits {
+    max-width: 250px;
+    min-width: 20px;
+}
+
+td.benefits span {
+    border-radius: 6px;
+    line-height: 1.1;
+    padding-left: 2px;
+    padding-right: 2px;
+    color: var(--primary-styling-color);
+    background-color: hsla(201, 98%, 41%, 0.05);
+}
+
+span + span {
+    margin-left: 2px;
+}
+
+table a {
+    text-transform: uppercase;
+    height: auto;
+    padding: 6px;
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+table a.mdc-button {
+    width: 100%;
+}
+
+@media screen and (max-width: 420px) {
+
+    table#table {
+        font-size: .7rem;
+    }
+
+    table#table td {
+        max-width: fit-content;
+        padding: 2px;
+    }
+
+    table td.benefits {
+        max-width: 100px;
+    }
+
+    table a {
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    table a.mdc-button {
+        font-size: 0.5rem;
+    }
+}
+
+@media screen and (min-width: 421px)and (max-width: 768px) {
+    tr td:first-of-type {
+        padding-left: 16px !important;
+    }
+
+    tr td:last-of-type {
+        padding-right: 16px !important;
+    }
+}
