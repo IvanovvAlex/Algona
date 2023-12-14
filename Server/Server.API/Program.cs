@@ -24,7 +24,7 @@ builder.Services.AddScoped<IRequestRepository, RequestRepository>();
 builder.Services.AddTransient<ISharedService, SharedService>();
 builder.Services.AddTransient<IJobService, JobService>();
 builder.Services.AddTransient<IRequestService, RequestService>();
-    
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
