@@ -396,8 +396,3 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-/Server/Server.Data/Migrations/20231208184413_DeleteBehaviorNoAction.cs
-/Server/Server.Data/Migrations/20231208184413_DeleteBehaviorNoAction.cs
-/Server/Server.Data/Migrations/20231208184413_DeleteBehaviorNoAction.cs
-/Server/Server.Data/Migrations/20231208184413_DeleteBehaviorNoAction.cs
-/Server/Server.Data/Migrations/20231208184413_DeleteBehaviorNoAction.Designer.cs

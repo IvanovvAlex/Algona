@@ -31,5 +31,7 @@ namespace Server.Data.Entites
         public string CargoId { get; set; } = null!;
 
         public Cargo Cargo { get; set; } = null!;
+
+        public bool IsDeleted { get; set; } = false;
     }
 }
