@@ -10,6 +10,8 @@ import { TransportRequestComponent } from './components-WIP-folder/transport-req
 
 import { ContactContainerComponent } from './features/contact/contact-container/contact-container.component';
 import { JobsComponent } from './components-WIP-folder/jobs/jobs.component';
+import { JobDetailsComponent } from './components-WIP-folder/job-details/job-details.component';
+
 
 
 
@@ -62,7 +64,18 @@ const routes: Routes = [
         loadChildren: () => import('./features/features.module').then(m => m.FeaturesModule),
     },
     {
-        path: 'jobs', component: JobsComponent,
+        path: 'jobs', 
+        children: [
+            {
+                path: '', pathMatch:'full', component: JobsComponent,
+            },
+            {
+                path: 'details/:id', component: JobDetailsComponent,
+            },
+            {
+                path: 'apply/:id', component: NotFoundComponent
+            },
+        ]
     },
     {
         path: '404', component: NotFoundComponent
