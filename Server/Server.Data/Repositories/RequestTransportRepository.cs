@@ -5,25 +5,25 @@
     using Server.Data.Entities;
     using Server.Data.Interfaces.Repositories;
 
-    public class RequestRepository : Repository<Request>, IRequestRepository
+    public class RequestTransportRepository : Repository<RequestTransport>, IRequestTransportRepository
     {
         private AlgonaDbContext AlgonaDbContext => (Context as AlgonaDbContext)!;
-        public RequestRepository(AlgonaDbContext context) : base(context) { }
-        public override async Task<IEnumerable<Request>> GetAllAsync()
+        public RequestTransportRepository(AlgonaDbContext context) : base(context) { }
+        public override async Task<IEnumerable<RequestTransport>> GetAllAsync()
         {
             return await AlgonaDbContext
-                .Requests
+                .RequestTransport
                 .ToListAsync();
         }
-        public override async ValueTask<Request?> GetByIdAsync(string id)
+        public override async ValueTask<RequestTransport?> GetByIdAsync(string id)
         {
             return await AlgonaDbContext
-                .Requests
+                .RequestTransport
                 .FirstOrDefaultAsync(r => r.Id == id);
         }
-        public override async Task AddAsync(Request entity)
+        public override async Task AddAsync(RequestTransport entity)
         {
-            Request request = new Request()
+            RequestTransport request = new RequestTransport()
             {
                 Id = entity.Id,
                 FromAddress = entity.FromAddress,
@@ -40,7 +40,7 @@
             await Context.AddAsync(request);
             await Context.SaveChangesAsync();
         }
-        public override async void Remove(Request entity)
+        public override async void Remove(RequestTransport entity)
         {
             AlgonaDbContext.Remove(entity);
             await AlgonaDbContext.SaveChangesAsync();

@@ -4,7 +4,7 @@
 
     using Server.Common.Constants;
 
-    public class Request
+    public class RequestTransport
     {
         [Key]
         public string Id { get; set; } = Guid.NewGuid().ToString();
@@ -36,7 +36,8 @@
         public int TotalWeight { get; set; }
 
         [Required]
-        [Range(EntityValidationConstants.Transport.NameMinLength, EntityValidationConstants.Transport.NameMaxLength)]
+        [MinLength(EntityValidationConstants.Transport.NameMinLength)]
+        [MaxLength(EntityValidationConstants.Transport.NameMaxLength)]
         public string Name { get; set; } = null!;
 
         [Required]
@@ -46,6 +47,5 @@
         [Required]
         [EmailAddress]
         public string Email { get; set; } = null!;
-
     }
 }
