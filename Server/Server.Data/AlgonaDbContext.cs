@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Server.Data.Entites;
 using Server.Data.Entities;
 
 namespace Server.Data
 {
-    public class AlgonaDbContext : DbContext
+    public class AlgonaDbContext : IdentityDbContext<User>
     {
-        public AlgonaDbContext(DbContextOptions options) : base(options) { }
+        public AlgonaDbContext(DbContextOptions<AlgonaDbContext> options) : base(options) { }
 
         public DbSet<Truck> Trucks { get; set; }
 
         public DbSet<Cargo> Cargoes { get; set; }
-
-        public DbSet<User> Users { get; set; }
 
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Request> Requests { get; set; }
@@ -26,12 +20,16 @@ namespace Server.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Cargo>( e =>
+            modelBuilder.Entity<Cargo>(e =>
             {
                 e.HasOne(c => c.Truck)
                 .WithOne(t => t.Cargo)
                 .OnDelete(DeleteBehavior.NoAction);
             });
+
+            modelBuilder.Entity<User>()
+                .Property(x => x.UserName)
+                .HasColumnName("Username");
         }
     }
 }
