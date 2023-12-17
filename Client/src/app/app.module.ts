@@ -21,6 +21,8 @@ import { TransportRequestComponent } from './components-WIP-folder/transport-req
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { JobsComponent } from './components-WIP-folder/jobs/jobs.component';
+import { JobDetailsComponent } from './components-WIP-folder/job-details/job-details.component';
+
 
 @NgModule({
     declarations: [
@@ -29,7 +31,8 @@ import { JobsComponent } from './components-WIP-folder/jobs/jobs.component';
         HeroComponent,
         NotFoundComponent,
         GarageComponent,
-        JobsComponent
+        JobsComponent,
+        JobDetailsComponent
         
     ],
     imports: [

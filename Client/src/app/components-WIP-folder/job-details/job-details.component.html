@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="bg-light card">
+      <div class="card-body">
+        <h5 class="card-title text-uppercase">{{job!.title}}</h5>
+        <div class="card-text">
+            <p class="label">Description</p>
+            <p class="text">
+                {{job!.description}}
+            </p>
+        </div>
+
+        <div class="card-text">
+            <p class="label">Responsibilities:</p>
+            <ul *ngFor="let line of job!.responsibilities" class="text list-group">
+                <li><i class="bi bi-circle-fill"></i>{{line}}</li>
+            </ul>
+        </div>
+
+        <div class="card-text">
+            <p class="label">Requirements:</p>
+            <ul *ngFor="let line of job!.requirements" class="text list-group">
+                <li><i class="bi bi-circle-fill"></i>{{line}}</li>
+            </ul>
+        </div>
+
+        <div class="card-text">
+            <p class="label">Benefits:</p>
+            <ul *ngFor="let line of job!.benefits" class="text list-group">
+                <li><i class="bi bi-circle-fill"></i>{{line}}</li>
+            </ul>
+        </div>
+
+        <div class="card-text">
+            <p class="text">If you meet the qualifications and are enthusiastic about joining our team, please submit your resume. We look forward to reviewing your application.</p>
+        <div class="card-deadline">
+            <p class="label">Deadline for applications:</p>
+            <p class="text">
+                {{job!.deadline}}
+            </p>
+        </div>
+        </div>
+
+        <div class="card-text">
+            <p class="text end">Only shortlisted candidates will be contacted.</p>   
+        </div>
+
+        
+
+        <div class="px-md-4 px-2 text-center"><a [routerLink]="['/jobs/apply', job!.id]"
+            mat-raised-button
+            color="primary">Apply</a></div>
+      </div>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+
+  
