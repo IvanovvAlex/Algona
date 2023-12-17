@@ -47,5 +47,7 @@
         [EmailAddress]
         public string Email { get; set; } = null!;
 
+        public bool IsDeleted { get; set; } = false;
+
     }
 }
