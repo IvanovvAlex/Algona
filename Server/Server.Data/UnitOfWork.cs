@@ -14,15 +14,19 @@ namespace Server.Data
 
         private readonly IJobRepository jobRepository;
 
+        private IRequestTransportRepository requestTransportRepository;
+
         public UnitOfWork(AlgonaDbContext context,
             ICargoRepository cargoRepository,
             ITruckRepository truckRepository,
-            IJobRepository jobRepository)
+            IJobRepository jobRepository,
+            IRequestTransportRepository requestTransportRepository)
         {
             this.context = context;
             this.cargoRepository = cargoRepository;
             this.truckRepository = truckRepository;
             this.jobRepository = jobRepository;
+            this.requestTransportRepository = requestTransportRepository;
         }
 
         public ITruckRepository Trucks => truckRepository ?? new TruckRepository(context);
@@ -31,14 +35,16 @@ namespace Server.Data
 
         public IJobRepository Jobs => jobRepository ?? new JobRepository(context);
 
+        public IRequestTransportRepository RequestTransport => requestTransportRepository ?? new RequestTransportRepository(context);
+
         public void Dispose()
         {
-            throw new NotImplementedException();
+            context.Dispose();
         }
 
         public Task<int> CommitAsync()
         {
-            throw new NotImplementedException();
+            return context.SaveChangesAsync();
         }
     }
 }

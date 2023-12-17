@@ -2,7 +2,7 @@
 {
     using Server.Data.Entities;
 
-    public interface IRequestRepository : IRepository<Request>
+    public interface IRequestTransportRepository : IRepository<RequestTransport>
     {
     }
 }
