@@ -64,10 +64,10 @@ const routes: Routes = [
         loadChildren: () => import('./features/features.module').then(m => m.FeaturesModule),
     },
     {
-        path: 'jobs', 
+        path: 'jobs',
         children: [
             {
-                path: '', pathMatch:'full', component: JobsComponent,
+                path: '', pathMatch: 'full', component: JobsComponent,
             },
             {
                 path: 'details/:id', component: JobDetailsComponent,
@@ -86,7 +86,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [ RouterModule.forRoot(routes) ],
+    imports: [ RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }) ],
     exports: [ RouterModule ]
 })
 export class AppRoutingModule { }

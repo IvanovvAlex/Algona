@@ -1,14 +1,189 @@
-div.error {
-    width: 45ch;
-    margin: 5rem auto;
-    text-align: center;
-    border: 1px solid black;
-    border-radius: 6px;
-    
+.mission-wrapper {
+    margin-bottom: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    background: linear-gradient(to right, lightgray, transparent 70%);
+    box-shadow: 0 10px 20px -22px var(--gray-styling-color);
 }
 
-p.errorText {
-    padding: 1em;
-    margin: 0;
-    line-height: 1.8;
+.line {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 10px;
+    width: 100%;
+}
+
+.mission-wrapper .line {
+    background: linear-gradient(to right, rgb(187, 187, 187), transparent 60%);
+}
+
+.story-wrapper,
+.services-wrapper {
+    margin-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.services-wrapper {
+    color: white;
+    background-color: var(--primary-styling-color);
+    box-shadow: 0 10px 20px -19px var(--gray-styling-color);
+}
+
+.services-wrapper .line {
+    background: linear-gradient(to right, var(--primary-styling-color), var(--gray-styling-color));
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 200;
+    color: var(--gray-styling-color);
+}
+
+.services-wrapper .services-heading {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: auto;
+}
+
+.services-heading h2 {
+    color: white;
+    margin: auto;
+}
+
+.services-heading h5 {
+    font-size: 1.7rem;
+    font-weight: 200;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.services {
+    border-top-left-radius: 100%;
+    background: linear-gradient(to right, var(--primary-styling-color), var(--gray-styling-color) 90%);
+}
+
+.services img {
+    border-top-left-radius: 100%;
+    border-left: 10px solid white;
+    border-right: 10px solid white;
+}
+
+.mission p,
+.story p {
+    text-align: justify;
+    hyphens: auto;
+    line-height: 1.6;
+    font-size: 1.2rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-indent: 40px;
+}
+
+.services button {
+    color: white;
+    text-transform: uppercase;
+    line-height: 1.2;
+    font-size: 1.5rem;
+    padding: 6px 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* fluid button effect */
+.btn-fluid {
+    height: fit-content;
+    cursor: pointer;
+    position: relative;
+    color: white;
+    z-index: 0;
+    border: .5px solid var(--accent-theme-color) !important;
+    border-radius: .2rem;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.btn-fluid:hover::before {
+    top: 0px;
+    border-radius: 0;
+}
+
+.btn-fluid::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, var(--accent-theme-color), var(--light-styling-color));
+    border-radius: 80% 80% 0% 0%;
+    z-index: -1;
+    transition: all .9s;
+}
+/* end of fluid button */
+
+.mission img {
+    overflow: hidden;
+    border-left: 10px solid white;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.services img {
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 500px) {
+
+    section#about-us .mission-wrapper,
+    section#about-us .story-wrapper,
+    section#about-us .services-wrapper {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .mission img {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (min-width: 501px) and (max-width: 767px) {
+
+    section#about-us .mission-wrapper,
+    section#about-us .story-wrapper,
+    section#about-us .services-wrapper {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .mission img {
+        width: inherit;
+        height: 400px;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    section#about-us .mission-wrapper,
+    section#about-us .story-wrapper,
+    section#about-us .services-wrapper {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .services-heading h5 {
+        font-size: 1.4rem;
+        margin-bottom: 45px;
+    }
+
+    .services-wrapper .services button {
+        font-size: 1.1rem;
+        line-height: 1.3;
+    }
 }

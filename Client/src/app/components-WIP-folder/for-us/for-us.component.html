@@ -1,11 +1,98 @@
+<section id="about-us"
+         class="container-fluid px-0 col-12 my-5">
 
-<div *ngIf="badRequest">
-    <div class="error">
-        <p class="errorText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus neque eius non minima, rerum aspernatur dignissimos totam dolorum laudantium exercitationem dolor ducimus soluta dicta nobis sint vero laborum et facere.</p>
+    <div class="mission-wrapper position-relative"
+         data-aos="fade-up"
+         data-aos-duration="1500"
+         data-aos-delay="200">
+        <div
+             class="mission d-flex flex-md-row flex-column gap-lg-5 gap-md-2 gap-1 justify-content-center align-items-center ">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <h2 class="py-3 mt-4 border-bottom border-dark-subtle mb-4">Our Mission</h2>
+                <p lang="en">Welcome to the heart of our operation, where the road meets reliability, and journeys
+                    become seamless
+                    experiences. At
+                    Algona, our mission is more than just transporting goods from point A to point B — it's about
+                    fostering
+                    connections, powering economies, and ensuring that every mile traveled is a testament to our
+                    commitment.</p>
+                <p lang="en"
+                   class="pb-lg-5 pb-md-3 pb-2">Our main goal is not only to provide adaptable Transport and Logistics
+                    services
+                    in
+                    all phases of supply chain management but to keep our standarts high and garantee you effective
+                    strategically planning and logistics management, warehouse operations, transportation details, and
+                    adaptable customer service solutions.</p>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                <img class="img-fluid shadow-sm"
+                     src="./assets/static-images/truck-on-the-road.jpg"
+                     alt="Truck on the road">
+            </div>
+        </div>
+        <div class="line"></div>
     </div>
-</div>
 
-<div *ngIf="!badRequest">
-    <p>{{data}}</p>
-</div>
+    <div class="story-wrapper"
+         data-aos="fade-down"
+         data-aos-duration="1500"
+         data-aos-delay="200">
+        <div class="story d-flex flex-lg-row flex-column gap-lg-5 gap-md-2 gap-1 align-items-center">
+            <div class="col-lg-4 col-md-8 col-11 py-md-3 py-2">
+                <img class="img-fluid"
+                     src="./assets/logo-files/svg/logo-no-background.svg"
+                     alt="Algona logo">
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center p-2">
+                <h2 class="py-3 border-bottom border-dark-subtle mb-4">Our Story</h2>
+                <p lang="en">Algona was established in 2017 Ruse Bulgaria, with a vision to redefine the standards of
+                    transportation. Ever since
+                    our aim is to provide a diverse range of transportation solutions that cater to the unique
+                    needs of our clients.</p>
+                <p lang="en"
+                   class="mb-3">Over the years, our fleet of trucks has been the backbone of our cargo transportation
+                    services. Today we have
+                    three trucks for international transportation in EU. All vehicles are maintained and equipped with
+                    the
+                    latest in tracking and security systems guaranteeing your cargo's safety and on time deliver.</p>
+            </div>
+        </div>
+    </div>
 
+    <div class="services-wrapper mb-4 position-relative"
+         data-aos="fade-up"
+         data-aos-duration="1500"
+         data-aos-delay="200">
+        <div class="services-heading">
+            <h2 class="py-3 mt-3 border-bottom border-dark-subtle mb-3">Our Services</h2>
+            <h5>Crafted to ensure a seamless journey for your cargo, every step of the way.</h5>
+        </div>
+        <div class="services d-flex flex-md-row flex-column justify-content-between">
+            <div class="d-flex flex-column justify-content-center gap-3 mx-auto col-md-4 col-10 mb-3">
+                <button routerLink="/request/transport"
+                        mat-stroked-button
+                        class="btn-fluid">International Transport</button>
+                <button routerLink="/request/spedition"
+                        mat-stroked-button
+                        class="btn-fluid">Spedition</button>
+
+                <!-- TODO: configure router link -->
+                <button mat-stroked-button
+                        class="btn-fluid">Real Time Tracking of Orders</button>
+
+                <button routerLink="/jobs"
+                        mat-stroked-button
+                        class="btn-fluid">Careers</button>
+                <button routerLink="/features/contact"
+                        mat-stroked-button
+                        class="btn-fluid">Question Support</button>
+            </div>
+            <div class="col-lg-5 col-md-7 col-11 align-self-end">
+                <img class="img-fluid shadow-sm"
+                     src="./assets/static-images/driving-on-highway.jpg"
+                     alt="Truck on highway">
+            </div>
+        </div>
+        <div class="line"></div>
+    </div>
+</section>
