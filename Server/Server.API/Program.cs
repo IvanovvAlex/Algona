@@ -19,11 +19,11 @@ builder.Services.AddScoped<ITruckRepository, TruckRepository>();
 builder.Services.AddScoped<ICargoRepository, CargoRepository>();
 builder.Services.AddScoped<IJobRepository, JobRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IRequestRepository, RequestRepository>();
+builder.Services.AddScoped<IRequestTransportRepository, RequestTransportRepository>();
 
 builder.Services.AddTransient<ISharedService, SharedService>();
 builder.Services.AddTransient<IJobService, JobService>();
-builder.Services.AddTransient<IRequestService, RequestService>();
+builder.Services.AddTransient<IRequestTransportService, RequestTransportService>();
     
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

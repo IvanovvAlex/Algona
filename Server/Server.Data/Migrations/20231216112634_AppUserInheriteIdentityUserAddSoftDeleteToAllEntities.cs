@@ -72,7 +72,7 @@ namespace Server.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Requests",
+                name: "RequestTransport",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -327,7 +327,7 @@ namespace Server.Data.Migrations
                 name: "Jobs");
 
             migrationBuilder.DropTable(
-                name: "Requests");
+                name: "RequestTransport");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

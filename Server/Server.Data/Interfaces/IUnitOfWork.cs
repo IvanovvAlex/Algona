@@ -7,5 +7,6 @@ namespace Server.Data.Interfaces
         ITruckRepository Trucks { get; }
         Task<int> CommitAsync();
         IJobRepository Jobs { get; }
+        IRequestTransportRepository RequestTransport { get; }
     }
 }

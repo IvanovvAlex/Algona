@@ -359,7 +359,7 @@ namespace Server.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("Server.Data.Entities.Request", b =>
+            modelBuilder.Entity("Server.Data.Entities.RequestTransport", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -381,7 +381,8 @@ namespace Server.Data.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("NumberOfPallets")
                         .HasColumnType("int");
@@ -403,7 +404,7 @@ namespace Server.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Requests");
+                    b.ToTable("RequestTransport");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
