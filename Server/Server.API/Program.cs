@@ -20,10 +20,12 @@ builder.Services.AddScoped<ICargoRepository, CargoRepository>();
 builder.Services.AddScoped<IJobRepository, JobRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IRequestTransportRepository, RequestTransportRepository>();
+builder.Services.AddScoped<IRequestSpeditionRepository, RequestSpeditionRepository>();
 
 builder.Services.AddTransient<ISharedService, SharedService>();
 builder.Services.AddTransient<IJobService, JobService>();
 builder.Services.AddTransient<IRequestTransportService, RequestTransportService>();
+builder.Services.AddTransient<IRequestSpeditionService, RequestSpeditionService>();
     
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
