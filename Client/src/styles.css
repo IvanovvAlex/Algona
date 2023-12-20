@@ -4,28 +4,28 @@
 
 :root {
     /* -------------- angular material theme color palettes ------------- */
-    
-        /* light blue 700 */
-        --primary-theme-color: #0288D1;
-        /* teal 600 */
-        --accent-theme-color: #00897B;
-        /* red 500 */
-        --warn-theme-color: #F44336;
-    
-        /* ----------- colors for texts highlights or custom styling ----------- */
-        --gray-styling-color: #414141;
-        --primary-styling-color: #01579B;
-        --secondary-styling-color: #81D4FA;
-        --light-styling-color: #80CBC4;
-        /* ---------- font for texts ----------- */
-        --body-font: 'Figtree', sans-serif;
-        
+
+    /* light blue 700 */
+    --primary-theme-color: #0288D1;
+    /* teal 600 */
+    --accent-theme-color: #00897B;
+    /* red 500 */
+    --warn-theme-color: #F44336;
+
+    /* ----------- colors for texts highlights or custom styling ----------- */
+    --gray-styling-color: #414141;
+    --primary-styling-color: #01579B;
+    --secondary-styling-color: #81D4FA;
+    --light-styling-color: #80CBC4;
+    /* ---------- font for texts ----------- */
+    --body-font: 'Figtree', sans-serif;
+
 }
 
 html,
 body {
     height: 100%;
-   
+
 }
 
 * {
@@ -37,9 +37,9 @@ body {
 }
 
 .modal.fade .modal-dialog {
-    transition: all .8s ease-out;
+    transition: all .3s ease-in;
     opacity: 0.3;
-    transform: scale(0.9);
+    transform: scale(0.95);
 }
 
 .modal.show .modal-dialog {
@@ -50,5 +50,5 @@ body {
 .modal-backdrop {
     --bs-backdrop-bg: lightgray;
     --bs-backdrop-opacity: .8;
-    transition: opacity 0.3s linear;
+    transition: opacity 0.2s linear;
 }

@@ -1,19 +1,18 @@
-section {
-    height: 600px !important;
-}
-
 img {
-    height: 650px;
+    height: 580px;
+    overflow: hidden;
+    object-position: center;
 }
 
 h5,
 p {
     line-height: normal;
     margin-bottom: 26px;
+    text-shadow: 0 0 5px rgb(60, 60, 60);
 }
 
-.shadow-effect {
-    box-shadow: 0px 0px 25px -15px black;
+.caption-bg {
+    background: radial-gradient(black, transparent 70%);
 }
 
 h5 {
@@ -22,5 +21,50 @@ h5 {
 
 p {
     font-size: 1.2rem;
-    font-weight: 300;
+    font-weight: 200;
+}
+
+button.btn-fluid {
+    background-color: var(--primary-theme-color);
+}
+
+/* fluid button effect */
+.btn-fluid {
+    height: fit-content;
+    cursor: pointer;
+    position: relative;
+    color: white;
+    z-index: 0;
+    border: .5px solid var(--primary-theme-color) !important;
+    border-radius: .2rem;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.btn-fluid:hover::before {
+    top: 0px;
+    border-radius: 0;
+}
+
+.btn-fluid::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, var(--primary-styling-color), var(--light-styling-color));
+    border-radius: 80% 80% 0% 0%;
+    z-index: -1;
+    transition: all .9s;
+}
+
+@media screen and (max-width: 580px) {
+    .caption-bg {
+        background: radial-gradient(rgba(0, 0, 0, 0.5) 25%, transparent 60%);
+    }
+
+    h5#custom {
+        font-size: 1.7rem;
+    }
 }

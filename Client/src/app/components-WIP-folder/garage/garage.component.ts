@@ -1,34 +1,35 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Subscription, fromEvent } from 'rxjs';
 
-import { ApiService } from 'src/app/core/core-services/api-service/api.service';
+import { photos } from './garage-photos';
 
 @Component({
     selector: 'app-garage',
     templateUrl: './garage.component.html',
-    styleUrls: [ './garage.component.css' ]
+    styleUrls: [ './garage.component.css' ],
+    animations: [
+        trigger('fade', [
+            transition('void => *', [
+                style({ opacity: 0 }),
+                animate(1200) ])
+        ]),
+    ]
 })
 export class GarageComponent implements OnInit, OnDestroy {
     isVisible = false;
     topPosToStartShowing = 50;
 
-    eventSubscription = fromEvent(window, 'scroll').subscribe(e => {
+    eventSubscription: Subscription = fromEvent(window, 'scroll').subscribe(e => {
         this.checkScroll();
     });
-    
-    ///TODO: Remove 'dummy template' from view
-    photos: any = null;
-    subscription: Subscription = new Subscription();
 
-    constructor(private apiService: ApiService) { }
+    photos!: string[];
+
+    constructor() { }
 
     ngOnInit(): void {
-        this.subscription = this.apiService.getGaragePhotos().subscribe({
-            next: data => {
-                this.photos = data;
-            },
-            error: err => console.warn(err.message)
-        });
+        this.photos = photos;
     }
 
     checkScroll() {
@@ -46,7 +47,6 @@ export class GarageComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        this.subscription.unsubscribe();
         this.eventSubscription.unsubscribe();
     }
 }
