@@ -1,10 +1,14 @@
 /* map container styles */
+
 .map-cont {
     flex: 1 1 100%;
     margin: 1em auto;
     padding-top: 2em;
-    width: 98vw;
-    height: 40em;
+    width: 86vw;
+    height: 30em;
+    overflow: hidden;
+    border-radius: 8px;
+
 }
 
 /* Info window styles */
@@ -28,6 +32,28 @@
 @media screen and (max-width: 900px) {
     .info-window>p{
         font-size: 1.2em;
+    }
+
+}
+
+@media screen and (max-width:400px) {
+    .map-cont {
+        height: 80vh;
+    }  
+    
+    .info-window > h4 {
+        font-size: 1em;
+    }
+    .info-window > p {
+        font-size: 1em;
+    }
+    .info-window > button {
+        width: 7em;
+        height: 2em;
+    }
+
+    .link-to {
+        font-size: 0.9em;
     }
 }
 

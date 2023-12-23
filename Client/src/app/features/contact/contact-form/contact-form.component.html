@@ -18,6 +18,9 @@
                             <p class="error" *ngIf="contactForm.get('name')?.errors?.['required']">
                                 A name is required!
                             </p>
+                            <p class="error" *ngIf="contactForm.get('name')?.errors?.['minlength']">
+                                Name is too short! Should be atleast 2 characters
+                            </p>
                         </ng-container>
 
                         <label for="companyName">Company Name</label>
@@ -26,6 +29,9 @@
                         <ng-container *ngIf="contactForm.get('companyName')?.touched">
                             <p class="error" *ngIf="contactForm.get('companyName')?.errors?.['required']">
                                 A Company name is required!
+                            </p>
+                            <p class="error" *ngIf="contactForm.get('companyName')?.errors?.['minlength']">
+                                Company name is too short! Should be atleast 2 characters
                             </p>
                         </ng-container>
                     </div>
@@ -37,6 +43,9 @@
                             <p class="error" *ngIf="contactForm.get('email')?.errors?.['required']">
                                 Email is required!
                             </p>
+                            <p class="error" *ngIf="contactForm.get('email')?.errors?.['emailVdtr']">
+                                Not a valid email
+                            </p>
                         </ng-container>
 
                         <label for="phone">Phone</label>
@@ -44,6 +53,9 @@
                         <ng-container *ngIf="contactForm.get('phone')?.touched">
                             <p class="error" *ngIf="contactForm.get('phone')?.errors?.['required']">
                                 Phone is required!
+                            </p>
+                            <p class="error" *ngIf="contactForm.get('phone')?.errors?.['minlength']">
+                                Phone should be atleast 10 characters!
                             </p>
                         </ng-container>
                     </div>
@@ -56,6 +68,9 @@
                         <ng-container *ngIf="contactForm.get('data')?.touched">
                             <p class="error" *ngIf="contactForm.get('data')?.errors?.['required']">
                                 Message is required!
+                            </p>
+                            <p class="error" *ngIf="contactForm.get('data')?.errors?.['minlength']">
+                                Message should be atleast 10 characters!
                             </p>
                         </ng-container>
                         <button mat-raised-button class="sndBtn" [disabled]="contactForm.invalid"
