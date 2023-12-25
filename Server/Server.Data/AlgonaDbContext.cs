@@ -15,6 +15,7 @@ namespace Server.Data
 
         public DbSet<Job> Jobs { get; set; }
         public DbSet<RequestTransport> RequestTransport { get; set; }
+        public DbSet<RequestSpedition> RequestSpeditions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

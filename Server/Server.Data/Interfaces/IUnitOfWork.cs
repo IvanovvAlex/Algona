@@ -8,5 +8,6 @@ namespace Server.Data.Interfaces
         Task<int> CommitAsync();
         IJobRepository Jobs { get; }
         IRequestTransportRepository RequestTransport { get; }
+        IRequestSpeditionRepository RequestSpedition { get; }
     }
 }
