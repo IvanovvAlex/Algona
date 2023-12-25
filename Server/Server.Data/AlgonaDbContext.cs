@@ -28,9 +28,6 @@ namespace Server.Data
                 .OnDelete(DeleteBehavior.NoAction);
             });
 
-            modelBuilder.Entity<User>()
-                .Property(x => x.UserName)
-                .HasColumnName("Username");
         }
     }
 }
