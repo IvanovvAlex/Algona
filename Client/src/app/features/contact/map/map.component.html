@@ -1,17 +1,16 @@
 <div class="map-cont">
-    <google-map height="100%" width="100%" [options]="mapOptions">
-        <map-marker #marker="mapMarker" [position]="markerPositions.positionOne" [options]="markerOptions"
-            (mapClick)="openInfoWindow(marker)">
-        </map-marker>
-        <map-info-window [position]="markerPositions.positionOne">
-            <div class="info-window">
-                <h4>Algona Ltd.</h4>
-                <p>Adress: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus at adipisci vel sed
-                    architecto consequatur</p>
-                <button mat-raised-button color="primary"><a class="link-to"
-                        href="https://maps.app.goo.gl/z6b91WNvhsn7ErqS8" target="_blank">Directions?</a>
-                </button>
-            </div>
-        </map-info-window>
-    </google-map>
+        <google-map height="100%" width="100%" [options]="mapOptions">
+            <map-marker #marker="mapMarker" [position]="markerPositions.positionOne" [options]="markerOptions"
+                (mapClick)="openInfoWindow(marker)">
+            </map-marker>
+            <map-info-window [position]="markerPositions.positionOne">
+                <div class="info-window">
+                    <h4>Algona Ltd.</h4>
+                    <p>Bulgaria, Ruse, Pliska str 91</p>
+                    <button mat-raised-button color="primary"><a class="link-to"
+                            href="https://maps.app.goo.gl/z6b91WNvhsn7ErqS8" target="_blank">Directions?</a>
+                    </button>
+                </div>
+            </map-info-window>
+        </google-map>
 </div>
