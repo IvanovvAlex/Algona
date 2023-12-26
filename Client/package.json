@@ -40,6 +40,9 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.2.2"
   },
+  "engines": {
+    "node": "^18.13"
+  },
   "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.",
   "main": "index.js",
   "keywords": [],

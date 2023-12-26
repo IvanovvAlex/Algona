@@ -12,13 +12,13 @@
         public override async Task<IEnumerable<RequestTransport>> GetAllAsync()
         {
             return await AlgonaDbContext
-                .RequestTransport
+                .RequestTransports
                 .ToListAsync();
         }
         public override async ValueTask<RequestTransport?> GetByIdAsync(string id)
         {
             return await AlgonaDbContext
-                .RequestTransport
+                .RequestTransports
                 .FirstOrDefaultAsync(r => r.Id == id);
         }
         public override async Task AddAsync(RequestTransport entity)

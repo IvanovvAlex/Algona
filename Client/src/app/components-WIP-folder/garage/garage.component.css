@@ -3,17 +3,13 @@ h1 {
     padding-bottom: 0px;
     font-weight: 300;
     font-size: 2rem;
-    color: #494949;
+    color: var(--gray-styling-color);
 }
 
 .card {
-    transition: box-shadow 0.2s ease-in-out;
-    max-width: 400px;
+    max-width: fit-content;
+    max-height: fit-content;
     min-width: none;
-}
-
-.card:hover {
-    box-shadow: 0px 0px 14px -2px var(--primary-styling-color);
 }
 
 button.preview {
@@ -24,9 +20,28 @@ button.preview {
     border-radius: inherit;
 }
 
-.shadow-effect {
-    border: none;
-    box-shadow: 0px 0px 24px -12px rgb(0, 0, 0);
+button.preview img {
+    object-fit: cover;
+    width: 250px;
+    height: 200px;
+    box-shadow: 0px 0px 16px -8px black;
+    transition: box-shadow 0.2s linear;
+}
+
+button.preview img:hover {
+    box-shadow: 0px 0px 16px -4px black;
+}
+
+.modal-header p {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    color: gray;
+}
+
+.modal-body img {
+    max-height: 520px;
+    object-position: center;
+    overflow: hidden;
 }
 
 #btn-back-to-top {
@@ -43,6 +58,16 @@ button.preview {
     justify-content: center;
 }
 
+h2.no-images {
+    font-size: 2rem;
+    font-weight: 200;
+    line-height: 1.5;
+}
+
+img.unavailable {
+    background-position: center;
+}
+
 @media screen and (max-width:500px) {
     section h1 {
         font-size: 1.5rem;
@@ -50,5 +75,10 @@ button.preview {
 
     section .card:hover {
         scale: none;
+    }
+
+    h2.no-images {
+        font-size: 1.7rem;
+        line-height: 1.3;
     }
 }
