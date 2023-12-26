@@ -28,6 +28,7 @@
             public const int TotalWeightMaxValue = 1000000;
             public const int NameMinLength = 3;
             public const int NameMaxLength = 100;
+        }
         public static class Contact
         {
             public const int NameMinLength = 3;
