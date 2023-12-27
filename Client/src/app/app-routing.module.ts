@@ -26,18 +26,6 @@ const routes: Routes = [
         path: 'about', component: ForUsComponent,
     },
     {
-        path: 'services',
-        children: [
-            {
-                path: 'spedition', component: NotFoundComponent
-            },
-            {
-                path: 'international-transport', component: NotFoundComponent,
-            }
-        ]
-
-    },
-    {
         path: 'vehicles', component: GarageComponent,
     },
     {
