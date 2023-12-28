@@ -6,6 +6,8 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
 import { RegisterComponent } from './register/register.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 
@@ -13,7 +15,9 @@ import { RegisterComponent } from './register/register.component';
 @NgModule({
     declarations: [
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        ForgotPasswordComponent,
+        ResetPasswordComponent
     ],
     imports: [
         CommonModule,

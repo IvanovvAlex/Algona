@@ -12,7 +12,7 @@ p {
 }
 
 .caption-bg {
-    background: radial-gradient(black, transparent 70%);
+    background: radial-gradient(rgba(0, 0, 0, 0.871), transparent 60%);
 }
 
 h5 {
@@ -61,7 +61,7 @@ button.btn-fluid {
 
 @media screen and (max-width: 580px) {
     .caption-bg {
-        background: radial-gradient(rgba(0, 0, 0, 0.5) 25%, transparent 60%);
+        background: radial-gradient(rgba(0, 0, 0, 0.2), transparent 60%);
     }
 
     h5#custom {

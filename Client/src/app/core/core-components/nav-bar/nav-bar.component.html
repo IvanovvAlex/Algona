@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand-lg" id="navbarToggleExternalContent">
-    <div class="logo">
+    <div class="logo" (click)="toggleNavbar()">
         <a class="nav-link icon-link-hover"  routerLink="/">
             <img class="img-fluid" src="../../../../assets/logo-files/png/logo-no-background.png">
         </a>
     </div>
-    <div class="navBar">
+    <div class="navBar" (click)="toggleNavbar()">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
          data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" 
          aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <div class="collapse navbar-collapse" [ngClass]="{ 'show': isActive, 'd-none': !isActive }" id="navbarTogglerDemo01">
             <!-- <a class="navbar-brand" href="#"></a>     -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -18,13 +18,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/about">ABOUT US</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">SERVICES</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="services/spedition">Spedition</a></li>
-                        <li><a class="dropdown-item" href="services/international-transport">International transport</a></li>
-                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/vehicles">VEHICLE PARK</a>

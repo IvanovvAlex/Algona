@@ -23,3 +23,29 @@ nav {
 }
 
 
+@media screen and (max-width: 990px) {
+
+    .navbar-toggler {
+        margin-right: 30px;
+    }
+    
+    .navbar-collapse {
+        display: none;
+        position: absolute;
+        top: 75px;
+        background-color: #0288d1;;
+        z-index: 999;
+        padding: 0 0.5rem;
+    }
+
+    .navbar-collapse.show {
+        display: block;
+    }
+
+    
+
+}
+   
+
+
+
