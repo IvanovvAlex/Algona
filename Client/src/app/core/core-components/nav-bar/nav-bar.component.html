@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg" id="navbarToggleExternalContent">
-    <div class="logo" (click)="toggleNavbar()">
+    <div class="logo">
         <a class="nav-link icon-link-hover"  routerLink="/">
             <img class="img-fluid" src="../../../../assets/logo-files/png/logo-no-background.png">
         </a>
@@ -22,11 +22,11 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/vehicles">VEHICLE PARK</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown" (click)="toggleNavbar()">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">REQUEST</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="request/transport">Transport</a></li>
-                        <li><a class="dropdown-item" href="request/spedition">Spedition</a></li>
+                        <li><a class="dropdown-item" (click)="toggleNavbar()" routerLink="request/transport">Transport</a></li>
+                        <li><a class="dropdown-item" (click)="toggleNavbar()" routerLink="request/spedition">Spedition</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
