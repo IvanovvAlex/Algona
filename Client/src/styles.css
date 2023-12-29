@@ -36,6 +36,10 @@ body {
     margin: 0;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 .modal.fade .modal-dialog {
     transition: all .3s ease-in;
     opacity: 0.3;
