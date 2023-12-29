@@ -29,20 +29,43 @@ nav {
         margin-right: 30px;
     }
     
+    .navbar-toggler:hover {
+        background-color: #0288d1;
+    }
+
+    .navBar .dropdown-menu {
+        background-color: #0288d1;
+        padding: 0.5rem;
+    }
+
+    .navBar .dropdown-item:hover {
+        background-color: white; 
+        border-radius: 6px;
+     }
+
+    .nav-item:hover {
+        background-color: white;
+        border-radius: 6px;
+        padding: 0 0.2rem;
+        margin-top: 0.3rem;
+    }
+
     .navbar-collapse {
         display: none;
         position: absolute;
         top: 75px;
-        background-color: #0288d1;;
+        background-color: #0288d1;
         z-index: 999;
-        padding: 0 0.5rem;
     }
 
     .navbar-collapse.show {
         display: block;
     }
 
-    
+    #navbarTogglerDemo01 {
+        border-radius: 6px;
+        padding: 0 0.5rem;
+    }
 
 }
    
