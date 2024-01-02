@@ -44,13 +44,17 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="features/contact">CONTACT US</a>
                 </li>
+                <li class="nav-item dropdown languages" (click)="toggleNavbar()">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="flag-icon {{selectedIconClass}}"></i> {{selectedLanguage}}</a>
+                    <ul class="dropdown-menu langs">
+                        <li><a class="dropdown-item" (click)="switchLanguage('en');toggleNavbar();" routerLink=""><i class="flag-icon flag-icon-us"></i> EN</a></li>
+                        <li><a class="dropdown-item" (click)="switchLanguage('bg');toggleNavbar()" routerLink=""><i class="flag-icon flag-icon-bg"></i> BG</a></li>
+                        <li><a class="dropdown-item" (click)="switchLanguage('de');toggleNavbar()" routerLink=""><i class="flag-icon flag-icon-de"></i> DE</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
-    <div class="language-switcher">
-        <a class="language-link" href="#"><i class="flag-icon flag-icon-us"></i> EN</a>
-        <a class="language-link" href="#"><i class="flag-icon flag-icon-bg"></i> BG</a>
-        <a class="language-link" href="#"><i class="flag-icon flag-icon-de"></i> DE</a>
-    </div>
+    
 </nav>
 
