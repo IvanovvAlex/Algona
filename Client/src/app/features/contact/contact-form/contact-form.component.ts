@@ -72,9 +72,3 @@ import { emailVdtr } from 'src/app/auth/validators/emailValidator';
 
   }
 
-/* TODO:
-Fix screen scroll at around 800px width
-add validation 
-Shrink map abit with a new flex container
-
-*/

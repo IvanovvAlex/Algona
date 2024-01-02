@@ -1,0 +1,15 @@
+
+.pagination {
+    justify-content: center;
+    margin-top: 1em;
+    padding: 1em 0;
+}
+
+.page-item {
+    cursor: pointer;
+}
+
+.page-item.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}

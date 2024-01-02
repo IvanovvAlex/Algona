@@ -22,6 +22,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { JobsComponent } from './components-WIP-folder/jobs/jobs.component';
 import { JobDetailsComponent } from './components-WIP-folder/job-details/job-details.component';
+import { PaginatorComponent } from './components-WIP-folder/paginator/paginator.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { JobDetailsComponent } from './components-WIP-folder/job-details/job-det
         NotFoundComponent,
         GarageComponent,
         JobsComponent,
-        JobDetailsComponent
+        JobDetailsComponent,
+        PaginatorComponent
         
     ],
     imports: [
