@@ -44,10 +44,12 @@
         public async Task<RequestTransport?> GetById(string id)
         {
             var request = await unitOfWork.RequestTransport.GetByIdAsync(id);
+            
             if (request == null)
             {
                 return null;
             }
+            
             return request;
         }
     }
