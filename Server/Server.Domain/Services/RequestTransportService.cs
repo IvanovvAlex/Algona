@@ -11,10 +11,12 @@
     public class RequestTransportService : IRequestTransportService
     {
         private readonly IUnitOfWork unitOfWork;
+        
         public RequestTransportService(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
         }
+        
         public async Task<RequestTransport> Create(TransportRequest transport)
         {
             RequestTransport request = new RequestTransport()
