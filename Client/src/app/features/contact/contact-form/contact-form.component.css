@@ -21,6 +21,9 @@ main {
     display: flex;
     flex-direction: row;
     gap: 2em;
+    justify-content: space-around;
+    margin-right: 4.5em;
+
 }
 
 
@@ -130,7 +133,7 @@ hr {
 @media screen and (min-width: 1450px) {
     main {
         gap: 20em;
-        font-size: 1.8em;
+        font-size: 1.2em;
     }
 }
 
@@ -155,5 +158,4 @@ hr {
 
 
 }
-
 
