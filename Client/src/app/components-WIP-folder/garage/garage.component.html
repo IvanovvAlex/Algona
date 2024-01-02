@@ -43,6 +43,12 @@
                 </article>
             </ng-container>
         </div>
+
+        <button type="button" *ngIf="isVisible" (click)="gotoTop()" class="btn text-white" id="btn-back-to-top">
+            <mat-icon>arrow_upward</mat-icon>
+        </button>
+        <app-paginator [currentPage]="currentPage" [totalPages]="totalPages" (pageChanged)="onPageChanged($event)">
+        </app-paginator>
     </div>
     <button type="button" *ngIf="isVisible" (click)="gotoTop()" class="btn text-white" id="btn-back-to-top">
         <mat-icon>arrow_upward</mat-icon>
