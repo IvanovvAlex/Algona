@@ -14,7 +14,9 @@ namespace Server.Data
         public DbSet<Cargo> Cargoes { get; set; }
 
         public DbSet<Job> Jobs { get; set; }
+        
         public DbSet<RequestTransport> RequestTransports { get; set; }
+        
         public DbSet<RequestSpedition> RequestSpeditions { get; set; }
 
     }
