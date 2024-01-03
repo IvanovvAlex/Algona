@@ -45,6 +45,20 @@
             public const int PasswordMinLength = 5;
             public const int PasswordMaxLength = 100;
         }
+
+        public static class Register
+        {
+            public const int FirstNameMinLength = 2;
+            public const int FirstNameMaxLength = 100;
+            public const int LastNameMinLength = 2;
+            public const int LastNameMaxLength = 100;
+            public const int EmailMinLength = 6;
+            public const int EmailMaxLength = 100;
+            public const int PasswordMinLength = 5;
+            public const int PasswordMaxLength = 100;
+            public const int ConfirmPasswordMinLength = 5;
+            public const int ConfirmPasswordMaxLength = 100;
+        }
     }
 }
 
