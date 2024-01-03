@@ -7,6 +7,7 @@ namespace Server.Data.Repositories
     public class RequestSpeditionRepository : Repository<RequestSpedition>, IRequestSpeditionRepository
     {
         private AlgonaDbContext AlgonaDbContext => (Context as AlgonaDbContext)!;
+
         public RequestSpeditionRepository(AlgonaDbContext context) : base(context) { }
 
         public async override Task AddAsync(RequestSpedition entity)

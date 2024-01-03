@@ -14,10 +14,10 @@ namespace Server.Data.Entites
         public bool IsDeleted { get; set; }
 
         [Required]
-        public string Title { get; set; }
+        public string Title { get; set; } = null!;
 
         [Required]
-        public string Description { get; set; }
+        public string Description { get; set; } = null!;
 
         [Required]
         public decimal Salary { get; set; }
