@@ -15,10 +15,8 @@ nav {
     
 }
 
-.lang .dropdown-item {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+.dropdown-menu.langs,.dropdown-menu.langs>li {
+    --bs-dropdown-min-width: 5rem !important;
 }
 
 .logo {
