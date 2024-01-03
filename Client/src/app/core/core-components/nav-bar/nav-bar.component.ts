@@ -16,7 +16,8 @@ export class NavBarComponent {
 
    ngOnInit() {
     this.selectedLanguage = 'EN';
-    this.selectedIconClass = 'flag-icon-us'
+    this.selectedIconClass = 'flag-icon-us';
+
   }
 
   switchLanguage(language: string) {
