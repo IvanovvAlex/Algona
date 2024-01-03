@@ -45,9 +45,14 @@
             return request;
         }
 
-        public Task<IEnumerable<RequestTransport>> GetAll()
+        /// <summary>
+        /// Gets all requests for transport
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IEnumerable<RequestTransport>> GetAll()
         {
-            throw new NotImplementedException();
+            var requests = await unitOfWork.RequestTransport.GetAllAsync();
+            return requests;
         }
 
         /// <summary>
