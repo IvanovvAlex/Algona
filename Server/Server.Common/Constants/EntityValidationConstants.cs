@@ -38,6 +38,13 @@
             public const int DescriptionMinLength = 2;
             public const int DescriptionMaxLength = 1000;
         }
+        public static class Login
+        {
+            public const int EmailMinLength = 6;
+            public const int EmailMaxLength = 100;
+            public const int PasswordMinLength = 5;
+            public const int PasswordMaxLength = 100;
+        }
     }
 }
 
