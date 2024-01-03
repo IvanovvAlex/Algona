@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 using static Server.Common.Constants.EntityValidationConstants;
 
 
