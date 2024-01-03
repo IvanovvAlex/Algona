@@ -8,6 +8,9 @@
     using Server.Data.Interfaces;
     using Server.Domain.Interfaces;
 
+    /// <summary>
+    /// Request transport service
+    /// </summary>
     public class RequestTransportService : IRequestTransportService
     {
         private readonly IUnitOfWork unitOfWork;
@@ -15,6 +18,12 @@
         {
             this.unitOfWork = unitOfWork;
         }
+
+        /// <summary>
+        /// Creates a new request for transport
+        /// </summary>
+        /// <param name="transport"></param>
+        /// <returns></returns>
         public async Task<RequestTransport> Create(TransportRequest transport)
         {
             RequestTransport request = new RequestTransport()
@@ -41,6 +50,11 @@
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Gets a request for transport by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<RequestTransport?> GetById(string id)
         {
             var request = await unitOfWork.RequestTransport.GetByIdAsync(id);
