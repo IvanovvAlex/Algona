@@ -1,18 +1,31 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
 using Server.Common.Constants;
 using System.ComponentModel.DataAnnotations;
 
 namespace Server.Data.Entities
 {
+    /// <summary>
+    /// Request Spedition Table
+    /// </summary>
     public class RequestSpedition
     {
+        /// <summary>
+        /// Spedition identifier
+        /// </summary>
         [Key]
+        [Comment("Spedition Id")]
         public string Id { get; set; } = Guid.NewGuid().ToString();
 
+        /// <summary>
+        /// From Address
+        /// </summary>
         [Required]
         [MinLength(EntityValidationConstants.Spedition.FromAddressMinLength)]
         [MaxLength(EntityValidationConstants.Spedition.FromAddressMaxLength)]
+        [Comment("From Address")]
         public string FromAddress { get; set; } = null!;
+
 
         [Required]
         [MinLength(EntityValidationConstants.Spedition.ToAddressMinLength)]
