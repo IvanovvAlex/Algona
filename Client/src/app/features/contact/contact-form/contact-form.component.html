@@ -80,13 +80,14 @@
 
                         <mat-form-field appearance="outline">
                             <mat-label for="phone">Phone</mat-label>
-                            <input matInput autocomplete="Phone" id="phone" type="phone" name="phone" formControlName="phone">
-                                <mat-error *ngIf="contactForm.get('phone')?.errors?.['required']">
-                                    Phone is required!
-                                </mat-error>
-                                <mat-error *ngIf="contactForm.get('phone')?.errors?.['minlength']">
-                                    Phone should be atleast 10 characters!
-                                </mat-error>
+                            <input matInput autocomplete="Phone" id="phone" type="phone" name="phone"
+                                formControlName="phone">
+                            <mat-error *ngIf="contactForm.get('phone')?.errors?.['required']">
+                                Phone is required!
+                            </mat-error>
+                            <mat-error *ngIf="contactForm.get('phone')?.errors?.['minlength']">
+                                Phone should be atleast 10 characters!
+                            </mat-error>
                         </mat-form-field>
 
                     </div>
@@ -94,18 +95,21 @@
                     <div class="break"></div>
 
                     <div class="msg-cont">
-                        <label for="data" class="msg-lbl">Message</label>
-                        <textarea autocomplete="Message" name="data" id="data" formControlName="data"></textarea>
-                        <ng-container *ngIf="contactForm.get('data')?.touched">
-                            <p class="error" *ngIf="contactForm.get('data')?.errors?.['required']">
-                                Message is required!
-                            </p>
-                            <p class="error" *ngIf="contactForm.get('data')?.errors?.['minlength']">
-                                Message should be atleast 10 characters!
-                            </p>
-                        </ng-container>
+                        <mat-form-field appearance="outline">
+                            <mat-label for="data" >Message</mat-label>
+                            <textarea matInput autocomplete="Message" name="data" id="data" formControlName="data"></textarea>
+                            <ng-container *ngIf="contactForm.get('data')?.touched">
+                                <p class="error" *ngIf="contactForm.get('data')?.errors?.['required']">
+                                    Message is required!
+                                </p>
+                                <p class="error" *ngIf="contactForm.get('data')?.errors?.['minlength']">
+                                    Message should be atleast 10 characters!
+                                </p>
+                            </ng-container>
+                        </mat-form-field>
                         <button mat-raised-button class="sndBtn" [disabled]="contactForm.invalid"
                             color="primary">Send</button>
+
                     </div>
                 </div>
             </form>
