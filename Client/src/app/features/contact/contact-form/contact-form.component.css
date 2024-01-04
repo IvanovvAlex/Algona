@@ -105,6 +105,10 @@ input,
     padding: 0.5em 0;
 }
 
+.mat-err {
+    font-size: 1.5em;
+}
+
 /* send button element */
 .sndBtn {
     flex: 1 1 2.5em;
