@@ -2,7 +2,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
@@ -21,6 +23,11 @@ import { TransportRequestComponent } from './components-WIP-folder/transport-req
 import { JobsComponent } from './components-WIP-folder/jobs/jobs.component';
 import { JobDetailsComponent } from './components-WIP-folder/job-details/job-details.component';
 import { PaginatorComponent } from './components-WIP-folder/paginator/paginator.component';
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+  }
 
 
 @NgModule({
@@ -47,6 +54,14 @@ import { PaginatorComponent } from './components-WIP-folder/paginator/paginator.
         ReactiveFormsModule,
         MatFormFieldModule,
         MatInputModule,
+        TranslateModule.forRoot({
+            defaultLanguage: 'en', 
+            loader: {
+              provide: TranslateLoader,
+              useFactory: HttpLoaderFactory,
+              deps: [HttpClient]
+            }
+          })
     ],
     providers: [],
     bootstrap: [AppComponent]
