@@ -1,10 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+
 import {
   FormGroup,
   FormBuilder,
@@ -19,8 +14,8 @@ import {
   selector: 'app-transport-request',
   templateUrl: './transport-request.component.html',
   styleUrls: ['./transport-request.component.css'],
-  standalone: true,
-  imports: [CommonModule,MatFormFieldModule, MatInputModule, MatSelectModule,MatDatepickerModule, MatNativeDateModule, ReactiveFormsModule],
+  //standalone: true,
+  //imports: [CommonModule,MatFormFieldModule, MatInputModule, MatSelectModule,MatDatepickerModule, MatNativeDateModule, ReactiveFormsModule],
 })
 export class TransportRequestComponent implements OnInit  {
    
