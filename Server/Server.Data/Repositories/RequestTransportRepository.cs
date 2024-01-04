@@ -8,7 +8,9 @@
     public class RequestTransportRepository : Repository<RequestTransport>, IRequestTransportRepository
     {
         private AlgonaDbContext AlgonaDbContext => (Context as AlgonaDbContext)!;
+
         public RequestTransportRepository(AlgonaDbContext context) : base(context) { }
+
         public override async Task<IEnumerable<RequestTransport>> GetAllAsync()
         {
             return await AlgonaDbContext

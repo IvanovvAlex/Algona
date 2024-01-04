@@ -40,14 +40,14 @@ namespace Server.API.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                    return StatusCode(403, "Not correct data");
+                    return StatusCode(403, "Not correct data!");
                 }
 
                 var user = await userManager.FindByEmailAsync(userLogin.Email);
 
                 if (user == null)
                 {
-                    return StatusCode(401, "Wrong email or password");
+                    return StatusCode(401, "Wrong email or password!");
                 }
 
                 if (user != null)
@@ -66,11 +66,11 @@ namespace Server.API.Controllers
                     }
                 }
 
-                return StatusCode(401, "Wrong email or password");
+                return StatusCode(401, "Wrong email or password!");
             }
-            catch (Exception)
+            catch (Exception error)
             {
-                throw;
+                return StatusCode(500, error.Message);
             }
         }
 
@@ -82,7 +82,7 @@ namespace Server.API.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                    return StatusCode(403, "Not correct data");
+                    return StatusCode(403, "Not correct data!");
                 }
 
                 var users = await userRepository.GetAllAsync();
@@ -90,7 +90,7 @@ namespace Server.API.Controllers
 
                 if (findUser != null)
                 {
-                    return StatusCode(409, "Email is already in use");
+                    return StatusCode(409, "Email is already in use!");
                 }
 
                 var user = new User()
@@ -114,13 +114,12 @@ namespace Server.API.Controllers
                     });
                     return StatusCode(200, $"{token}");
                 }
-                return StatusCode(401, "Wrong input data");
+                return StatusCode(401, "Wrong input data!");
             }
-            catch (Exception)
+            catch (Exception error)
             {
-                throw;
+                return StatusCode(500, error.Message);
             }
-
         }
 
         private string GenerateToken(CreateLoginRequest user)
@@ -129,8 +128,7 @@ namespace Server.API.Controllers
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
             var claims = new[]
             {
-                new Claim(ClaimTypes.Name,user.Email),
-                //new Claim(ClaimTypes.Role,user.Role)
+                new Claim(ClaimTypes.Name,user.Email)
             };
             var token = new JwtSecurityToken(config["Jwt:Issuer"],
                 config["Jwt:Audience"],

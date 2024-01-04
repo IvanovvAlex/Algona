@@ -30,6 +30,7 @@ namespace Server.API.Controllers
                 result.Salary = job.Salary;
                 allJobsRequests.Add(result);
             }
+            
             return allJobsRequests;
         }
 
@@ -41,6 +42,7 @@ namespace Server.API.Controllers
             {
                 throw new HttpRequestException("Job not found");
             }
+            
             return job;
         }
     }
