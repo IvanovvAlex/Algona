@@ -12,12 +12,22 @@ namespace Server.API.Controllers
     [ApiController]
     public class RequestSpeditionController : ControllerBase
     {
+
         private readonly IRequestSpeditionService _requestSpeditionService;
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="requestSpeditionService"></param>
         public RequestSpeditionController(IRequestSpeditionService requestSpeditionService)
         {
             _requestSpeditionService= requestSpeditionService;
         }
 
+        /// <summary>
+        /// Creates a new request for spedition
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost("Create")]
         public async Task<SpeditionRequest> Create(SpeditionRequest request)
         {
