@@ -43,9 +43,9 @@ section {
 .contact-form-cont {
     max-width: 50em;
     margin: 0 0 0 10em;
-    border-radius: 1em;
+    border-radius: 5em;
     padding: 2em;
-    background: linear-gradient(10deg, var(--primary-styling-color), transparent 55%);
+    background: linear-gradient(to top left, var(--primary-styling-color), transparent 55%);
 
 }
 
@@ -111,7 +111,6 @@ input,
     max-width: 15em;
     align-self: flex-end;
     margin-top: 1em;
-    border: 1px solid;
     border-radius: 3rem;
     padding: 1rem 3rem;
     text-decoration: none;
@@ -149,11 +148,13 @@ hr {
     main {
         flex-direction: column;
         align-items: center;
+        margin: 0 auto;
     }
 
     /* center form wrapper */
     .contact-form-cont {
-        margin: auto
+    border-radius: 0;
+    margin: auto
     }
 
     .content-container {
