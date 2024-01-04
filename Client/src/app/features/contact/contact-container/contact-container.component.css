@@ -5,7 +5,7 @@
     box-shadow: 0em 0em 20em -10em rgb(39, 39, 39);
     /* background-color: #cdf5fd75; */
     background: linear-gradient(to bottom right, #E0F2F1, #89CFF3  90%);
-    border-radius: 30em 0 0 0;
+    border-radius: 15em 0 0 0;
     align-items: center;
     font-family: inherit;
     margin: auto;
@@ -67,7 +67,13 @@
     border-radius: 1em;
     text-align: center;
     border-radius: 2em 0 0 8em;
+    transition: 0s background-color;
+    transition-delay:1s;
 
+}
+
+.info-cont:hover {
+    background: linear-gradient(to left top, var(--light-styling-color), transparent 90%);
 }
 
 

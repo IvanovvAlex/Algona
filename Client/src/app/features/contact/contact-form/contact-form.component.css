@@ -23,7 +23,7 @@ main {
     gap: 2em;
     justify-content: space-around;
     margin-right: 4.5em;
-    
+
 
 }
 
@@ -46,7 +46,7 @@ section {
     border-radius: 5em;
     padding: 2em;
     background: linear-gradient(to top left, var(--primary-styling-color), transparent 55%);
-
+    box-shadow: -5px -1px 88px -32px var(--light-styling-color);
 }
 
 
@@ -153,15 +153,14 @@ hr {
 
     /* center form wrapper */
     .contact-form-cont {
-    border-radius: 0;
-    margin: auto
+        border-radius: 0;
+        margin: auto
     }
 
     .content-container {
         flex: 25 35 100%;
-        
+
     }
 
 
 }
-
