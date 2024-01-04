@@ -23,6 +23,10 @@ nav {
     
 }
 
+nav .nav-link, nav .dropdown-item {
+    text-transform: uppercase;
+}
+
 .languages a {
     color: var(--bs-secondary-color);
 }
