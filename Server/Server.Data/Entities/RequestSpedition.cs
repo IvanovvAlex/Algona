@@ -14,26 +14,33 @@ namespace Server.Data.Entities
         /// Spedition identifier
         /// </summary>
         [Key]
-        [Comment("Spedition Id")]
+        [Comment("Spedition id")]
         public string Id { get; set; } = Guid.NewGuid().ToString();
 
         /// <summary>
-        /// From Address
+        /// From address
         /// </summary>
         [Required]
         [MinLength(EntityValidationConstants.Spedition.FromAddressMinLength)]
         [MaxLength(EntityValidationConstants.Spedition.FromAddressMaxLength)]
-        [Comment("From Address")]
+        [Comment("From address")]
         public string FromAddress { get; set; } = null!;
 
-
+        /// <summary>
+        /// To address
+        /// </summary>
         [Required]
         [MinLength(EntityValidationConstants.Spedition.ToAddressMinLength)]
         [MaxLength(EntityValidationConstants.Spedition.ToAddressMaxLength)]
+        [Comment("To address")]
         public string ToAddress { get; set; } = null!;
 
+        /// <summary>
+        /// From date
+        /// </summary>
         [Required]
         [DataType(DataType.Date)]
+        [Comment("From date")]
         public DateTime FromDate { get; set; }
 
         [Required]
