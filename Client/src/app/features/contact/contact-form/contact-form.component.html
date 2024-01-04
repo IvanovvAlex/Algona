@@ -78,16 +78,17 @@
                             </mat-error>
                         </mat-form-field>
 
-                        <label for="phone">Phone</label>
-                        <input autocomplete="Phone" id="phone" type="phone" name="phone" formControlName="phone">
-                        <ng-container *ngIf="contactForm.get('phone')?.touched">
-                            <p class="error" *ngIf="contactForm.get('phone')?.errors?.['required']">
-                                Phone is required!
-                            </p>
-                            <p class="error" *ngIf="contactForm.get('phone')?.errors?.['minlength']">
-                                Phone should be atleast 10 characters!
-                            </p>
-                        </ng-container>
+                        <mat-form-field appearance="outline">
+                            <mat-label for="phone">Phone</mat-label>
+                            <input matInput autocomplete="Phone" id="phone" type="phone" name="phone" formControlName="phone">
+                                <p class="error" *ngIf="contactForm.get('phone')?.errors?.['required']">
+                                    Phone is required!
+                                </p>
+                                <p class="error" *ngIf="contactForm.get('phone')?.errors?.['minlength']">
+                                    Phone should be atleast 10 characters!
+                                </p>
+                        </mat-form-field>
+
                     </div>
 
                     <div class="break"></div>
