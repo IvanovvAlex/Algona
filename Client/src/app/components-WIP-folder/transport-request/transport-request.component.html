@@ -1,14 +1,14 @@
 <div class="container mb-5">
     <div class="heading">
-        <h1>Transport</h1>
+        <h1>{{'transport.title' | translate}}</h1>
     </div>
     <div class="description">
-        <p>Do you have a cargo?</p>
-        <p>We have own fleet trucks and carry transport solutuions over the entirety of the European continent.</p>
+        <p>{{'transport.question' | translate}}</p>
+        <p>{{'transport.solution' | translate}}</p>
     </div>
 
     <div class="heading form">
-        <h2>Request for transport</h2>
+        <h2>{{'transport.request' | translate}}</h2>
     </div>
 
     <form [formGroup]="transportForm" #formDirective="ngForm" (submit)="sendTransportData(formDirective)">
@@ -16,13 +16,13 @@
 
             <div class="row">
                 <mat-form-field appearance="outline">
-                    <mat-label for="fromPlace">From</mat-label>
+                    <mat-label for="fromPlace">{{'transport.from-place' | translate}}</mat-label>
                     <input type="text" matInput placeholder="place" formControlName="fromPlace">
                     <mat-error *ngIf="transportForm.controls['fromPlace'].hasError('required')">The From field is
                         required!</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
-                    <mat-label>To</mat-label>
+                    <mat-label>{{'transport.to-place' | translate}}</mat-label>
                     <input type="text" matInput placeholder="place" formControlName="toPlace">
                     <mat-error *ngIf="transportForm.controls['toPlace'].hasError('required')">The To field is
                         required!</mat-error>
@@ -31,7 +31,7 @@
 
             <div class="row">
                 <mat-form-field appearance="outline">
-                    <mat-label>From</mat-label>
+                    <mat-label>{{'transport.from-date' | translate}}</mat-label>
                     <input matInput [matDatepicker]="picker1" formControlName="fromDate">
                     <mat-error *ngIf="transportForm.controls['fromDate'].hasError('required')">The From field is
                         required!</mat-error>
@@ -39,7 +39,7 @@
                     <mat-datepicker #picker1></mat-datepicker>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
-                    <mat-label>To</mat-label>
+                    <mat-label>{{'transport.to-date' | translate}}</mat-label>
                     <input matInput [matDatepicker]="picker2" formControlName="toDate">
                     <mat-error *ngIf="transportForm.controls['toDate'].hasError('required')">The To field is
                         required!</mat-error>
@@ -50,13 +50,13 @@
 
             <div class="row">
                 <mat-form-field appearance="outline">
-                    <mat-label>Num of pallets</mat-label>
+                    <mat-label>{{'transport.pallets' | translate}}</mat-label>
                     <input type="number" matInput placeholder="numbers" formControlName="pallets">
                     <mat-error *ngIf="transportForm.controls['pallets'].hasError('required')">The Pallets field is
                         required!</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
-                    <mat-label>Total weight</mat-label>
+                    <mat-label>{{'transport.weight' | translate}}</mat-label>
                     <input type="number" matInput placeholder="tons" formControlName="weight">
                     <mat-error *ngIf="transportForm.controls['weight'].hasError('required')">The Weight field is
                         required!</mat-error>
@@ -65,19 +65,19 @@
 
             <div class="row last">
                 <mat-form-field appearance="outline">
-                    <mat-label>Name</mat-label>
+                    <mat-label>{{'transport.name' | translate}}</mat-label>
                     <input type="text" matInput formControlName="name">
                     <mat-error *ngIf="transportForm.controls['name'].hasError('required')">The Name is
                         required!</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
-                    <mat-label>Phone number</mat-label>
+                    <mat-label>{{'transport.phone' | translate}}</mat-label>
                     <input type="text" matInput formControlName="phone">
                     <mat-error *ngIf="transportForm.controls['phone'].hasError('required')">The Phone field is
                         required!</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
-                    <mat-label>Email</mat-label>
+                    <mat-label>{{'transport.email' | translate}}</mat-label>
                     <input type="email" matInput formControlName="email">
                     <mat-error *ngIf="transportForm.controls['email'].hasError('required')">The Email is
                         required!</mat-error>
@@ -86,7 +86,7 @@
             </div>
 
             <div class="button">
-                <button type="submit">Send</button>
+                <button type="submit">{{'transport.send' | translate}}</button>
             </div>
         </div>
     </form>

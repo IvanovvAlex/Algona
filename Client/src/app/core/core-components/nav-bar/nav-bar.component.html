@@ -16,46 +16,45 @@
         <div class="collapse navbar-collapse"
              [ngClass]="{ 'show': isActive, 'd-none': !isActive }"
              id="navbarTogglerDemo01">
-            <!-- <a class="navbar-brand" href="#"></a>     -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link icon-link-hover"
-                       routerLink="/home">HOME</a>
+                       routerLink="/home">{{'nav.home' | translate}}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"
-                       routerLink="/about">ABOUT US</a>
+                       routerLink="/about">{{'nav.about' | translate}}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"
-                       routerLink="/vehicles">VEHICLE PARK</a>
+                       routerLink="/vehicles">{{'nav.vehiclePark' | translate}}</a>
                 </li>
                 <li class="nav-item dropdown"
                     (click)="toggleNavbar()">
                     <a class="nav-link dropdown-toggle"
                        role="button"
                        data-bs-toggle="dropdown"
-                       aria-expanded="false">REQUEST</a>
+                       aria-expanded="false">{{'nav.request' | translate}}</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item"
                                (click)="toggleNavbar()"
-                               routerLink="request/transport">Transport</a></li>
+                               routerLink="request/transport">{{'nav.transport' | translate}}</a></li>
                         <li><a class="dropdown-item"
                                (click)="toggleNavbar()"
-                               routerLink="request/spedition">Spedition</a></li>
+                               routerLink="request/spedition">{{'nav.spedition' | translate}}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"
-                       routerLink="/jobs">CAREERS</a>
+                       routerLink="/jobs">{{'nav.careers' | translate}}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"
-                       routerLink="features/contact">CONTACT US</a>
+                       routerLink="features/contact">{{'nav.contact' | translate}}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"
-                       routerLink="/auth/login">LOGIN</a>
+                       routerLink="/auth/login">{{'nav.login' | translate}}</a>
                 </li>
                 
             </ul>

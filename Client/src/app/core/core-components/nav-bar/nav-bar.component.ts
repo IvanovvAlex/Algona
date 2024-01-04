@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -12,7 +13,7 @@ export class NavBarComponent {
    selectedLanguage: string = '';
    selectedIconClass: string = '';
 
-   constructor(private translate: TranslateService) {}
+   constructor(private translate: TranslateService, private router: Router) {}
 
    ngOnInit() {
     this.selectedLanguage = 'EN';
@@ -22,6 +23,11 @@ export class NavBarComponent {
 
   switchLanguage(language: string) {
     this.translate.use(language);
+    const currentUrl = this.router.url;
+
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
 
     if (language === 'en') {
       this.selectedLanguage = ' EN';

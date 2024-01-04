@@ -39,6 +39,7 @@ button.btn-fluid {
     border-radius: .2rem;
     background-color: transparent;
     overflow: hidden;
+    text-transform: uppercase;
 }
 
 .btn-fluid:hover::before {

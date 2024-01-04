@@ -1,0 +1,45 @@
+{
+    "nav": {
+        "home":"home",
+        "about":"about us",
+        "vehiclePark": "vehicle park",
+        "request":"request",
+        "transport":"transport",
+        "spedition":"spedition",
+        "careers":"cereers",
+        "contact":"contact us",
+        "login":"login"
+    },
+    "hero": {
+        "name":"ALGONA LTD",
+        "action-one":"Transportation and Logistics Company",
+        "question-one":"Why to choose us to be your transportation partner?",
+        "find":"Find out now.",
+        "about":"about us",
+        "action-two":"NEED SPEDITION SERVICES?",
+        "question-two":"Optimize your supply chain with our expert logistics solutions.",
+        "spedition":"REQUEST SPEDITION",
+        "action-three":"INTERNATIONAL TRANSPORT",
+        "question-three":"With our efficient Transportation Services we are the solution for your transportation needs.",
+        "transport":"REQUEST TRANSPORT",
+        "previos":"Previous",
+        "next":"Next"
+    },
+    "transport": {
+        "title":"transport",
+        "question":"Do you have a cargo?",
+        "solution":"We have own fleet trucks and carry transport solutions over the entirety of the European continent.",
+        "request": "request for transport",
+        "from-place":"From",
+        "to-place":"To",
+        "from-date":"From",
+        "to-date":"To",
+        "pallets":"Num of pallets",
+        "weight":"Total weight",
+        "name":"Name",
+        "phone":"Phone number",
+        "email":"Email",
+        "send":"send"
+    }
+    
+}
