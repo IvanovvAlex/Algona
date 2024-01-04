@@ -7,7 +7,7 @@
         <app-paginator [currentPage]="currentPage" [totalPages]="totalPages" (pageChanged)="onPageChanged($event)">
         </app-paginator>
         <div
-            class="d-flex flex-md-row flex-wrap col-md-10 flex-column mx-auto gap-4 align-items-center justify-content-center mb-3">
+            class="d-flex flex-md-row flex-wrap col-md-8 flex-column mx-auto gap-4 align-items-center justify-content-center mb-3">
             <ng-container *ngIf="!photos || photos.length > 0; else noImagesTemplate">
                 <article class="card border-0 col-md-4 col-10" *ngFor="let photo of paginatedArray; let i = index">
                     <div class="modal fade" id="exampleModalToggle{{i}}" aria-hidden="true"

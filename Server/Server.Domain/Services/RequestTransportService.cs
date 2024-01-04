@@ -14,16 +14,12 @@
     public class RequestTransportService : IRequestTransportService
     {
         private readonly IUnitOfWork unitOfWork;
+        
         public RequestTransportService(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
         }
-
-        /// <summary>
-        /// Creates a new request for transport
-        /// </summary>
-        /// <param name="transport"></param>
-        /// <returns></returns>
+        
         public async Task<RequestTransport> Create(TransportRequest transport)
         {
             RequestTransport request = new RequestTransport()
@@ -63,10 +59,12 @@
         public async Task<RequestTransport?> GetById(string id)
         {
             var request = await unitOfWork.RequestTransport.GetByIdAsync(id);
+            
             if (request == null)
             {
                 return null;
             }
+            
             return request;
         }
     }
