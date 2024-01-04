@@ -9,6 +9,5 @@ namespace Server.Data.Interfaces.Repositories
 {
     public interface ITruckRepository : IRepository<Truck>
     {
-
     }
 }
