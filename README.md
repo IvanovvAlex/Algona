@@ -13,7 +13,7 @@
 
 **Welcome to Algona LTD - International transport and spedition management company.**
 
-Algona is designed to streamline and optimize transportation operations for businesses and private persons, providing a user-friendly interface to manage various aspects of the transportation process.    
+Algona is designed to streamline and optimize transportation operations for businesses and private individuals, providing a user-friendly interface to manage various aspects of the transportation process.    
 It's easy to use, with intuitive design and fully responsive content visualisation in order to be accessible on every device clients use.
 
 ## Features
