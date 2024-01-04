@@ -33,7 +33,7 @@ export class GarageComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.photos = photos;
-        this.totalPages = this.photos.length / 12
+        this.totalPages = Math.ceil(this.photos.length / 12);
         this.paginatedArray = this.photos.slice(0, 12);
     }
 

@@ -12,6 +12,8 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 //TODO: Here can add more modules if needed
 
 @NgModule({
@@ -28,7 +30,9 @@ import { MatIconModule } from '@angular/material/icon';
         MatPaginatorModule,
         MatSortModule,
         MatSnackBarModule,
-        MatIconModule
+        MatIconModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
     ],
 
 

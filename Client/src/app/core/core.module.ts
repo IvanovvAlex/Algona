@@ -6,12 +6,14 @@ import { SharedModule } from '../shared/shared.module';
 
 // Component imports
 import { NavBarComponent } from './core-components/nav-bar/nav-bar.component';
+import { FooterComponent } from './core-components/footer/footer.component';
 
 
 
 @NgModule({
   declarations: [
     NavBarComponent,
+    FooterComponent,
 
   ],
   imports: [
@@ -19,7 +21,8 @@ import { NavBarComponent } from './core-components/nav-bar/nav-bar.component';
     SharedModule
   ],
   exports: [
-    NavBarComponent,
+      NavBarComponent,
+      FooterComponent
   ]
 })
 export class CoreModule { }
