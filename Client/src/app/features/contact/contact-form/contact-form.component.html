@@ -40,8 +40,8 @@
 
                     </div>
 
-                    <div class="field-box">
-                        <!-- <label for="name">Name</label>
+                    <!-- <div class="field-box">
+                        <label for="name">Name</label>
                         <input autocomplete="Name" id="name" type="text" name="name" formControlName="name">
                         <ng-container *ngIf="contactForm.get('name')?.touched">
                             <p class="error" *ngIf="contactForm.get('name')?.errors?.['required']">
@@ -50,9 +50,9 @@
                             <p class="error" *ngIf="contactForm.get('name')?.errors?.['minlength']">
                                 Name is too short! Should be atleast 2 characters
                             </p>
-                        </ng-container> -->
+                        </ng-container>
 
-                        <!-- <label for="companyName">Company Name</label>
+                       <label for="companyName">Company Name</label>
                         <input autocomplete="Company Name" id="companyName" type="text" name="companyName"
                             formControlName="companyName">
                         <ng-container *ngIf="contactForm.get('companyName')?.touched">
@@ -62,21 +62,24 @@
                             <p class="error" *ngIf="contactForm.get('companyName')?.errors?.['minlength']">
                                 Company name is too short! Should be atleast 2 characters
                             </p>
-                        </ng-container> -->
-                    </div>
+                        </ng-container> 
+                    </div> -->
 
                     <div class="field-box">
-                        <label for="email">Email</label>
-                        <input autocomplete="Email" id="email" type="email" name="email" formControlName="email">
-                        <ng-container *ngIf="contactForm.get('email')?.touched">
-                            <p class="error" *ngIf="contactForm.get('email')?.errors?.['required']">
-                                Email is required!
-                            </p>
-                            <p class="error" *ngIf="contactForm.get('email')?.errors?.['emailVdtr']">
-                                Not a valid email
-                            </p>
-                        </ng-container>
-
+                        <mat-form-field appearance="outline">
+                            <mat-label for="email">Email</mat-label>
+                            <input matInput autocomplete="Email" id="email" type="email" name="email"
+                                formControlName="email">
+                            <ng-container *ngIf="contactForm.get('email')?.touched">
+                                <p class="error" *ngIf="contactForm.get('email')?.errors?.['required']">
+                                    Email is required!
+                                </p>
+                                <p class="error" *ngIf="contactForm.get('email')?.errors?.['emailVdtr']">
+                                    Not a valid email
+                                </p>
+                            </ng-container>
+                        </mat-form-field>
+                        
                         <label for="phone">Phone</label>
                         <input autocomplete="Phone" id="phone" type="phone" name="phone" formControlName="phone">
                         <ng-container *ngIf="contactForm.get('phone')?.touched">
