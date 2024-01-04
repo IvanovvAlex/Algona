@@ -76,7 +76,9 @@ namespace Server.Domain.Services
 
             //Set the html message body.
             string htmlBody = "<html><body>";
-            htmlBody += "<h3>Dear Iliya Zapryanov,</h3>";
+            htmlBody += "<h3>Dear ";
+            htmlBody += request.Name;
+            htmlBody += ",</h3>";
             htmlBody += "<p>We would like to express our sincere gratitude for using the <b>Contact Us</b> feature on our website. Your inquiry is important to us, and we appreciate the opportunity to assist you.</p>";
             htmlBody += "<p>Our team is currently reviewing your message, and we will do our utmost to provide you with a timely and comprehensive response. In the meantime, please feel free to explore our <a href=\"[URL]\">website</a> for additional information that may be helpful.</p>";
             htmlBody += "<p>Here at <b>ALGONA</b>, we are committed to delivering excellent customer service, and your feedback is invaluable to us. We are constantly striving to improve our products, and your input plays a crucial role in this process.</p>";
