@@ -18,10 +18,10 @@
                             <input matInput autocomplete="Name" id="name" type="text" name="name"
                                 formControlName="name">
 
-                            <mat-error *ngIf="contactForm.get('name')?.errors?.['required']">Name field is
+                            <mat-error class="mat-err" *ngIf="contactForm.get('name')?.errors?.['required']">Name field is
                                 required!
                             </mat-error>
-                            <mat-error *ngIf="contactForm.get('name')?.errors?.['minlength']">Name is too short!
+                            <mat-error class="mat-err" *ngIf="contactForm.get('name')?.errors?.['minlength']">Name is too short!
                                 Should be atleast 2 characters
                             </mat-error>
                         </mat-form-field>
@@ -30,10 +30,10 @@
                             <mat-label for="companyName">Company Name</mat-label>
                             <input matInput autocomplete="Company Name" id="companyName" type="text" name="companyName"
                                 formControlName="companyName">
-                            <mat-error *ngIf="contactForm.get('companyName')?.errors?.['required']">
+                            <mat-error class="mat-err" *ngIf="contactForm.get('companyName')?.errors?.['required']">
                                 Company Name field is required!
                             </mat-error>
-                            <mat-error *ngIf="contactForm.get('companyName')?.errors?.['minlength']">
+                            <mat-error class="mat-err" *ngIf="contactForm.get('companyName')?.errors?.['minlength']">
                                 Company name is too short! Should be atleast 2 characters
                             </mat-error>
                         </mat-form-field>
@@ -70,10 +70,10 @@
                             <mat-label for="email">Email</mat-label>
                             <input matInput autocomplete="Email" id="email" type="email" name="email"
                                 formControlName="email">
-                            <mat-error *ngIf="contactForm.get('email')?.errors?.['required']">
+                            <mat-error class="mat-err" *ngIf="contactForm.get('email')?.errors?.['required']">
                                 Email field is required!
                             </mat-error>
-                            <mat-error *ngIf="contactForm.get('email')?.errors?.['emailVdtr']">
+                            <mat-error class="mat-err" *ngIf="contactForm.get('email')?.errors?.['emailVdtr']">
                                 Not a valid email!
                             </mat-error>
                         </mat-form-field>
@@ -82,10 +82,10 @@
                             <mat-label for="phone">Phone</mat-label>
                             <input matInput autocomplete="Phone" id="phone" type="phone" name="phone"
                                 formControlName="phone">
-                            <mat-error *ngIf="contactForm.get('phone')?.errors?.['required']">
+                            <mat-error class="mat-err" *ngIf="contactForm.get('phone')?.errors?.['required']">
                                 Phone field is required!
                             </mat-error>
-                            <mat-error *ngIf="contactForm.get('phone')?.errors?.['minlength']">
+                            <mat-error class="mat-err" *ngIf="contactForm.get('phone')?.errors?.['minlength']">
                                 Phone should be atleast 10 characters!
                             </mat-error>
                         </mat-form-field>
@@ -98,10 +98,10 @@
                         <mat-form-field appearance="outline">
                             <mat-label for="data" >Message</mat-label>
                             <textarea matInput autocomplete="Message" name="data" id="data" formControlName="data"></textarea>
-                                <mat-error *ngIf="contactForm.get('data')?.errors?.['required']">
+                                <mat-error class="mat-err" *ngIf="contactForm.get('data')?.errors?.['required']">
                                     Message field is required!
                                 </mat-error>
-                                <mat-error *ngIf="contactForm.get('data')?.errors?.['minlength']">
+                                <mat-error class="mat-err" *ngIf="contactForm.get('data')?.errors?.['minlength']">
                                     Message should be atleast 10 characters!
                                 </mat-error>
                         </mat-form-field>

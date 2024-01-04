@@ -60,7 +60,7 @@ section {
     flex: 1 5 2em;
     padding: 0 0.2em;
     align-items: stretch;
-    gap: 0.5em;
+    gap: 1.3em;
 }
 
 /* container for text field and button */
@@ -106,6 +106,7 @@ input,
 }
 
 .mat-err {
+    padding-top: 0.5em;
     font-size: 1.5em;
 }
 
