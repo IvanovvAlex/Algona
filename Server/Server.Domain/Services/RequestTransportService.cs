@@ -19,7 +19,11 @@
         {
             this.unitOfWork = unitOfWork;
         }
-        
+        /// <summary>
+        /// Creates a new request for transport
+        /// </summary>
+        /// <param name="transport"></param>
+        /// <returns></returns>
         public async Task<RequestTransport> Create(TransportRequest transport)
         {
             RequestTransport request = new RequestTransport()
