@@ -5,6 +5,9 @@ using Server.Domain.Interfaces;
 
 namespace Server.API.Controllers
 {
+    /// <summary>
+    /// Request spedition controller
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class RequestSpeditionController : ControllerBase
