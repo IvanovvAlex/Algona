@@ -23,6 +23,7 @@ main {
     gap: 2em;
     justify-content: space-around;
     margin-right: 4.5em;
+    
 
 }
 
@@ -44,6 +45,8 @@ section {
     margin: 0 0 0 10em;
     border-radius: 1em;
     padding: 2em;
+    background: linear-gradient(10deg, var(--primary-styling-color), transparent 55%);
+
 }
 
 

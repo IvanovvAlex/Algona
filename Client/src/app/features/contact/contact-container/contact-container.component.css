@@ -3,8 +3,9 @@
     display: flex;
     flex-direction: column;
     box-shadow: 0em 0em 20em -10em rgb(39, 39, 39);
-    background-color: #cdf5fd75;
-    border-radius: 15em 0 0 0;
+    /* background-color: #cdf5fd75; */
+    background: linear-gradient(30deg, var(--gray-styling-color), transparent 90%);
+    border-radius: 30em 0 0 0;
     align-items: center;
     font-family: inherit;
     margin: auto;
@@ -18,7 +19,9 @@
 /* info banner based container */
 .description-cont {
     flex: 2 1 10em;
-    background-color: #89CFF3;
+    /* background-color: #89CFF3; */
+    /* border-top-left-radius: 30%; */
+    /* background: linear-gradient(to right, var(--primary-styling-color), var(--gray-styling-color) 90%); */
     display: flex;
     flex-direction: column;
     padding: 1em;
