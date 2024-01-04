@@ -5,6 +5,9 @@ using Server.Domain.Interfaces;
 
 namespace Server.Domain.Services
 {
+    /// <summary>
+    /// Request spedition service
+    /// </summary>
     public class RequestSpeditionService : IRequestSpeditionService
     {
         private readonly IUnitOfWork unitOfWork;
@@ -33,11 +36,19 @@ namespace Server.Domain.Services
             return request;
         }
 
+        /// <summary>
+        /// Gets all requests for spedition
+        /// </summary>
         public Task<IEnumerable<RequestSpedition>> GetAll()
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Gets a request for spedition by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<RequestSpedition?> GetById(string id)
         {
             var request = await unitOfWork.RequestSpedition.GetByIdAsync(id);
