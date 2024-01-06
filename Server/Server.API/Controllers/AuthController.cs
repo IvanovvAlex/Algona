@@ -11,6 +11,9 @@ using System.Text;
 
 namespace Server.API.Controllers
 {
+    /// <summary>
+    /// Aut controller
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
@@ -20,6 +23,13 @@ namespace Server.API.Controllers
         private readonly IConfiguration config;
         private readonly IUserRepository userRepository;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="_userManager"></param>
+        /// <param name="_signInManager"></param> 
+        /// <param name="_config"></param> 
+        /// <param name="_userRepository"></param> 
         public AuthController(
           UserManager<User> _userManager,
           SignInManager<User> _signInManager,
@@ -32,6 +42,10 @@ namespace Server.API.Controllers
             userRepository = _userRepository;
         }
 
+        /// <summary>
+        /// Creates a new request for login
+        /// </summary>
+        /// <param name="userLogin"></param>
         [AllowAnonymous]
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] CreateLoginRequest userLogin)
@@ -74,6 +88,10 @@ namespace Server.API.Controllers
             }
         }
 
+        /// <summary>
+        /// Creates a new request for register
+        /// </summary>
+        /// <param name="userRegister"></param>
         [AllowAnonymous]
         [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] CreateRegisterRequest userRegister)
