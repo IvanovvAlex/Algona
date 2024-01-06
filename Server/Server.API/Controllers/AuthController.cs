@@ -11,6 +11,9 @@ using System.Text;
 
 namespace Server.API.Controllers
 {
+    /// <summary>
+    /// Authentication controller
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
@@ -31,6 +34,12 @@ namespace Server.API.Controllers
             config = _config;
             userRepository = _userRepository;
         }
+
+        /// <summary>
+        /// Authenticates a user based on the provided login credentials. This method first validates the incoming data. If the data is invalid, it responds with a 403 status code. Then attempts to find the user by email. If the user is not found, or if the password does not match, it returns a 401 status code indicating wrong email or password. Upon successful authentication, it generates a token, stores it in a secure, HTTP-only cookie, and returns the token with a 200 status code. In case of any server error during the process, a 500 status code with the error message is returned.
+        /// </summary>
+        /// <param name="userLogin">The login credentials of the user, including email and password.</param>
+        /// <returns>Returns an HTTP response depending on the outcome of the authentication process.</returns>
 
         [AllowAnonymous]
         [HttpPost("Login")]
@@ -73,6 +82,12 @@ namespace Server.API.Controllers
                 return StatusCode(500, error.Message);
             }
         }
+
+        /// <summary>
+        /// Registers a new user with the provided registration details. It first validates the incoming data and returns a 403 status code if the data is incorrect. It checks if the email is already in use, returning a 409 status code if it is. If the email is not in use, it creates a new user and attempts to register them. Upon successful registration, the user is automatically signed in, a token is generated, stored in a secure, HTTP-only cookie, and returned with a 200 status code. If the registration fails due to invalid input data, a 401 status code is returned. Any server errors during the process result in a 500 status code with the error message.
+        /// </summary>
+        /// <param name="userRegister">The registration details of the user, including first name, last name, email, and password.</param>
+        /// <returns>Returns an HTTP response based on the outcome of the registration process.</returns>
 
         [AllowAnonymous]
         [HttpPost("Register")]
@@ -122,6 +137,11 @@ namespace Server.API.Controllers
             }
         }
 
+        /// <summary>
+        /// Generates a JWT (JSON Web Token) for a user based on their login credentials. The token includes a single claim, which is the user's email. The issuer and audience for the token are also retrieved from the application's configuration. The token is set to expire in 30 minutes. This method returns the serialized form of the JWT.
+        /// </summary>
+        /// <param name="user">The user's login credentials, primarily used here for the user's email.</param>
+        /// <returns>A string representing the serialized JWT.</returns>
         private string GenerateToken(CreateLoginRequest user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]));

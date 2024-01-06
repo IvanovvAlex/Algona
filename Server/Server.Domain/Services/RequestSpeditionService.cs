@@ -11,10 +11,17 @@ namespace Server.Domain.Services
     public class RequestSpeditionService : IRequestSpeditionService
     {
         private readonly IUnitOfWork unitOfWork;
+
         public RequestSpeditionService(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
         }
+
+        /// <summary>
+        /// Creates a spedition request
+        /// </summary>
+        /// <param name="spedition"></param>
+        /// <returns></returns>
         public async Task<RequestSpedition?> Create(SpeditionRequest spedition)
         {
             RequestSpedition request = new RequestSpedition()
@@ -45,7 +52,7 @@ namespace Server.Domain.Services
         }
 
         /// <summary>
-        /// Gets a request for spedition by id
+        /// Gets a request for spedition by ID
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

@@ -1,6 +1,5 @@
 ﻿namespace Server.Domain.Interfaces
 {
-    using Server.Common.Requests.JobRequest;
     using Server.Data.Entites;
 
     public interface IJobService
