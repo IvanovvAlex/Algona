@@ -5,7 +5,7 @@
               (ngSubmit)="onSubmit()">
             <mat-card class="shadow-effect">
                 <mat-card-header>
-                    <h1 class="text-black-50 text-center mb-1">LOGIN TO YOUR ACCOUNT</h1>
+                    <h1 class="text-black-50 text-center mb-1">{{'login.title' | translate}}</h1>
                     <hr>
                 </mat-card-header>
 
@@ -14,7 +14,7 @@
                     <mat-card-content>
 
                         <mat-form-field>
-                            <mat-label><mat-icon>email</mat-icon>Email</mat-label>
+                            <mat-label><mat-icon>email</mat-icon>{{'login.form-email' | translate}}</mat-label>
                             <input formControlName="email"
                                    type="email"
                                    autocomplete="email"
@@ -28,7 +28,7 @@
                         </mat-form-field>
 
                         <mat-form-field>
-                            <mat-label><mat-icon>vpn_key</mat-icon>Password</mat-label>
+                            <mat-label><mat-icon>vpn_key</mat-icon>{{'login.form-password' | translate}}</mat-label>
                             <input formControlName="password"
                                    type="password"
                                    autocomplete="current-password"
@@ -39,7 +39,7 @@
                             </ng-container>
                         </mat-form-field>
                         <a class="pt-0 mt-0 small"
-                           routerLink="/auth/forgottenPassword">Forgot password?</a>
+                           routerLink="/auth/forgottenPassword">{{'login.forgot-pass' | translate}}</a>
 
                     </mat-card-content>
                 </div>
@@ -47,10 +47,10 @@
                 <mat-card-actions class="pb-4">
                     <button [disabled]="loginForm.invalid"
                             mat-raised-button
-                            color="primary">Login</button>
+                            color="primary">{{'login.login' | translate}}</button>
                 </mat-card-actions>
                 <mat-card-footer>
-                    <p class="pt-4 text-center">Not a Member? <a routerLink="/auth/register">Register Now</a></p>
+                    <p class="pt-4 text-center">{{'login.notAMember' | translate}} <a routerLink="/auth/register">{{'login.register' | translate}}</a></p>
                 </mat-card-footer>
                 <div id="border-line"></div>
             </mat-card>
