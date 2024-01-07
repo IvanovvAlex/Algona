@@ -29,7 +29,7 @@
                     </td>
                     <td class="px-md-4 px-1"><a [routerLink]="['/jobs/details', job.id]"
                            mat-raised-button
-                           color="primary">View details and apply</a></td>
+                           color="primary">{{'careers.details' | translate}}</a></td>
                 </tr>
             </tbody>
         </table>
@@ -38,9 +38,7 @@
 
 <ng-template #noContentTemplate>
     <div class="bg-light d-flex flex-column">
-        <h3 class="my-5 text-black-50 lh-base fw-light text-center">Unfortunately, there is currently no vacancy in
-            Algona LTD.<br>Check back
-            soon.</h3>
+        <h3 class="my-5 text-black-50 lh-base fw-light text-center">{{'careers.noJob' | translate}}<br>{{'careers.chеck' | translate}}</h3>
     </div>
 </ng-template>
 
