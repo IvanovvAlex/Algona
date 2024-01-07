@@ -20,10 +20,8 @@
                                    autocomplete="email"
                                    matInput>
                             <ng-container *ngIf="fc.email.touched && fc.email.invalid">
-                                <mat-error *ngIf="fc.email.errors?.['required']" [@fade]>Email is
-                                    required!</mat-error>
-                                <mat-error *ngIf="fc.email.errors?.['email']" [@fade]>Email is
-                                    not valid!</mat-error>
+                                <mat-error *ngIf="fc.email.errors?.['required']" [@fade]>{{'error.email-required' | translate}}</mat-error>
+                                <mat-error *ngIf="fc.email.errors?.['email']" [@fade]>{{'error.email-notValid' | translate}}</mat-error>
                             </ng-container>
                         </mat-form-field>
 
@@ -34,8 +32,7 @@
                                    autocomplete="current-password"
                                    matInput>
                             <ng-container *ngIf="fc.password.touched && fc.password.invalid">
-                                <mat-error *ngIf="fc.password.errors?.['required']" [@fade]>Password is
-                                    required!</mat-error>
+                                <mat-error *ngIf="fc.password.errors?.['required']" [@fade]>{{'error.password-required' | translate}}</mat-error>
                             </ng-container>
                         </mat-form-field>
                         <a class="pt-0 mt-0 small"

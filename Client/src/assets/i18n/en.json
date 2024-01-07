@@ -41,6 +41,22 @@
         "email":"Email",
         "send":"send"
     },
+    "spedition": {
+        "title":"transport",
+        "question":"Logistics solutions according to individual needs",
+        "solution":"We offer a complete suite of logistics solutions, tailored to the specific needs of our clients.",
+        "request": "Request for spedition",
+        "from-place":"From",
+        "to-place":"To",
+        "from-date":"From",
+        "to-date":"To",
+        "pallets":"Num of pallets",
+        "weight":"Total weight",
+        "name":"Name",
+        "phone":"Phone number",
+        "email":"Email",
+        "send":"send"
+    },
     "about": {
         "mission":"Our Mission",
         "mission-one":"Welcome to the heart of our operation, where the road meets reliability, and journeys become seamless experiences. At Algona, our mission is more than just transporting goods from point A to point B — it's about fostering connections, powering economies, and ensuring that every mile traveled is a testament to our commitment.",
@@ -62,7 +78,11 @@
     "careers": {
         "title":"Available positions",
         "subtitle-one":"Looking for a job?",
-        "subtitle-two":"View available positions for which you may apply right away"
+        "subtitle-two":"View available positions for which you may apply right away",
+        "details":"View details and apply",
+        "noJob": "Unfortunately, there is currently no vacancy in Algona LTD.",
+        "check":"Check back soon."
+        
     },
     "contact": {
         "title":"Contact us",
@@ -87,6 +107,24 @@
         "notAMember":"Not a Member?",
         "register":"Register Now"
     },
+     "register": {
+        "title":"REGISTER AN ACCOUNT",
+        "form-firstName":"First Name",
+        "form-lastName":"Last Name",
+        "form-name":"Email",
+        "form-password":"Password",
+        "confirm-password":"Confirm Password",
+        "forgot-pass":"Forgot password?",
+        "register":"Register",
+        "member":"Alredy a Member?",
+        "login":"Click here to login"
+    },
+    "forgot": {
+        "forgot-password":"forgot password",
+        "email":"email",
+        "confirm":"confirm",
+        "back":"Back to Login"
+    },
     "footer": {
         "whoWeAre":"Who we are",
         "about": "about",
@@ -101,7 +139,27 @@
         "address":"address",
         "direction":"Bulgaria, Ruse, Pliska str 91"
 
+    },
+    "error": {
+        "email-required":"The Email is required!",
+        "email-notValid":"Email is not valid!",
+        "firstName-required":"First Name is required!",
+        "lastName-required":"Last Name is required!",
+        "password-required":"The Password is required!",
+        "password-lenght":"Password must be at least 6 characters long!",
+        "rePassword-required":"Confirm password is required!",
+        "rePassword-notMatch":"Passwords don't match!",
+        "from":"The From field is required!",
+        "to":"The To field is required!",
+        "pallets":"The Pallets field is required!",
+        "weight":"The Weight field is required!",
+        "phone":"The Phone number is required!",
+        "notFound":"Working in progress..."
+
+
     }
+    
+    
 
     
 }
