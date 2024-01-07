@@ -3,8 +3,8 @@
     <section>
         <div class="contact-form-cont">
             <div class="heading">
-                <h2>Contact us</h2>
-                <p>If you have any questions?</p>
+                <h2>{{'contact.title' | translate}}</h2>
+                <p>{{'contact.questions' | translate}}</p>
             </div>
             <hr>
 
@@ -14,7 +14,7 @@
 
                     <div class="field-box">
                         <mat-form-field appearance="outline">
-                            <mat-label for="name">Name</mat-label>
+                            <mat-label for="name">{{'contact.form-name' | translate}}</mat-label>
                             <input matInput autocomplete="Name" id="name" type="text" name="name"
                                 formControlName="name">
 
@@ -27,7 +27,7 @@
                         </mat-form-field>
 
                         <mat-form-field appearance="outline">
-                            <mat-label for="companyName">Company Name</mat-label>
+                            <mat-label for="companyName">{{'contact.form-company' | translate}}</mat-label>
                             <input matInput autocomplete="Company Name" id="companyName" type="text" name="companyName"
                                 formControlName="companyName">
                             <mat-error class="mat-err" *ngIf="contactForm.get('companyName')?.errors?.['required']">
@@ -43,7 +43,7 @@
                     
                     <div class="field-box">
                         <mat-form-field appearance="outline">
-                            <mat-label for="email">Email</mat-label>
+                            <mat-label for="email">{{'contact.form-email' | translate}}</mat-label>
                             <input matInput autocomplete="Email" id="email" type="email" name="email"
                                 formControlName="email">
                             <mat-error class="mat-err" *ngIf="contactForm.get('email')?.errors?.['required']">
@@ -55,7 +55,7 @@
                         </mat-form-field>
 
                         <mat-form-field appearance="outline">
-                            <mat-label for="phone">Phone</mat-label>
+                            <mat-label for="phone">{{'contact.form-phone' | translate}}</mat-label>
                             <input matInput autocomplete="Phone" id="phone" type="phone" name="phone"
                                 formControlName="phone">
                             <mat-error class="mat-err" *ngIf="contactForm.get('phone')?.errors?.['required']">
@@ -72,7 +72,7 @@
 
                     <div class="msg-cont">
                         <mat-form-field appearance="outline">
-                            <mat-label for="data" >Message</mat-label>
+                            <mat-label for="data" >{{'contact.form-message' | translate}}</mat-label>
                             <textarea matInput autocomplete="Message" name="data" id="data" formControlName="data"></textarea>
                                 <mat-error class="mat-err" *ngIf="contactForm.get('data')?.errors?.['required']">
                                     Message field is required!
@@ -82,7 +82,7 @@
                                 </mat-error>
                         </mat-form-field>
                         <button mat-raised-button class="sndBtn" [disabled]="contactForm.invalid"
-                            color="primary">Send</button>
+                            color="primary">{{'contact.form-send' | translate}}</button>
 
                     </div>
                 </div>

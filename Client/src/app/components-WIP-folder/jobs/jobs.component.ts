@@ -48,7 +48,7 @@ export class JobsComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.subscription = this.apiService.getAvailableJobs().subscribe({
             next: data => {
-                this.jobs = data
+                this.jobs = data;
             },
             error: err => {
                 //TODO: Remove this array; Uncomment line below

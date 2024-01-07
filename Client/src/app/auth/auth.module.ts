@@ -8,8 +8,14 @@ import { CoreModule } from '../core/core.module';
 import { RegisterComponent } from './register/register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+  }
 
 
 @NgModule({
@@ -24,7 +30,15 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
         CoreModule,
         SharedModule,
         AuthRoutingModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        TranslateModule.forChild({
+            defaultLanguage: 'en', 
+            loader: {
+              provide: TranslateLoader,
+              useFactory: HttpLoaderFactory,
+              deps: [HttpClient]
+            }
+          })
     ]
 })
 export class AuthModule { }

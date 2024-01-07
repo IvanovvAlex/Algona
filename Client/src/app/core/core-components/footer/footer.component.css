@@ -28,6 +28,10 @@ p.text-small {
     margin-bottom: 0.5rem;
 }
 
+footer .nav-link {
+    text-transform: uppercase;
+}
+
 .mat-icon {
     transform: scale(.85);
     vertical-align: middle;

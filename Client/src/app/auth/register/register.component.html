@@ -6,7 +6,7 @@
               class="d-flex justify-content-center">
             <mat-card class="shadow-effect">
                 <mat-card-header>
-                    <h1 class="text-black-50 text-center mb-1">REGISTER AN ACCOUNT</h1>
+                    <h1 class="text-black-50 text-center mb-1">{{'register.title' | translate}}</h1>
                     <hr>
                 </mat-card-header>
 
@@ -16,7 +16,7 @@
 
                         <div class="d-flex flex-md-row gap-lg-2 gap-md-1 gap-0 justify-content-md-between flex-column">
                             <mat-form-field class="flex-grow-1">
-                                <mat-label>First Name</mat-label>
+                                <mat-label>{{'register.form-firstName' | translate}}</mat-label>
                                 <input formControlName="firstName"
                                        name="firstName"
                                        type="string"
@@ -24,12 +24,11 @@
                                        matInput>
                                 <ng-container *ngIf="hasErrors('firstName')">
                                     <mat-error *ngIf="formControl.firstName.errors?.['required']"
-                                               [@fade]>First Name is
-                                        required!</mat-error>
+                                               [@fade]>{{'error.firstName-required' | translate}}</mat-error>
                                 </ng-container>
                             </mat-form-field>
                             <mat-form-field class="flex-grow-1">
-                                <mat-label>Last Name</mat-label>
+                                <mat-label>{{'register.form-lastName' | translate}}</mat-label>
                                 <input formControlName="lastName"
                                        name="lastName"
                                        type="string"
@@ -37,14 +36,13 @@
                                        matInput>
                                 <ng-container *ngIf="hasErrors('lastName')">
                                     <mat-error *ngIf="formControl.lastName.errors?.['required']"
-                                               [@fade]>Last Name is
-                                        required!</mat-error>
+                                               [@fade]>{{'error.lastName-required' | translate}}</mat-error>
                                 </ng-container>
                             </mat-form-field>
                         </div>
 
                         <mat-form-field>
-                            <mat-label><mat-icon>email</mat-icon>Email</mat-label>
+                            <mat-label><mat-icon>email</mat-icon>{{'register.form-email' | translate}}</mat-label>
                             <input formControlName="email"
                                    name="email"
                                    type="email"
@@ -52,17 +50,15 @@
                                    matInput>
                             <ng-container *ngIf="hasErrors('email')">
                                 <mat-error *ngIf="formControl.email.errors?.['required']"
-                                           [@fade]>Email is
-                                    required!</mat-error>
+                                           [@fade]>{{'error.email-required' | translate}}</mat-error>
                                 <mat-error *ngIf="formControl.email.errors?.['email']"
-                                           [@fade]>Email is
-                                    not valid!</mat-error>
+                                           [@fade]>{{'error.email-notValid' | translate}}</mat-error>
                             </ng-container>
                         </mat-form-field>
 
                         <ng-container formGroupName="passGroup">
                             <mat-form-field>
-                                <mat-label><mat-icon>vpn_key</mat-icon>Password</mat-label>
+                                <mat-label><mat-icon>vpn_key</mat-icon>{{'register.form-password' | translate}}</mat-label>
                                 <input formControlName="password"
                                        name="password"
                                        type="password"
@@ -70,15 +66,14 @@
                                        matInput>
                                 <ng-container *ngIf="getPass.touched && getPass.invalid">
                                     <mat-error *ngIf="getPass.errors?.['required']"
-                                               [@fade]>Password is required!</mat-error>
+                                               [@fade]>{{'error.password-required' | translate}}</mat-error>
                                     <mat-error *ngIf="getPass.errors?.['minlength']"
-                                               [@fade]>Password must be at least 6
-                                        characters long.</mat-error>
+                                               [@fade]>{{'error.password-lenght' | translate}}</mat-error>
                                 </ng-container>
                             </mat-form-field>
 
                             <mat-form-field>
-                                <mat-label><mat-icon>vpn_key</mat-icon>Confirm Password</mat-label>
+                                <mat-label><mat-icon>vpn_key</mat-icon>{{'register.form-rePassword' | translate}}</mat-label>
                                 <input formControlName="rePassword"
                                        name="rePassword"
                                        type="password"
@@ -86,11 +81,9 @@
                                        matInput>
                                 <ng-container *ngIf="getRePass.touched">
                                     <mat-error *ngIf="getRePass.errors?.['required']"
-                                               [@fade]>Confirm password is
-                                        required.</mat-error>
+                                               [@fade]>{{'error.rePassword-required' | translate}}</mat-error>
                                     <mat-error *ngIf="registerForm.get('passGroup')?.errors?.['matchPasswordsValidator']"
-                                               [@fade]>Passwords don't match.
-                                    </mat-error>
+                                               [@fade]>{{'error.rePassword-notMatch' | translate}}</mat-error>
                                 </ng-container>
                             </mat-form-field>
                         </ng-container>
@@ -101,10 +94,10 @@
                 <mat-card-actions class="pb-4">
                     <button [disabled]="registerForm.invalid"
                             mat-raised-button
-                            color="accent">Register</button>
+                            color="accent">{{'register.register' | translate}}</button>
                 </mat-card-actions>
                 <mat-card-footer>
-                    <p class="pt-4 text-center">Already a Member? <a routerLink="/auth/login">Click Here to Login</a></p>
+                    <p class="pt-4 text-center">{{'register.member' | translate}} <a routerLink="/auth/login">{{'register.login' | translate}}</a></p>
                 </mat-card-footer>
                 <div id="border-line"></div>
             </mat-card>
