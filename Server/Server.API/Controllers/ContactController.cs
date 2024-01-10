@@ -19,11 +19,7 @@ namespace Server.API.Controllers
             this.sharedService = sharedService;
         }
 
-        /// <summary>
-        /// Sends an email
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
+   
         [HttpPost]
         public async Task Send(CreateContactRequest request)
         {

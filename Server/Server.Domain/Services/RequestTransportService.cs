@@ -56,7 +56,7 @@
         }
 
         /// <summary>
-        /// Gets a request for transport by id
+        /// Gets a request for transport by ID
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
