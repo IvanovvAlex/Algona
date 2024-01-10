@@ -13,19 +13,19 @@
             <tbody>
                 <tr *ngFor="let job of jobs">
                     <td id="job-title"
-                        class="fw-semibold px-md-4 px-1">{{job.title}}</td>
+                        class="fw-semibold px-md-4 px-1">{{'job.' + job.title | translate}}</td>
                     <td class="benefits">
                         <span class="shadow-sm"
-                              *ngIf="job.fullTime">Full time</span>
+                              *ngIf="job.fullTime">{{'job.fullTime' | translate}}</span>
                         <span class="shadow-sm"
-                              *ngIf="job.fixedSalary">Fixed salary</span>
+                              *ngIf="job.fixedSalary">{{'job.fixedSalary' | translate}}</span>
                         <span class="shadow-sm"
-                              *ngIf="job.insurance">Health insurance</span>
+                              *ngIf="job.insurance">{{'job.health' | translate}}</span>
                         <span class="shadow-sm"
-                              *ngIf="job.payedLeave">Payed leave</span>
+                              *ngIf="job.payedLeave">{{'job.leave' | translate}}</span>
                     </td>
-                    <td class="text-secondary"><small>Published:<br>
-                            {{job.createdAt | date: 'MMM dd yyy, hh:mm a'}}</small>
+                    <td class="text-secondary"><small>{{"job.publish" | translate}}:<br>
+                            {{job.createdAt | date: 'MM dd yyy, hh:mm a'}}</small>
                     </td>
                     <td class="px-md-4 px-1"><a [routerLink]="['/jobs/details', job.id]"
                            mat-raised-button
