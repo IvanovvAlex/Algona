@@ -20,6 +20,13 @@ namespace Server.API.Controllers
         private readonly IConfiguration config;
         private readonly IUserRepository userRepository;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="_userManager"></param>
+        /// <param name="_signInManager"></param> 
+        /// <param name="_config"></param> 
+        /// <param name="_userRepository"></param> 
         public AuthController(
           UserManager<User> _userManager,
           SignInManager<User> _signInManager,
@@ -32,6 +39,7 @@ namespace Server.API.Controllers
             userRepository = _userRepository;
         }
 
+    
         [AllowAnonymous]
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] CreateLoginRequest userLogin)
@@ -74,6 +82,7 @@ namespace Server.API.Controllers
             }
         }
 
+      
         [AllowAnonymous]
         [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] CreateRegisterRequest userRegister)
@@ -122,6 +131,11 @@ namespace Server.API.Controllers
             }
         }
 
+        /// <summary>
+        /// Generates a JWT (JSON Web Token) for a user based on their login credentials. The token includes a single claim, which is the user's email. The issuer and audience for the token are also retrieved from the application's configuration. The token is set to expire in 30 minutes. This method returns the serialized form of the JWT.
+        /// </summary>
+        /// <param name="user">The user's login credentials, primarily used here for the user's email.</param>
+        /// <returns>A string representing the serialized JWT.</returns>
         private string GenerateToken(CreateLoginRequest user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]));
