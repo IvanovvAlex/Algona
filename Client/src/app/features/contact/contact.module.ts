@@ -6,6 +6,13 @@ import { MapComponent } from './map/map.component';
 import { ContactContainerComponent } from './contact-container/contact-container.component';
 import { ContactRoutingModule } from './contact-routing.module';
 import { CoreModule } from 'src/app/core/core.module';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+  }
 
 
 
@@ -20,6 +27,14 @@ import { CoreModule } from 'src/app/core/core.module';
         SharedModule,
         CoreModule,
         ContactRoutingModule,
+        TranslateModule.forChild({
+            defaultLanguage: 'en', 
+            loader: {
+              provide: TranslateLoader,
+              useFactory: HttpLoaderFactory,
+              deps: [HttpClient]
+            }
+          })
     ]
 })
 export class ContactModule { }

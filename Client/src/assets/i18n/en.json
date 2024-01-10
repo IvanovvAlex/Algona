@@ -40,6 +40,126 @@
         "phone":"Phone number",
         "email":"Email",
         "send":"send"
+    },
+    "spedition": {
+        "title":"transport",
+        "question":"Logistics solutions according to individual needs",
+        "solution":"We offer a complete suite of logistics solutions, tailored to the specific needs of our clients.",
+        "request": "Request for spedition",
+        "from-place":"From",
+        "to-place":"To",
+        "from-date":"From",
+        "to-date":"To",
+        "pallets":"Num of pallets",
+        "weight":"Total weight",
+        "name":"Name",
+        "phone":"Phone number",
+        "email":"Email",
+        "send":"send"
+    },
+    "about": {
+        "mission":"Our Mission",
+        "mission-one":"Welcome to the heart of our operation, where the road meets reliability, and journeys become seamless experiences. At Algona, our mission is more than just transporting goods from point A to point B — it's about fostering connections, powering economies, and ensuring that every mile traveled is a testament to our commitment.",
+        "mission-two":"Our main goal is not only to provide adaptable Transport and Logistics services in all phases of supply chain management but to keep our standarts high and garantee you effective strategically planning and logistics management, warehouse operations, transportation details, and adaptable customer service solutions.",
+        "story":"Our Story",
+        "story-one":"Algona was established in 2017 Ruse Bulgaria, with a vision to redefine the standards of transportation. Ever since our aim is to provide a diverse range of transportation solutions that cater to the unique needs of our clients.",
+        "story-two":"Over the years, our fleet of trucks has been the backbone of our cargo transportation services. Today we have three trucks for international transportation in EU. All vehicles are maintained and equipped with the latest in tracking and security systems guaranteeing your cargo's safety and on time deliver.",
+        "services":"Our Services",
+        "service-one":"Crafted to ensure a seamless journey for your cargo, every step of the way.",
+        "transport":"International Transport",
+        "spedition":"Spedition",
+        "tracking":"Real Time Tracking of Orders",
+        "careers":"Careers",
+        "support":"Question Support"
+    },
+    "vehiclePark": {
+        "title":"Our vehicle park"
+    },
+    "careers": {
+        "title":"Available positions",
+        "subtitle-one":"Looking for a job?",
+        "subtitle-two":"View available positions for which you may apply right away",
+        "details":"View details and apply",
+        "noJob": "Unfortunately, there is currently no vacancy in Algona LTD.",
+        "check":"Check back soon."
+        
+    },
+    "contact": {
+        "title":"Contact us",
+        "questions":"If you have any questions?",
+        "form-name":"Name",
+        "form-company":"Company Name",
+        "form-email":"Email",
+        "form-phone":"Phone",
+        "form-message":"Message",
+        "form-send":"Send",
+        "email":"email",
+        "phone":"phone",
+        "address":"address",
+        "direction":"Bulgaria, Ruse, Pliska str 91"
+    },
+    "login": {
+        "title":"LOGIN TO YOUR ACCOUNT",
+        "form-email":"Email",
+        "form-password":"Password",
+        "forgot-pass":"Forgot password?",
+        "login":"Login",
+        "notAMember":"Not a Member?",
+        "register":"Register Now"
+    },
+     "register": {
+        "title":"REGISTER AN ACCOUNT",
+        "form-firstName":"First Name",
+        "form-lastName":"Last Name",
+        "form-name":"Email",
+        "form-password":"Password",
+        "confirm-password":"Confirm Password",
+        "forgot-pass":"Forgot password?",
+        "register":"Register",
+        "member":"Alredy a Member?",
+        "login":"Click here to login"
+    },
+    "forgot": {
+        "forgot-password":"forgot password",
+        "email":"email",
+        "confirm":"confirm",
+        "back":"Back to Login"
+    },
+    "footer": {
+        "whoWeAre":"Who we are",
+        "about": "about",
+        "vehiclePark":"vehicle park",
+        "careers": "careers",
+        "contact":"contact",
+        "service":"Our service",
+        "transport":"request transport",
+        "spedition":"request spedition",
+        "call":"call us",
+        "email":"send email",
+        "address":"address",
+        "direction":"Bulgaria, Ruse, Pliska str 91"
+
+    },
+    "error": {
+        "email-required":"The Email is required!",
+        "email-notValid":"Email is not valid!",
+        "firstName-required":"First Name is required!",
+        "lastName-required":"Last Name is required!",
+        "password-required":"The Password is required!",
+        "password-lenght":"Password must be at least 6 characters long!",
+        "rePassword-required":"Confirm password is required!",
+        "rePassword-notMatch":"Passwords don't match!",
+        "from":"The From field is required!",
+        "to":"The To field is required!",
+        "pallets":"The Pallets field is required!",
+        "weight":"The Weight field is required!",
+        "phone":"The Phone number is required!",
+        "notFound":"Working in progress..."
+
+
     }
+    
+    
+
     
 }

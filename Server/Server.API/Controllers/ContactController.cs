@@ -5,6 +5,9 @@ using Server.Domain.Interfaces;
 
 namespace Server.API.Controllers
 {
+    /// <summary>
+    /// Contact controller
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class ContactController : ControllerBase
@@ -16,6 +19,7 @@ namespace Server.API.Controllers
             this.sharedService = sharedService;
         }
 
+   
         [HttpPost]
         public async Task Send(CreateContactRequest request)
         {
