@@ -81,8 +81,7 @@
         "subtitle-two":"View available positions for which you may apply right away",
         "details":"View details and apply",
         "noJob": "Unfortunately, there is currently no vacancy in Algona LTD.",
-        "check":"Check back soon."
-        
+        "check":"Check back soon."  
     },
     "contact": {
         "title":"Contact us",
@@ -138,7 +137,6 @@
         "email":"send email",
         "address":"address",
         "direction":"Bulgaria, Ruse, Pliska str 91"
-
     },
     "error": {
         "email-required":"The Email is required!",
@@ -155,11 +153,14 @@
         "weight":"The Weight field is required!",
         "phone":"The Phone number is required!",
         "notFound":"Working in progress..."
-
-
-    }
-    
-    
-
-    
+    },
+    "job": {
+        "fullTime":"Full time",
+        "fixedSalary":"Fixed salary",
+        "health":"Healt insurance",
+        "leave":"Payed leave",
+        "publish":"Published",
+        "Transportation Dispatcher": "Transportation Dispatcher",
+        "Truck driver":"Truck driver"
+    }    
 }
