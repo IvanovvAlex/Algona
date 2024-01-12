@@ -5,7 +5,7 @@
     using Server.Data.Entities;
     using Server.Data.Interfaces.Repositories;
     /// <summary>
-    /// Request transport repository
+    /// Transport repository
     /// </summary>
     public class TransportRepository : Repository<Transport>, ITransportRepository
     {
@@ -14,7 +14,7 @@
         public TransportRepository(AlgonaDbContext context) : base(context) { }
 
         /// <summary>
-        /// Returns all requests for transport
+        /// Returns all transport requests
         /// </summary>
         /// <returns></returns>
         public override async Task<IEnumerable<Transport>> GetAllAsync()
@@ -25,7 +25,7 @@
         }
 
         /// <summary>
-        /// Returns a request for transport by id
+        /// Returns transport entity by id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -37,7 +37,7 @@
         }
 
         /// <summary>
-        /// Add a new request for transport
+        /// Add transport entity
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
@@ -63,7 +63,7 @@
         }
 
         /// <summary>
-        /// Remove a request for transport
+        /// Removes transport entity
         /// </summary>
         /// <param name="entity"></param>
         public override async void Remove(Transport entity)

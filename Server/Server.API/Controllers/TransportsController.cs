@@ -7,7 +7,7 @@
     using Server.Domain.Interfaces;
 
     /// <summary>
-    /// Request transport controller
+    /// Transport controller
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
@@ -25,7 +25,7 @@
         }
 
         /// <summary>
-        /// Adds a new request for transport
+        /// Adds transport
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -38,7 +38,7 @@
         }
 
         /// <summary>
-        /// Gets all requests for transport
+        /// Gets all transports
         /// </summary>
         /// <returns></returns>
         [HttpGet("All")]

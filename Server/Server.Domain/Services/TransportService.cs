@@ -9,7 +9,7 @@
     using Server.Domain.Interfaces;
 
     /// <summary>
-    /// Request transport service
+    /// Transport service
     /// </summary>
     public class TransportService : ITransportService
     {
@@ -20,7 +20,7 @@
             this.unitOfWork = unitOfWork;
         }
         /// <summary>
-        /// Creates a new request for transport
+        /// Adds a new request for transport
         /// </summary>
         /// <param name="transport"></param>
         /// <returns></returns>

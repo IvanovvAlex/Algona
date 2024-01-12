@@ -6,7 +6,7 @@ using Server.Domain.Interfaces;
 namespace Server.API.Controllers
 {
     /// <summary>
-    /// Request spedition controller
+    /// Spedition controller
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
@@ -24,7 +24,7 @@ namespace Server.API.Controllers
         }
 
         /// <summary>
-        /// Adds a new request for spedition
+        /// Adds spedition
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
