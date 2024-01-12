@@ -8,11 +8,11 @@ namespace Server.Domain.Services
     /// <summary>
     /// Request spedition service
     /// </summary>
-    public class RequestSpeditionService : IRequestSpeditionService
+    public class SpeditionService : ISpeditionService
     {
         private readonly IUnitOfWork unitOfWork;
 
-        public RequestSpeditionService(IUnitOfWork unitOfWork)
+        public SpeditionService(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
         }
@@ -22,9 +22,9 @@ namespace Server.Domain.Services
         /// </summary>
         /// <param name="spedition"></param>
         /// <returns></returns>
-        public async Task<RequestSpedition?> Create(SpeditionRequest spedition)
+        public async Task<Spedition?> Create(SpeditionRequest spedition)
         {
-            RequestSpedition request = new RequestSpedition()
+            Spedition request = new Spedition()
             {
                 PhoneNumber = spedition.PhoneNumber,
                 Name = spedition.Name,
@@ -37,7 +37,7 @@ namespace Server.Domain.Services
                 Email = spedition.Email,
             };
 
-            await unitOfWork.RequestSpedition.AddAsync(request);
+            await unitOfWork.Speditions.AddAsync(request);
             await unitOfWork.CommitAsync();
 
             return request;
@@ -46,7 +46,7 @@ namespace Server.Domain.Services
         /// <summary>
         /// Gets all requests for spedition
         /// </summary>
-        public Task<IEnumerable<RequestSpedition>> GetAll()
+        public Task<IEnumerable<Spedition>> GetAll()
         {
             throw new NotImplementedException();
         }
@@ -56,9 +56,9 @@ namespace Server.Domain.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<RequestSpedition?> GetById(string id)
+        public async Task<Spedition?> GetById(string id)
         {
-            var request = await unitOfWork.RequestSpedition.GetByIdAsync(id);
+            var request = await unitOfWork.Speditions.GetByIdAsync(id);
             if (request == null)
             {
                 return null;
