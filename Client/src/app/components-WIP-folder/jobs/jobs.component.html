@@ -1,4 +1,4 @@
-<section id="careers-section"
+<section @fade id="careers-section"
          class="container-fluid pt-4 mb-5">
     <div class="bg-light pb-4 pt-4">
         <h1 class="px-4">{{'careers.title' | translate}}</h1>
@@ -7,27 +7,17 @@
         <hr class="mb-2 col-6 mx-auto">
     </div>
     <div *ngIf="jobs?.at(0); else noContentTemplate"
-         class="d-flex justify-content-center my-5 col-md-8 m-auto">
+         class="d-flex justify-content-center my-5 col-lg-6 col-md-8 m-auto">
         <table id="table"
                class="bg-light rounded align-middle flex-grow-1">
             <tbody>
-                <tr *ngFor="let job of jobs">
+                <tr *ngFor="let job of jobs; let odd = odd" [ngClass]="{'bg-white': odd}">
                     <td id="job-title"
-                        class="fw-semibold px-md-4 px-1">{{'job.' + job.title | translate}}</td>
-                    <td class="benefits">
-                        <span class="shadow-sm"
-                              *ngIf="job.fullTime">{{'job.fullTime' | translate}}</span>
-                        <span class="shadow-sm"
-                              *ngIf="job.fixedSalary">{{'job.fixedSalary' | translate}}</span>
-                        <span class="shadow-sm"
-                              *ngIf="job.insurance">{{'job.health' | translate}}</span>
-                        <span class="shadow-sm"
-                              *ngIf="job.payedLeave">{{'job.leave' | translate}}</span>
+                        class="fw-semibold px-md-4 px-1"><span>{{job.title}}</span>
+                    <mat-icon>business_center</mat-icon>
                     </td>
-                    <td class="text-secondary"><small>{{"job.publish" | translate}}:<br>
-                            {{job.createdAt | date: 'MM dd yyy, hh:mm a'}}</small>
-                    </td>
-                    <td class="px-md-4 px-1"><a [routerLink]="['/jobs/details', job.id]"
+                    
+                    <td class="w-auto px-md-4 px-1"><a [routerLink]="['/jobs/details', job.id]"
                            mat-raised-button
                            color="primary">{{'careers.details' | translate}}</a></td>
                 </tr>

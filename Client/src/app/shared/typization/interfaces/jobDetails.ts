@@ -1,10 +1,8 @@
 export interface JobDetails {
-    id: string,
-    title: string,
-    description: string,
-    responsibilities: string[],
-    requirements: string[],
-    benefits: string[],
-    deadline: string
-    
+  id: string;
+  isActive: boolean;
+  isDeleted: boolean;
+  title: string;
+  description: string;
+  salary: number;
 }

@@ -1,3 +1,7 @@
+#careers-section {
+    min-height: 500px;
+}
+
 h1,
 h6 {
     text-align: center;
@@ -29,21 +33,20 @@ table td {
 }
 
 td#job-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     color: var(--primary-theme-color);
 }
 
-td.benefits {
-    max-width: 250px;
-    min-width: 20px;
+td#job-title span{
+    width: 80%;
 }
 
-td.benefits span {
-    border-radius: 6px;
-    line-height: 1.1;
-    padding-left: 2px;
-    padding-right: 2px;
+td#job-title mat-icon {
+    opacity: 0.5;
+    transform: scale(0.9);
     color: var(--primary-styling-color);
-    background-color: hsla(201, 98%, 41%, 0.05);
 }
 
 span + span {
@@ -59,7 +62,7 @@ table a {
 }
 
 table a.mdc-button {
-    width: 100%;
+    width: fit-content;
 }
 
 @media screen and (max-width: 420px) {
@@ -69,12 +72,17 @@ table a.mdc-button {
     }
 
     table#table td {
-        max-width: fit-content;
+        max-width: 156px;
         padding: 2px;
     }
 
-    table td.benefits {
-        max-width: 100px;
+    td#job-title {
+        gap: 4px;
+    }
+
+    mat-icon {
+        min-width: fit-content;
+        padding-right: 4px;
     }
 
     table a {
@@ -90,6 +98,10 @@ table a.mdc-button {
 @media screen and (min-width: 421px)and (max-width: 768px) {
     tr td:first-of-type {
         padding-left: 16px !important;
+    }
+
+    td#job-title {
+        gap: 0;
     }
 
     tr td:last-of-type {

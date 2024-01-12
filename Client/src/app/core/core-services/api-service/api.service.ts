@@ -27,10 +27,10 @@ export class ApiService {
     }
 
     getAvailableJobs(): Observable<Job[]> {
-        return this.http.get<Job[]>('api/jobs');
+        return this.http.get<Job[]>('/api/Jobs/Index');
     }
 
     getJobById(jobId:string): Observable<JobDetails> {
-        return this.http.get<JobDetails>(`api/jobs/${jobId}`);
+        return this.http.get<JobDetails>(`/api/Jobs/details/${jobId}`);
     }
 }
