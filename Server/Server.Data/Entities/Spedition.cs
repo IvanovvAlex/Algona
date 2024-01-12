@@ -8,7 +8,7 @@ namespace Server.Data.Entities
     /// <summary>
     /// Request Spedition Table
     /// </summary>
-    public class RequestSpedition
+    public class Spedition
     {
         /// <summary>
         /// Spedition identifier

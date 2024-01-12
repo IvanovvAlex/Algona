@@ -10,15 +10,15 @@ namespace Server.API.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class RequestSpeditionController : ControllerBase
+    public class SpeditionsController : ControllerBase
     {
 
-        private readonly IRequestSpeditionService _requestSpeditionService;
+        private readonly ISpeditionService _requestSpeditionService;
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="requestSpeditionService"></param>
-        public RequestSpeditionController(IRequestSpeditionService requestSpeditionService)
+        public SpeditionsController(ISpeditionService requestSpeditionService)
         {
             _requestSpeditionService= requestSpeditionService;
         }
@@ -31,7 +31,7 @@ namespace Server.API.Controllers
         [HttpPost("Create")]
         public async Task<SpeditionRequest> Create(SpeditionRequest request)
         {
-            RequestSpedition requestSpedition = await _requestSpeditionService.Create(request);
+            Spedition requestSpedition = await _requestSpeditionService.Create(request);
 
             return request;
         }

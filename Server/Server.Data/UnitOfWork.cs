@@ -14,23 +14,23 @@ namespace Server.Data
 
         private readonly IJobRepository jobRepository;
 
-        private IRequestTransportRepository requestTransportRepository;
+        private ITransportRepository transportRepository;
 
-        private IRequestSpeditionRepository requestSpeditionRepository;
+        private ISpeditionRepository speditionRepository;
 
         public UnitOfWork(AlgonaDbContext context,
             ICargoRepository cargoRepository,
             ITruckRepository truckRepository,
             IJobRepository jobRepository,
-            IRequestTransportRepository requestTransportRepository,
-            IRequestSpeditionRepository requestSpeditionRepository)
+            ITransportRepository transportRepository,
+            ISpeditionRepository speditionRepository)
         {
             this.context = context;
             this.cargoRepository = cargoRepository;
             this.truckRepository = truckRepository;
             this.jobRepository = jobRepository;
-            this.requestTransportRepository = requestTransportRepository;
-            this.requestSpeditionRepository = requestSpeditionRepository;
+            this.transportRepository = transportRepository;
+            this.speditionRepository = speditionRepository;
         }
 
         public ITruckRepository Trucks => truckRepository ?? new TruckRepository(context);
@@ -39,9 +39,9 @@ namespace Server.Data
 
         public IJobRepository Jobs => jobRepository ?? new JobRepository(context);
 
-        public IRequestTransportRepository RequestTransport => requestTransportRepository ?? new RequestTransportRepository(context);
+        public ITransportRepository Transports => transportRepository ?? new TransportRepository(context);
 
-        public IRequestSpeditionRepository RequestSpedition => requestSpeditionRepository ?? new RequestSpeditionRepository(context);
+        public ISpeditionRepository Speditions => speditionRepository ?? new SpeditionRepository(context);
 
         public void Dispose()
         {

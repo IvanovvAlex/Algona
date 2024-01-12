@@ -11,15 +11,15 @@
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class RequestTransportController : ControllerBase
+    public class TransportsController : ControllerBase
     {
-        private readonly IRequestTransportService requestTransportService;
+        private readonly ITransportService requestTransportService;
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="requestTransportService"></param>
-        public RequestTransportController(IRequestTransportService requestTransportService)
+        public TransportsController(ITransportService requestTransportService)
         {
             this.requestTransportService = requestTransportService;
         }
@@ -32,7 +32,7 @@
         [HttpPost("Create")]
         public async Task<TransportRequest> Create(TransportRequest request)
         {
-            RequestTransport requestTransport = await requestTransportService.Create(request);
+            Transport requestTransport = await requestTransportService.Create(request);
 
             return request;
         }
@@ -42,9 +42,9 @@
         /// </summary>
         /// <returns></returns>
         [HttpGet("All")]
-        public async Task<IEnumerable<RequestTransport>> All()
+        public async Task<IEnumerable<Transport>> All()
         {
-            IEnumerable<RequestTransport> requests = await requestTransportService.GetAll();
+            IEnumerable<Transport> requests = await requestTransportService.GetAll();
 
             return requests;
         }

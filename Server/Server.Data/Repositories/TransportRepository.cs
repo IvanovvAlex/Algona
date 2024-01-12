@@ -7,20 +7,20 @@
     /// <summary>
     /// Request transport repository
     /// </summary>
-    public class RequestTransportRepository : Repository<RequestTransport>, IRequestTransportRepository
+    public class TransportRepository : Repository<Transport>, ITransportRepository
     {
         private AlgonaDbContext AlgonaDbContext => (Context as AlgonaDbContext)!;
 
-        public RequestTransportRepository(AlgonaDbContext context) : base(context) { }
+        public TransportRepository(AlgonaDbContext context) : base(context) { }
 
         /// <summary>
         /// Returns all requests for transport
         /// </summary>
         /// <returns></returns>
-        public override async Task<IEnumerable<RequestTransport>> GetAllAsync()
+        public override async Task<IEnumerable<Transport>> GetAllAsync()
         {
             return await AlgonaDbContext
-                .RequestTransports
+                .Transports
                 .ToListAsync();
         }
 
@@ -29,10 +29,10 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public override async ValueTask<RequestTransport?> GetByIdAsync(string id)
+        public override async ValueTask<Transport?> GetByIdAsync(string id)
         {
             return await AlgonaDbContext
-                .RequestTransports
+                .Transports
                 .FirstOrDefaultAsync(r => r.Id == id);
         }
 
@@ -41,9 +41,9 @@
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public override async Task AddAsync(RequestTransport entity)
+        public override async Task AddAsync(Transport entity)
         {
-            RequestTransport request = new RequestTransport()
+            Transport request = new Transport()
             {
                 Id = entity.Id,
                 FromAddress = entity.FromAddress,
@@ -66,7 +66,7 @@
         /// Remove a request for transport
         /// </summary>
         /// <param name="entity"></param>
-        public override async void Remove(RequestTransport entity)
+        public override async void Remove(Transport entity)
         {
             AlgonaDbContext.Remove(entity);
             await AlgonaDbContext.SaveChangesAsync();

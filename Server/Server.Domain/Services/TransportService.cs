@@ -11,11 +11,11 @@
     /// <summary>
     /// Request transport service
     /// </summary>
-    public class RequestTransportService : IRequestTransportService
+    public class TransportService : ITransportService
     {
         private readonly IUnitOfWork unitOfWork;
         
-        public RequestTransportService(IUnitOfWork unitOfWork)
+        public TransportService(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
         }
@@ -24,9 +24,9 @@
         /// </summary>
         /// <param name="transport"></param>
         /// <returns></returns>
-        public async Task<RequestTransport> Create(TransportRequest transport)
+        public async Task<Transport> Create(TransportRequest transport)
         {
-            RequestTransport request = new RequestTransport()
+            Transport request = new Transport()
             {
                 PhoneNumber = transport.PhoneNumber,
                 Name = transport.Name,
@@ -39,7 +39,7 @@
                 Email = transport.Email,
             };
 
-            await unitOfWork.RequestTransport.AddAsync(request);
+            await unitOfWork.Transports.AddAsync(request);
             await unitOfWork.CommitAsync();
 
             return request;
@@ -49,9 +49,9 @@
         /// Gets all requests for transport
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<RequestTransport>> GetAll()
+        public async Task<IEnumerable<Transport>> GetAll()
         {
-            var requests = await unitOfWork.RequestTransport.GetAllAsync();
+            var requests = await unitOfWork.Transports.GetAllAsync();
             return requests;
         }
 
@@ -60,9 +60,9 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<RequestTransport?> GetById(string id)
+        public async Task<Transport?> GetById(string id)
         {
-            var request = await unitOfWork.RequestTransport.GetByIdAsync(id);
+            var request = await unitOfWork.Transports.GetByIdAsync(id);
             
             if (request == null)
             {
