@@ -8,6 +8,6 @@ namespace Server.Domain.Interfaces
     {
         Task<IEnumerable<Transport>> GetAll();
         Task<Transport?> GetById(string id);
-        Task<Transport?> Create(TransportRequest request);
+        Task<Transport?> Add(TransportRequest request);
     }
 }

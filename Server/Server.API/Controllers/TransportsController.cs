@@ -25,14 +25,14 @@
         }
 
         /// <summary>
-        /// Creates a new request for transport
+        /// Adds a new request for transport
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [HttpPost("Create")]
-        public async Task<TransportRequest> Create(TransportRequest request)
+        [HttpPost("Add")]
+        public async Task<TransportRequest> Add(TransportRequest request)
         {
-            Transport requestTransport = await requestTransportService.Create(request);
+            Transport requestTransport = await requestTransportService.Add(request);
 
             return request;
         }

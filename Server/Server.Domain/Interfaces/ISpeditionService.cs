@@ -7,6 +7,6 @@ namespace Server.Domain.Interfaces
     {
         Task<IEnumerable<Spedition>> GetAll();
         Task<Spedition?> GetById(string id);
-        Task<Spedition?> Create(SpeditionRequest request);
+        Task<Spedition?> Add(SpeditionRequest request);
     }
 }
