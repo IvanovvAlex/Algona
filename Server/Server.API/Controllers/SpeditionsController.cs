@@ -24,14 +24,14 @@ namespace Server.API.Controllers
         }
 
         /// <summary>
-        /// Creates a new request for spedition
+        /// Adds a new request for spedition
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [HttpPost("Create")]
-        public async Task<SpeditionRequest> Create(SpeditionRequest request)
+        [HttpPost("Add")]
+        public async Task<SpeditionRequest> Add(SpeditionRequest request)
         {
-            Spedition requestSpedition = await _requestSpeditionService.Create(request);
+            Spedition requestSpedition = await _requestSpeditionService.Add(request);
 
             return request;
         }

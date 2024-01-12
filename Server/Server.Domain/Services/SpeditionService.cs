@@ -22,7 +22,7 @@ namespace Server.Domain.Services
         /// </summary>
         /// <param name="spedition"></param>
         /// <returns></returns>
-        public async Task<Spedition?> Create(SpeditionRequest spedition)
+        public async Task<Spedition?> Add(SpeditionRequest spedition)
         {
             Spedition request = new Spedition()
             {

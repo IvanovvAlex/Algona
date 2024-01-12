@@ -24,7 +24,7 @@
         /// </summary>
         /// <param name="transport"></param>
         /// <returns></returns>
-        public async Task<Transport> Create(TransportRequest transport)
+        public async Task<Transport> Add(TransportRequest transport)
         {
             Transport request = new Transport()
             {
