@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Server.Common.Requests.SpeditionRequest
 {
     /// <summary>
-    /// Request Spedition ViewModel
+    /// Spedition ViewModel
     /// </summary>
     public class SpeditionRequest
     {

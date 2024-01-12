@@ -6,7 +6,7 @@ using Server.Domain.Interfaces;
 namespace Server.Domain.Services
 {
     /// <summary>
-    /// Request spedition service
+    /// Spedition service
     /// </summary>
     public class SpeditionService : ISpeditionService
     {
@@ -18,7 +18,7 @@ namespace Server.Domain.Services
         }
 
         /// <summary>
-        /// Creates a spedition request
+        /// Adds a spedition request
         /// </summary>
         /// <param name="spedition"></param>
         /// <returns></returns>
