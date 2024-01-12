@@ -4,7 +4,7 @@ namespace Server.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GarageController : ControllerBase
+    public class GaragesController : ControllerBase
     {
         [HttpGet]
         public async Task<IActionResult> Photos()
