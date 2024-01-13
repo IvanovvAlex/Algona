@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -13,7 +13,7 @@ export class NavBarComponent {
    selectedLanguage: string = '';
    selectedIconClass: string = '';
 
-   constructor(private translate: TranslateService, private router: Router, private elementRef: ElementRef) {}
+   constructor(private translate: TranslateService, private router: Router) {}
 
    ngOnInit() {
     this.selectedLanguage = 'EN';
@@ -22,18 +22,22 @@ export class NavBarComponent {
   }
 
   @HostListener('document:click', ['$event'])
-  clickOutside(event: Event): void {
-    const isClickInsideNavbar = this.elementRef.nativeElement.contains(event.target);
-    if (!isClickInsideNavbar) {
-      this.isActive = false;
-    }
+  click(event: Event): void {
+
+    const isClickOnNavbarToggler = (event.target as HTMLElement).classList.contains('navbar-toggler-icon');
+    const clickedElement = (event.target as HTMLElement).getAttribute('data-bs-toggle');
+    
+    if (clickedElement === 'collapse' || isClickOnNavbarToggler) {
+      this.toggleNavbar();
+    } else {
+      if( clickedElement !== 'dropdown') {
+      this.closeNavbar();
+      }
+    }  
   }
 
   toggleNavbar(): void {
-    this.isActive = !this.isActive;
-    if(!this.isActive) {
-      this.closeNavbar();
-    }
+    this.isActive = !this.isActive; 
   }
 
   closeNavbar(): void {

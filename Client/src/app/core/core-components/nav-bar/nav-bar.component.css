@@ -21,6 +21,7 @@
 
 nav .nav-link, nav .dropdown-item {
     text-transform: uppercase;
+    --bs-dropdown-link-active-bg: rgba(128, 128, 128, 0.103) !important;
 }
 
 .languages a, .dropdown-item {
@@ -62,11 +63,8 @@ nav .nav-link, nav .dropdown-item {
 
     .navbar .nav-link, .navbar .nav-link.show,.navbar .dropdown-item {
         /* color: white !important; */
+        --bs-dropdown-link-active-bg: rgba(128, 128, 128, 0.103) !important;
       }
-
-    .navbar .dropdown-item {
-        /* background-color: var(--primary-theme-color); */
-    }
 
     .navbar .dropdown-menu {
         /* background-color: var(--primary-theme-color); */
@@ -78,6 +76,7 @@ nav .nav-link, nav .dropdown-item {
     .nav-item {
         padding: 0 0.5rem;
     }
+    
     .navbar .dropdown-menu li {
         display: block;
     }
