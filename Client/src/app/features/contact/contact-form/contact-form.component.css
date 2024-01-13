@@ -23,7 +23,7 @@ main {
     gap: 2em;
     justify-content: space-around;
     margin-right: 4.5em;
-
+    color: var(--primary-styling-color);
 
 }
 
