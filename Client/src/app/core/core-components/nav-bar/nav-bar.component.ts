@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -13,12 +13,31 @@ export class NavBarComponent {
    selectedLanguage: string = '';
    selectedIconClass: string = '';
 
-   constructor(private translate: TranslateService, private router: Router) {}
+   constructor(private translate: TranslateService, private router: Router, private elementRef: ElementRef) {}
 
    ngOnInit() {
     this.selectedLanguage = 'EN';
     this.selectedIconClass = 'flag-icon-us';
 
+  }
+
+  @HostListener('document:click', ['$event'])
+  clickOutside(event: Event): void {
+    const isClickInsideNavbar = this.elementRef.nativeElement.contains(event.target);
+    if (!isClickInsideNavbar) {
+      this.isActive = false;
+    }
+  }
+
+  toggleNavbar(): void {
+    this.isActive = !this.isActive;
+    if(!this.isActive) {
+      this.closeNavbar();
+    }
+  }
+
+  closeNavbar(): void {
+    this.isActive = false;
   }
 
   switchLanguage(language: string) {
@@ -41,7 +60,5 @@ export class NavBarComponent {
     }
   }
 
-  toggleNavbar() {
-    this.isActive = !this.isActive;
-  }
+  
 }
