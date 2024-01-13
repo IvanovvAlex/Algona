@@ -4,8 +4,6 @@
         <hr class="col-md-3 mb-2 col-6 mx-auto">
     </div>
     <div class="row mx-md-2 mx-1 mt-4">
-        <app-paginator [currentPage]="currentPage" [totalPages]="totalPages" (pageChanged)="onPageChanged($event)">
-        </app-paginator>
         <div
             class="d-flex flex-md-row flex-wrap col-md-8 flex-column mx-auto gap-4 align-items-center justify-content-center mb-3">
             <ng-container *ngIf="!photos || photos.length > 0; else noImagesTemplate">
