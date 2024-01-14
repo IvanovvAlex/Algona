@@ -1,72 +1,71 @@
 <div class="nav">
-<nav class="navbar navbar-expand-lg" id="navbarToggleExternalContent">
-    <div class="logo">
-        <a class="nav-link icon-link-hover"
-           routerLink="/">
-            <img class="img-fluid"
-                 src="../../../../assets/logo-files/png/logo-no-background.png">
-        </a>
-    </div> 
-    <div class="navBar" (click)="toggleNavbar()">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-         data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" 
-         aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse"
-             [ngClass]="{ 'show': isActive, 'd-none': !isActive }"
-             id="navbarTogglerDemo01">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link icon-link-hover"
-                       routerLink="/home">{{'nav.home' | translate}}</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"
-                       routerLink="/about">{{'nav.about' | translate}}</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"
-                       routerLink="/vehicles">{{'nav.vehiclePark' | translate}}</a>
-                </li>
-                <li class="nav-item dropdown"
-                    (click)="toggleNavbar()">
-                    <a class="nav-link dropdown-toggle"
-                       role="button"
-                       data-bs-toggle="dropdown"
-                       aria-expanded="false">{{'nav.request' | translate}}</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item"
-                               (click)="toggleNavbar()"
-                               routerLink="request/transport">{{'nav.transport' | translate}}</a></li>
-                        <li><a class="dropdown-item"
-                               (click)="toggleNavbar()"
-                               routerLink="request/spedition">{{'nav.spedition' | translate}}</a></li>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <div class="nav-line">
+                <div class="logo">
+                    <a class="nav-link icon-link-hover" routerLink="/">
+                        <img src="../../../../assets/logo-files/png/logo-no-background.png">
+                    </a>
+                </div>
+
+              
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo01">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="ms-auto">
+                <div class="collapse navbar-collapse" [ngClass]="{ 'show': isActive, 'd-none': !isActive }"
+                    id="navbarTogglerDemo01">
+    
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link icon-link-hover" routerLink="/home">{{'nav.home' | translate}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/about">{{'nav.about' | translate}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/vehicles">{{'nav.vehiclePark' | translate}}</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">{{'nav.request' | translate}}</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" (click)="toggleNavbar()"
+                                        routerLink="request/transport">{{'nav.transport' |
+                                        translate}}</a></li>
+                                <li><a class="dropdown-item" (click)="toggleNavbar()"
+                                        routerLink="request/spedition">{{'nav.spedition' |
+                                        translate}}</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/jobs">{{'nav.careers' | translate}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="features/contact">{{'nav.contact' | translate}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/auth/login">{{'nav.login' | translate}}</a>
+                        </li>
+                        <li class="nav-item dropdown languages">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false"><i class="flag-icon {{selectedIconClass}}"></i>
+                                {{selectedLanguage}}</a>
+                            <ul class="dropdown-menu langs">
+                                <li><a class="dropdown-item" (click)="switchLanguage('en')" routerLink=""><i
+                                            class="flag-icon flag-icon-us"></i> EN</a></li>
+                                <li><a class="dropdown-item" (click)="switchLanguage('bg')" routerLink=""><i
+                                            class="flag-icon flag-icon-bg"></i> BG</a></li>
+                                <li><a class="dropdown-item" (click)="switchLanguage('de')" routerLink=""><i
+                                            class="flag-icon flag-icon-de"></i> DE</a></li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"
-                       routerLink="/jobs">{{'nav.careers' | translate}}</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"
-                       routerLink="features/contact">{{'nav.contact' | translate}}</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"
-                       routerLink="/auth/login">{{'nav.login' | translate}}</a>
-                </li>
-                
-            </ul>
+                </div>
+            </div>
         </div>
-    </div>  
-</nav>
-<div class="nav-item dropdown languages">
-    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="flag-icon {{selectedIconClass}}"></i> {{selectedLanguage}}</a>
-    <ul class="dropdown-menu langs">
-        <li><a class="dropdown-item" (click)="switchLanguage('en')" routerLink=""><i class="flag-icon flag-icon-us"></i> EN</a></li>
-        <li><a class="dropdown-item" (click)="switchLanguage('bg')" routerLink=""><i class="flag-icon flag-icon-bg"></i> BG</a></li>
-        <li><a class="dropdown-item" (click)="switchLanguage('de')" routerLink=""><i class="flag-icon flag-icon-de"></i> DE</a></li>
-    </ul>
-</div>
+    </nav>
 </div>
