@@ -2,73 +2,71 @@
     width: 80%;
     margin: 0 auto;
     padding: 2rem 0;
-  }
-  
-  .card {
+}
+
+.card {
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     padding: 15px;
-  }
-  
-  .card-body {
+}
+
+.card-body {
     padding: 20px;
     display: flex;
     flex-direction: column;
-     gap:1rem;
-  }
+    gap: 1rem;
+}
 
-  h5 {
+h5 {
     color: var(--primary-theme-color);
     text-decoration: underline;
-  }
-  
-  .card-title {
-    font-size: 1.5em;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5.5px;
+}
+
+.card-title {
+    font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 10px;
-  }
+}
 
-  .card-text {
+.card-text {
     display: flex;
     flex-direction: column;
+}
 
-  }
+.card-text.card-badge {
+    width: fit-content;
+}
 
-  .card-deadline {
+.label {
     display: flex;
-    gap: 0.5rem;
-  }
-  
-  .label {
     font-weight: bold;
-  }
-  
-  .text {
-    margin-bottom: 10px;
-  }
+    border-radius: 6px;
+}
 
-  .text.list-group{
-    padding-left: 2rem;
-  }
-  
-  .px-md-4 {
+.text {
+    margin-bottom: 10px;
+}
+
+.px-md-4 {
     padding-left: 1.5rem !important;
     padding-right: 1.5rem !important;
-  }
-  
-  .px-1 {
+}
+
+.px-1 {
     padding-left: 0.25rem !important;
     padding-right: 0.25rem !important;
-  }
+}
 
-  .end {
+.end {
     font-style: italic;
-  }
-  
-  a.mat-raised-button {
+}
+
+a.mat-raised-button {
     text-decoration: none;
     display: inline-block;
     padding: 10px 20px;
@@ -76,8 +74,8 @@
     color: #fff;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-  }
-  
-  a.mat-raised-button:hover {
+}
+
+a.mat-raised-button:hover {
     background-color: #0056b3;
-  }
+}

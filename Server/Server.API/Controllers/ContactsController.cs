@@ -10,11 +10,11 @@ namespace Server.API.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class ContactController : ControllerBase
+    public class ContactsController : ControllerBase
     {
         private ISharedService sharedService;
 
-        public ContactController(ISharedService sharedService)
+        public ContactsController(ISharedService sharedService)
         {
             this.sharedService = sharedService;
         }

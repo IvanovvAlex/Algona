@@ -5,7 +5,7 @@
     using Server.Common.Constants;
 
     /// <summary>
-    /// Request for transport view model
+    /// Transport view model
     /// </summary>
     public class TransportRequest
     {

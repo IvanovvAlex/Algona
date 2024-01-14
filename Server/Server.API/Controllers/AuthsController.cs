@@ -13,7 +13,7 @@ namespace Server.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthController : ControllerBase
+    public class AuthsController : ControllerBase
     {
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
@@ -27,7 +27,7 @@ namespace Server.API.Controllers
         /// <param name="_signInManager"></param> 
         /// <param name="_config"></param> 
         /// <param name="_userRepository"></param> 
-        public AuthController(
+        public AuthsController(
           UserManager<User> _userManager,
           SignInManager<User> _signInManager,
           IConfiguration _config,

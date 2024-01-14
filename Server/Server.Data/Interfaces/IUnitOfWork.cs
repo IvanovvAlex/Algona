@@ -10,8 +10,8 @@ namespace Server.Data.Interfaces
         
         IJobRepository Jobs { get; }
         
-        IRequestTransportRepository RequestTransport { get; }
+        ITransportRepository Transports { get; }
         
-        IRequestSpeditionRepository RequestSpedition { get; }
+        ISpeditionRepository Speditions { get; }
     }
 }
