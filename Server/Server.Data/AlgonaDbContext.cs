@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Server.Data.Configurations;
 using Server.Data.Entites;
 using Server.Data.Entities;
 
@@ -19,5 +20,11 @@ namespace Server.Data
         
         public DbSet<RequestSpedition> RequestSpeditions { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.ApplyConfigurationsFromAssembly(typeof(TruckEntityTypeConfiguration).Assembly);
+
+            base.OnModelCreating(builder);
+        }
     }
 }
