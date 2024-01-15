@@ -7,44 +7,44 @@
     using Server.Domain.Interfaces;
 
     /// <summary>
-    /// Request transport controller
+    /// Transport controller
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class RequestTransportController : ControllerBase
+    public class TransportsController : ControllerBase
     {
-        private readonly IRequestTransportService requestTransportService;
+        private readonly ITransportService requestTransportService;
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="requestTransportService"></param>
-        public RequestTransportController(IRequestTransportService requestTransportService)
+        public TransportsController(ITransportService requestTransportService)
         {
             this.requestTransportService = requestTransportService;
         }
 
         /// <summary>
-        /// Creates a new request for transport
+        /// Adds transport
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [HttpPost("Create")]
-        public async Task<TransportRequest> Create(TransportRequest request)
+        [HttpPost("Add")]
+        public async Task<TransportRequest> Add(TransportRequest request)
         {
-            RequestTransport requestTransport = await requestTransportService.Create(request);
+            Transport requestTransport = await requestTransportService.Add(request);
 
             return request;
         }
 
         /// <summary>
-        /// Gets all requests for transport
+        /// Gets all transports
         /// </summary>
         /// <returns></returns>
         [HttpGet("All")]
-        public async Task<IEnumerable<RequestTransport>> All()
+        public async Task<IEnumerable<Transport>> All()
         {
-            IEnumerable<RequestTransport> requests = await requestTransportService.GetAll();
+            IEnumerable<Transport> requests = await requestTransportService.GetAll();
 
             return requests;
         }

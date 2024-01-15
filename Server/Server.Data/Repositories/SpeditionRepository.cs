@@ -4,15 +4,15 @@ using Server.Data.Interfaces.Repositories;
 
 namespace Server.Data.Repositories
 {
-    public class RequestSpeditionRepository : Repository<RequestSpedition>, IRequestSpeditionRepository
+    public class SpeditionRepository : Repository<Spedition>, ISpeditionRepository
     {
         private AlgonaDbContext AlgonaDbContext => (Context as AlgonaDbContext)!;
 
-        public RequestSpeditionRepository(AlgonaDbContext context) : base(context) { }
+        public SpeditionRepository(AlgonaDbContext context) : base(context) { }
 
-        public async override Task AddAsync(RequestSpedition entity)
+        public async override Task AddAsync(Spedition entity)
         {
-            RequestSpedition spedition = new RequestSpedition
+            Spedition spedition = new Spedition
             {
                 Id = entity.Id,
                 FromAddress = entity.FromAddress,
@@ -31,21 +31,21 @@ namespace Server.Data.Repositories
             await Context.SaveChangesAsync();
         }
 
-        public async override Task<IEnumerable<RequestSpedition>> GetAllAsync()
+        public async override Task<IEnumerable<Spedition>> GetAllAsync()
         {
             return await AlgonaDbContext
-                .RequestSpeditions
+                .Speditions
                 .ToListAsync();
         }
 
-        public async override ValueTask<RequestSpedition?> GetByIdAsync(string id)
+        public async override ValueTask<Spedition?> GetByIdAsync(string id)
         {
             return await AlgonaDbContext
-                .RequestSpeditions
+                .Speditions
                 .FirstOrDefaultAsync(s => s.Id == id);
         }
 
-        public async override void Remove(RequestSpedition entity)
+        public async override void Remove(Spedition entity)
         {
             AlgonaDbContext.Remove(entity);
             await Context.SaveChangesAsync();

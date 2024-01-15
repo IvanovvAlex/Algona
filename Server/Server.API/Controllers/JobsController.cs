@@ -11,10 +11,10 @@ namespace Server.API.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class JobController : ControllerBase
+    public class JobsController : ControllerBase
     {
         private readonly IJobService  jobService;
-        public JobController(IJobService jobService)
+        public JobsController(IJobService jobService)
         {
             this.jobService = jobService;
         }

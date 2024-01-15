@@ -7,7 +7,7 @@
     /// <summary>
     /// Request for transport entity
     /// </summary>
-    public class RequestTransport
+    public class Transport
     {
         /// <summary>
         /// Primary key of the RequestTransport

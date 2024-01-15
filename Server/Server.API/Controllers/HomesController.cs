@@ -5,7 +5,7 @@ namespace Server.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class HomeController : ControllerBase
+    public class HomesController : ControllerBase
     {
     }
 }

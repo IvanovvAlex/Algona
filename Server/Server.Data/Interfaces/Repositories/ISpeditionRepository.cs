@@ -2,7 +2,7 @@
 
 namespace Server.Data.Interfaces.Repositories
 {
-    public interface IRequestSpeditionRepository : IRepository<RequestSpedition>
+    public interface ISpeditionRepository : IRepository<Spedition>
     {
     }
 }

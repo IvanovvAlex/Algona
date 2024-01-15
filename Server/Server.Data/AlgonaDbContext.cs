@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Server.Data.Configurations;
 using Server.Data.Entites;
 using Server.Data.Entities;
 
@@ -15,9 +16,15 @@ namespace Server.Data
 
         public DbSet<Job> Jobs { get; set; }
         
-        public DbSet<RequestTransport> RequestTransports { get; set; }
+        public DbSet<Transport> Transports { get; set; }
         
-        public DbSet<RequestSpedition> RequestSpeditions { get; set; }
+        public DbSet<Spedition> Speditions { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.ApplyConfigurationsFromAssembly(typeof(TruckEntityTypeConfiguration).Assembly);
+
+            base.OnModelCreating(builder);
+        }
     }
 }

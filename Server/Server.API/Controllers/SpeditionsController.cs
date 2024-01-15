@@ -6,32 +6,32 @@ using Server.Domain.Interfaces;
 namespace Server.API.Controllers
 {
     /// <summary>
-    /// Request spedition controller
+    /// Spedition controller
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class RequestSpeditionController : ControllerBase
+    public class SpeditionsController : ControllerBase
     {
 
-        private readonly IRequestSpeditionService _requestSpeditionService;
+        private readonly ISpeditionService _requestSpeditionService;
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="requestSpeditionService"></param>
-        public RequestSpeditionController(IRequestSpeditionService requestSpeditionService)
+        public SpeditionsController(ISpeditionService requestSpeditionService)
         {
             _requestSpeditionService= requestSpeditionService;
         }
 
         /// <summary>
-        /// Creates a new request for spedition
+        /// Adds spedition
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [HttpPost("Create")]
-        public async Task<SpeditionRequest> Create(SpeditionRequest request)
+        [HttpPost("Add")]
+        public async Task<SpeditionRequest> Add(SpeditionRequest request)
         {
-            RequestSpedition requestSpedition = await _requestSpeditionService.Create(request);
+            Spedition requestSpedition = await _requestSpeditionService.Add(request);
 
             return request;
         }
