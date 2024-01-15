@@ -71,28 +71,28 @@ namespace Server.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "RequestSpeditions",
+                name: "Speditions",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FromAddress = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    ToAddress = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    FromDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ToDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    NumberOfPallets = table.Column<int>(type: "int", nullable: false),
-                    TotalWeight = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false, comment: "Spedition id"),
+                    FromAddress = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false, comment: "From address"),
+                    ToAddress = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false, comment: "To address"),
+                    FromDate = table.Column<DateTime>(type: "datetime2", nullable: false, comment: "From date"),
+                    ToDate = table.Column<DateTime>(type: "datetime2", nullable: false, comment: "To date"),
+                    NumberOfPallets = table.Column<int>(type: "int", nullable: false, comment: "Number of pallets"),
+                    TotalWeight = table.Column<int>(type: "int", nullable: false, comment: "Total weight"),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false, comment: "Name"),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false, comment: "Phone number"),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false, comment: "Email address"),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RequestSpeditions", x => x.Id);
+                    table.PrimaryKey("PK_Speditions", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "RequestTransports",
+                name: "Transports",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -109,7 +109,7 @@ namespace Server.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RequestTransports", x => x.Id);
+                    table.PrimaryKey("PK_Transports", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -232,7 +232,7 @@ namespace Server.Data.Migrations
                     Kilometer = table.Column<double>(type: "float", nullable: false),
                     PricePerKm = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     TotalPrice = table.Column<double>(type: "float", nullable: false),
-                    TruckId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    TruckId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -269,7 +269,7 @@ namespace Server.Data.Migrations
                         column: x => x.CargoId,
                         principalTable: "Cargoes",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -312,11 +312,6 @@ namespace Server.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cargoes_TruckId",
-                table: "Cargoes",
-                column: "TruckId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Cargoes_UserId",
                 table: "Cargoes",
                 column: "UserId");
@@ -324,28 +319,13 @@ namespace Server.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Trucks_CargoId",
                 table: "Trucks",
-                column: "CargoId");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Cargoes_Trucks_TruckId",
-                table: "Cargoes",
-                column: "TruckId",
-                principalTable: "Trucks",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                column: "CargoId",
+                unique: true);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Cargoes_AspNetUsers_UserId",
-                table: "Cargoes");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Cargoes_Trucks_TruckId",
-                table: "Cargoes");
-
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -365,22 +345,22 @@ namespace Server.Data.Migrations
                 name: "Jobs");
 
             migrationBuilder.DropTable(
-                name: "RequestSpeditions");
+                name: "Speditions");
 
             migrationBuilder.DropTable(
-                name: "RequestTransports");
-
-            migrationBuilder.DropTable(
-                name: "AspNetRoles");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Transports");
 
             migrationBuilder.DropTable(
                 name: "Trucks");
 
             migrationBuilder.DropTable(
+                name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
                 name: "Cargoes");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
         }
     }
 }

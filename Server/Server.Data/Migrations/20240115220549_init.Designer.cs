@@ -12,7 +12,7 @@ using Server.Data;
 namespace Server.Data.Migrations
 {
     [DbContext(typeof(AlgonaDbContext))]
-    [Migration("20231226003149_init")]
+    [Migration("20240115220549_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -203,15 +203,13 @@ namespace Server.Data.Migrations
 
                     b.Property<string>("TruckId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("TruckId");
 
                     b.HasIndex("UserId");
 
@@ -277,7 +275,8 @@ namespace Server.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CargoId");
+                    b.HasIndex("CargoId")
+                        .IsUnique();
 
                     b.ToTable("Trucks");
                 });
@@ -362,22 +361,26 @@ namespace Server.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("Server.Data.Entities.RequestSpedition", b =>
+            modelBuilder.Entity("Server.Data.Entities.Spedition", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(450)")
+                        .HasComment("Spedition id");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Email address");
 
                     b.Property<string>("FromAddress")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasComment("From address");
 
                     b.Property<DateTime>("FromDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasComment("From date");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -385,32 +388,38 @@ namespace Server.Data.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasComment("Name");
 
                     b.Property<int>("NumberOfPallets")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Number of pallets");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Phone number");
 
                     b.Property<string>("ToAddress")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasComment("To address");
 
                     b.Property<DateTime>("ToDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasComment("To date");
 
                     b.Property<int>("TotalWeight")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Total weight");
 
                     b.HasKey("Id");
 
-                    b.ToTable("RequestSpeditions");
+                    b.ToTable("Speditions");
                 });
 
-            modelBuilder.Entity("Server.Data.Entities.RequestTransport", b =>
+            modelBuilder.Entity("Server.Data.Entities.Transport", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -455,7 +464,7 @@ namespace Server.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RequestTransports");
+                    b.ToTable("Transports");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -511,19 +520,11 @@ namespace Server.Data.Migrations
 
             modelBuilder.Entity("Server.Data.Entites.Cargo", b =>
                 {
-                    b.HasOne("Server.Data.Entites.Truck", "Truck")
-                        .WithMany()
-                        .HasForeignKey("TruckId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Server.Data.Entites.User", "User")
                         .WithMany("Cargos")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Truck");
 
                     b.Navigation("User");
                 });
@@ -531,12 +532,18 @@ namespace Server.Data.Migrations
             modelBuilder.Entity("Server.Data.Entites.Truck", b =>
                 {
                     b.HasOne("Server.Data.Entites.Cargo", "Cargo")
-                        .WithMany()
-                        .HasForeignKey("CargoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .WithOne("Truck")
+                        .HasForeignKey("Server.Data.Entites.Truck", "CargoId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Cargo");
+                });
+
+            modelBuilder.Entity("Server.Data.Entites.Cargo", b =>
+                {
+                    b.Navigation("Truck")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Server.Data.Entites.User", b =>
