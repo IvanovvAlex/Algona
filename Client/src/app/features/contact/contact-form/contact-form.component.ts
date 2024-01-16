@@ -38,10 +38,10 @@ import { emailVdtr } from 'src/app/auth/validators/emailValidator';
         data: data as string
       }
 
-      this.apiService.sendData(contactFormData).subscribe(
+      this.apiService.sendContactData(contactFormData).subscribe(
         {
           next: (response) => {
-            if (response.status !== 200) {
+            if (response.status !== 201) {
               this.popUp(`Error ${response.status}: ${response.statusText}`)
             } else {
               this.popUp('Succes - Your message has been sent to us!')
@@ -49,6 +49,10 @@ import { emailVdtr } from 'src/app/auth/validators/emailValidator';
           },
           error: (error) => {
             this.popUp(`Error ${error.status}: ${error.statusText}`)
+            
+            this.contactForm.reset();
+            this.contactForm.markAllAsTouched();
+            
             // this.popUp('Succes - Your message has been sent to us!')
             // ^^ to test visuals until a working API response is present
           }
