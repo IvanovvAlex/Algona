@@ -4,6 +4,8 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { matchPasswordsValidator } from '../validators/matchPasswordsValidator';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
     selector: 'app-register',
@@ -34,7 +36,7 @@ export class RegisterComponent {
         )
     });
 
-    constructor(private fb: FormBuilder, private snackBar: MatSnackBar) { }
+    constructor(private router: Router, private authService: AuthService, private fb: FormBuilder, private snackBar: MatSnackBar) { }
 
     get formControl() {
         return this.registerForm.controls;
@@ -65,6 +67,24 @@ export class RegisterComponent {
             password: passGroup!.password!,
             rePassword: passGroup!.rePassword!,
         };
+
+        this.authService.register(bodyValues).subscribe(
+            {
+                next: (response) => {
+                    if (response.status !== 201) {
+                        this.errorFormServer = `Error ${response.status}: ${response.statusText}`
+                    } else {
+                        this.router.navigate(['/'])
+                        this.snackBar.open('Succesfully logged in!', 'Close', {
+                            duration: 3000,
+                        });
+                    }
+                },
+                error: (error) => {
+                    this.errorFormServer = `Error ${error.status}: ${error.statusText}`
+                }
+            }
+        )
 
         if (this.errorFormServer !== '') {
             this.snackBar.open(this.errorFormServer, 'Close', {
