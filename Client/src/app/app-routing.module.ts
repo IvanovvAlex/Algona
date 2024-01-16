@@ -17,7 +17,7 @@ import { JobDetailsComponent } from './components-WIP-folder/job-details/job-det
 
 const routes: Routes = [
     {
-        path: '', component: HeroComponent,
+        path: '', pathMatch:'full', redirectTo: 'home',
     },
     {
         path: 'home', component: HeroComponent,

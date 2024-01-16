@@ -80,7 +80,10 @@
     flex-direction: column;
 }
 
-
+p span.loose{
+    letter-spacing: 1.8px;
+    margin-left: 2.1px;
+}
 
 
 /* style for mobile screens up to 250px width */

@@ -28,6 +28,11 @@ p.text-small {
     margin-bottom: 0.5rem;
 }
 
+.text-small .loose{
+    letter-spacing: 1.85px;
+    margin-left: 2.1px;
+}
+
 footer .nav-link {
     text-transform: uppercase;
 }

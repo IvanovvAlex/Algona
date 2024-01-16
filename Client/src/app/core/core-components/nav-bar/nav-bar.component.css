@@ -24,10 +24,15 @@ nav .nav-link, nav .dropdown-item {
     --bs-dropdown-link-active-bg: rgba(128, 128, 128, 0.103) !important;
 }
 
-.languages a, .dropdown-item {
-    color: var(--bs-secondary-color);
+.languages a, .dropdown-item, a {
+    color: rgb(12, 12, 12);
 }
  
+.current-link {
+    color: var(--primary-styling-color);
+    text-shadow: 0.5px 0.5px 0px black;
+}
+
 .dropdown-menu.langs,.dropdown-menu.langs>li {
     --bs-dropdown-min-width: 3rem !important;
 }

@@ -1,83 +1,23 @@
-<section id="hero-section" @fade>
-    <div id="carouselExampleCaptions"
-         class="carousel slide col-12 m-auto"
-         data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide-to="0"
-                    class="active"
-                    aria-current="true"
-                    aria-label="Slide 1"></button>
-            <button type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-            <button type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
+<img src="assets/algona-photos/home/hero-about-us.jpg"
+     class="position-absolute z-n1 top-0 start-0 w-100"
+     alt="Algona-vehicles"
+     @fade>
+<div class="transparent-filter blend-mode"></div>
+<section id="hero-section">
+    <div class="w-100">
+        <div class="caption-bg carousel-caption rounded py-5 shadow-effect" data-aos="fade-down"
+         data-aos-duration="1500"
+         data-aos-delay="200">
+            <h5>
+                <span class="fw-bold">{{'hero.name' | translate}}</span><br>{{'hero.action-one' | translate}}
+            </h5>
+            <p class="fs-4">{{'hero.question-one' | translate}}<br>{{'hero.find' | translate}}</p>
+
+            <button class="fw-bold py-2 btn-fluid"
+            routerLink="/about"
+                    mat-raised-button
+                    color="primary">{{'hero.about' | translate}}</button>
         </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active"
-                 data-bs-interval="5000">
-                <img src="assets/algona-photos/home/hero-about-us.jpg"
-                     class="d-block col-12 object-fit-cover"
-                     alt="Algona-vehicles">
-                <div class="w-100">
-                    <div class="caption-bg carousel-caption rounded py-5 d-block shadow-effect">
-                        <h5><span class="fw-bold">{{'hero.name' | translate}}</span><br>{{'hero.action-one' | translate}}</h5>
-                        <p class="fs-4">{{'hero.question-one' | translate}}<br>{{'hero.find' | translate}}</p>
-                        <button routerLink="/about" class="fw-bold py-2 btn-fluid"
-                                mat-raised-button
-                                color="primary">{{'hero.about' | translate}}</button>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item"
-                 data-bs-interval="5000">
-                <img src="assets/algona-photos/home/hero-spedition.jpg"
-                     class="d-block col-12 object-fit-cover"
-                     alt="Algona blue truck">
-                <div class="caption-bg carousel-caption rounded py-5 d-md-block shadow-effect">
-                    <h5 class="fw-bold">{{'hero.action-two' | translate}}</h5>
-                    <p class="fs-4">{{'hero.question-two' | translate}}</p>
-                    <button routerLink="/request/spedition" class="fw-bold py-2 btn-fluid"
-                            mat-raised-button
-                            color="primary">{{'hero.spedition' | translate}}</button>
-                </div>
-            </div>
-            <div class="carousel-item"
-                 data-bs-interval="5000">
-                <img src="assets/algona-photos/home/hero-transport.jpg"
-                     class="d-block col-12 object-fit-cover"
-                     alt="Algona truck trailer">
-                <div class="caption-bg carousel-caption rounded py-5 d-md-block shadow-effect">
-                    <h5 id="custom"
-                        class="fw-bold">{{'hero.action-three' | translate}}</h5>
-                    <p class="fs-4">{{'hero.question-three' | translate}}</p>
-                    <button routerLink="/request/transport"
-                     class="fw-bold py-2 btn-fluid"
-                            mat-raised-button
-                            color="primary">{{'hero.transport' | translate}}</button>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev"
-                type="button"
-                data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"
-                  aria-hidden="true"></span>
-            <span class="visually-hidden">{{'hero.previos' | translate}}</span>
-        </button>
-        <button class="carousel-control-next"
-                type="button"
-                data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-            <span class="carousel-control-next-icon"
-                  aria-hidden="true"></span>
-            <span class="visually-hidden">{{'hero.next' | translate}}</span>
-        </button>
     </div>
 </section>
+
