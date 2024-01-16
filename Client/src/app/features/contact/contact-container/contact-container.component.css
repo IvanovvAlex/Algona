@@ -10,6 +10,7 @@
     font-family: inherit;
     margin: auto;
     padding-top: 2em;
+    min-height: 100vh;
 }
 
 

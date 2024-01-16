@@ -1,60 +1,63 @@
-<section id="garage-photos" @fade class="container-fluid pt-4 mb-3">
-    <div class="bg-light pb-4 pt-4">
-        <h1>{{'vehiclePark.title' | translate}}</h1>
-        <hr class="col-md-3 mb-2 col-6 mx-auto">
-    </div>
-    <div class="row mx-md-2 mx-1 mt-4">
-        <div
-            class="d-flex flex-md-row flex-wrap col-md-8 flex-column mx-auto gap-4 align-items-center justify-content-center mb-3 flex-basis">
-            <ng-container *ngIf="!photos || photos.length > 0; else noImagesTemplate">
-                <article class="card border-0 col-md-4 col-10" *ngFor="let photo of paginatedArray; let i = index">
-                    <div class="modal fade" id="exampleModalToggle{{i}}" aria-hidden="true"
-                        aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                        <div class="modal-dialog modal-dialog-centered modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header bg-light py-1">
-                                    <p>Image {{i+1}}/{{photos.length}}</p>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body mx-auto py-1">
-                                    <img src="assets/algona-photos/garage/{{photo}}" alt="Image from Algona gallery"
-                                        class="img-preview img-fluid rounded-1">
-                                </div>
-                                <div class="modal-footer bg-light">
-                                    <button [disabled]="i<=0" class="btn btn-sm btn-outline-secondary"
-                                        [attr.data-bs-target]="'#exampleModalToggle'+(i-1)"
-                                        data-bs-toggle="modal">Previous</button>
-                                    <button [disabled]="i>=photos.length-1" class="btn btn-sm btn-outline-secondary"
-                                        [attr.data-bs-target]="'#exampleModalToggle'+(i+1)"
-                                        data-bs-toggle="modal">Next</button>
+<div class="screen-cont">
+
+    <section id="garage-photos" @fade class="container-fluid pt-4 mb-3">
+        <div class="bg-light pb-4 pt-4">
+            <h1>{{'vehiclePark.title' | translate}}</h1>
+            <hr class="col-md-3 mb-2 col-6 mx-auto">
+        </div>
+        <div class="row mx-md-2 mx-1 mt-4">
+            <div
+                class="d-flex flex-md-row flex-wrap col-md-8 flex-column mx-auto gap-4 align-items-center justify-content-center mb-3 flex-basis">
+                <ng-container *ngIf="!photos || photos.length > 0; else noImagesTemplate">
+                    <article class="card border-0 col-md-4 col-10" *ngFor="let photo of paginatedArray; let i = index">
+                        <div class="modal fade" id="exampleModalToggle{{i}}" aria-hidden="true"
+                            aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-light py-1">
+                                        <p>Image {{i+1}}/{{photos.length}}</p>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body mx-auto py-1">
+                                        <img src="assets/algona-photos/garage/{{photo}}" alt="Image from Algona gallery"
+                                            class="img-preview img-fluid rounded-1">
+                                    </div>
+                                    <div class="modal-footer bg-light">
+                                        <button [disabled]="i<=0" class="btn btn-sm btn-outline-secondary"
+                                            [attr.data-bs-target]="'#exampleModalToggle'+(i-1)"
+                                            data-bs-toggle="modal">Previous</button>
+                                        <button [disabled]="i>=photos.length-1" class="btn btn-sm btn-outline-secondary"
+                                            [attr.data-bs-target]="'#exampleModalToggle'+(i+1)"
+                                            data-bs-toggle="modal">Next</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <button class="preview" type="button" [attr.data-bs-target]="'#exampleModalToggle'+i"
-                        data-bs-toggle="modal">
-                        <img src="assets/algona-photos/garage/{{photo}}" alt="Image from Algona gallery"
-                            class="img-fluid overflow-hidden rounded-1">
-                    </button>
-                </article>
-            </ng-container>
+                        <button class="preview" type="button" [attr.data-bs-target]="'#exampleModalToggle'+i"
+                            data-bs-toggle="modal">
+                            <img src="assets/algona-photos/garage/{{photo}}" alt="Image from Algona gallery"
+                                class="img-fluid overflow-hidden rounded-1">
+                        </button>
+                    </article>
+                </ng-container>
+            </div>
+
+            <button type="button" *ngIf="isVisible" (click)="gotoTop()" class="btn text-white" id="btn-back-to-top">
+                <mat-icon>arrow_upward</mat-icon>
+            </button>
+            <app-paginator [currentPage]="currentPage" [totalPages]="totalPages" (pageChanged)="onPageChanged($event)">
+            </app-paginator>
         </div>
+    </section>
 
-        <button type="button" *ngIf="isVisible" (click)="gotoTop()" class="btn text-white" id="btn-back-to-top">
-            <mat-icon>arrow_upward</mat-icon>
-        </button>
-        <app-paginator [currentPage]="currentPage" [totalPages]="totalPages" (pageChanged)="onPageChanged($event)">
-        </app-paginator>
-    </div>
-</section>
+    <ng-template #noImagesTemplate>
+        <h2 class="no-images text-black-50 text-center w-100 mt-3 mx-auto">Sorry, currently there are no images in our
+            gallery.<br>Check back soon.</h2>
+        <img class="col-md-4 col-10 mx-auto" src="assets/static-images/img-placeholder.png"
+            alt="Image-not-available placeholder">
+    </ng-template>
 
-<ng-template #noImagesTemplate>
-    <h2 class="no-images text-black-50 text-center w-100 mt-3 mx-auto">Sorry, currently there are no images in our
-        gallery.<br>Check back soon.</h2>
-    <img class="col-md-4 col-10 mx-auto" src="assets/static-images/img-placeholder.png"
-        alt="Image-not-available placeholder">
-</ng-template>
-
-<app-footer></app-footer>
+    <app-footer></app-footer>
+</div>
