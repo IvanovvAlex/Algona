@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { NgOptimizedImage } from '@angular/common';
 
 // Component imports
 import { AppComponent } from './app.component';
@@ -61,7 +62,8 @@ export function HttpLoaderFactory(http: HttpClient) {
               useFactory: HttpLoaderFactory,
               deps: [HttpClient]
             }
-          })
+        }),
+        NgOptimizedImage,
     ],
     providers: [],
     bootstrap: [AppComponent]
