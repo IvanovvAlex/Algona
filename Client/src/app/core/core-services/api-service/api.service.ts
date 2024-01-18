@@ -4,6 +4,8 @@ import { ContactFormData } from 'src/app/shared/typization/interfaces/ContactFor
 import { Observable } from 'rxjs';
 import { Job } from 'src/app/shared/typization/interfaces';
 import { JobDetails } from 'src/app/shared/typization/interfaces/jobDetails';
+import { TransportFormData } from 'src/app/shared/typization/interfaces/transportFormData';
+import { SpeditionFormData } from 'src/app/shared/typization/interfaces/speditionFormData';
 
 @Injectable({
     providedIn: 'root'
@@ -32,5 +34,13 @@ export class ApiService {
 
     getJobById(jobId:string): Observable<JobDetails> {
         return this.http.get<JobDetails>(`/api/Jobs/details/${jobId}`);
+    }
+
+    sendTransportRequest(transportData: TransportFormData) {
+        return this.http.post('/api/Transports/Add', transportData, { observe: 'response' })
+    }
+
+    sendSpeditionRequest(speditionData: SpeditionFormData) {
+        return this.http.post('/api/Speditions/Add', speditionData, { observe: 'response' })
     }
 }

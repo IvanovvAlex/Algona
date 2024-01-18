@@ -49,6 +49,7 @@ button {
     color: white;
     background-color: rgb(0, 169, 255);
     text-align: center;
+    text-transform: uppercase;
 }
 
 

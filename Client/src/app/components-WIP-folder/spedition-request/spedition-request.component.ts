@@ -4,9 +4,11 @@ import {
   FormGroup,
   FormBuilder,
   Validators,
-  ReactiveFormsModule,
   FormGroupDirective,
 } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/core/core-services/api-service/api.service';
 
 @Component({
   selector: 'app-spedition-request',
@@ -15,25 +17,27 @@ import {
  // standalone: true,
  // imports: [CommonModule,MatFormFieldModule, MatInputModule, MatSelectModule,MatDatepickerModule, MatNativeDateModule, ReactiveFormsModule],
 })
-export class SpeditionRequestComponent {
+export class SpeditionRequestComponent implements OnInit {
 
   
   speditionForm!: FormGroup;
+  errorFormServer: { errors: { [key: string]: string } } = { errors: {} };
+  errorMessage:string = '';
  
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private apiService: ApiService, private snackBar: MatSnackBar, private router: Router) { }
  
   
   ngOnInit(): void {
     this.speditionForm = this.formBuilder.group({
-      fromPlace: ['', {validators: Validators.required, updateOn: 'blur'}],
-      toPlace: ['', {validators: Validators.required, updateOn: "blur"}],
+      fromAddress: ['', {validators: Validators.required, updateOn: 'blur'}],
+      toAddress: ['', {validators: Validators.required, updateOn: "blur"}],
       fromDate: ['', {validators: Validators.required, updateOn: "blur"}],
       toDate: ['', {validators: Validators.required, updateOn: "blur"}],
-      pallets: ['', {validators: Validators.required, updateOn: "blur"}],
-      weight: ['', {validators: Validators.required, updateOn: "blur"}],
+      numberOfPallets: ['', {validators: Validators.required, updateOn: "blur"}],
+      totalWeight: ['', {validators: Validators.required, updateOn: "blur"}],
       name: ['', {validators: Validators.required, updateOn: "blur"}],
-      phone: ['', {validators: Validators.required, updateOn: "blur"}],
+      phoneNumber: ['', {validators: Validators.required, updateOn: "blur"}],
       email: ['', {validators: [Validators.required, Validators.email], updateOn: 'blur'}],
 
     })
@@ -45,24 +49,64 @@ export class SpeditionRequestComponent {
       return
     }
 
-    const {fromPlace,toPlace, fromDate, toDate, pallets,weight, name, phone, email} = this.speditionForm.value;
+    const {fromAddress,toAddress, fromDate, toDate, numberOfPallets,totalWeight, name, phoneNumber, email} = this.speditionForm.value;
 
     formDirevtive.resetForm();
     this.speditionForm.reset;
     
     
-    const speditiontData = {
-      fromPlace: fromPlace as string,
-      toPlace: toPlace as string,
+    const speditionData = {
+      fromAddress: fromAddress as string,
+      toAddress: toAddress as string,
       fromDate: fromDate as string,
       toDate: toDate as string,
-      pallets: pallets as number,
-      weight: weight as number,
+      numberOfPallets: numberOfPallets as number,
+      totalWeight: totalWeight as number,
       name: name as string,
-      phone: phone as string,
+      phoneNumber: phoneNumber as string,
       email: email as string
     }
 
-    console.log(speditiontData)
+    this.apiService.sendSpeditionRequest(speditionData).subscribe(
+      {
+        next: (response) => {
+
+          if (response.status !== 200) {
+             this.popUp(`Error ${response.status}: ${response.statusText}`)
+          } else {
+             this.popUp('Succes - Your request for transport has been sent to us!')
+          }
+        },
+        error: (error) => {
+          
+          if(error.status !== 200 && error.error.errors) {
+
+            this.errorFormServer = error.error.errors;
+            console.log(this.errorFormServer)
+
+            
+            this.errorMessage =  Object.entries(this.errorFormServer)
+              .map(([key, value]) => `${key}: ${value}`)
+              .join('\n');
+          this.snackBar.open(this.errorMessage, 'Ok', {
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            // duration: 5000,
+          });
+          
+          }
+        }
+      }
+
+    )
   }
+
+  popUp(message: string): void {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top', 
+    })
+  }
+  
 }
