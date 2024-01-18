@@ -16,14 +16,14 @@
 
             <div class="row">
                 <mat-form-field appearance="outline">
-                    <mat-label for="fromPlace">{{'transport.from-place' | translate}}</mat-label>
-                    <input type="text" matInput placeholder="place" formControlName="fromPlace">
-                    <mat-error *ngIf="transportForm.controls['fromPlace'].hasError('required')">{{'error.from' | translate}}</mat-error>
+                    <mat-label for="fromAddress">{{'transport.from-place' | translate}}</mat-label>
+                    <input type="text" matInput placeholder="place" formControlName="fromAddress">
+                    <mat-error *ngIf="transportForm.controls['fromAddress'].hasError('required')">{{'error.from' | translate}}</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>{{'transport.to-place' | translate}}</mat-label>
-                    <input type="text" matInput placeholder="place" formControlName="toPlace">
-                    <mat-error *ngIf="transportForm.controls['toPlace'].hasError('required')">{{'error.to' | translate}}</mat-error>
+                    <input type="text" matInput placeholder="place" formControlName="toAddress">
+                    <mat-error *ngIf="transportForm.controls['toAddress'].hasError('required')">{{'error.to' | translate}}</mat-error>
                 </mat-form-field>
             </div>
 
@@ -47,13 +47,13 @@
             <div class="row">
                 <mat-form-field appearance="outline">
                     <mat-label>{{'transport.pallets' | translate}}</mat-label>
-                    <input type="number" matInput placeholder="numbers" formControlName="pallets">
-                    <mat-error *ngIf="transportForm.controls['pallets'].hasError('required')">{{'error.pallets' | translate}}</mat-error>
+                    <input type="number" matInput placeholder="numbers" formControlName="numberOfPallets">
+                    <mat-error *ngIf="transportForm.controls['numberOfPallets'].hasError('required')">{{'error.pallets' | translate}}</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>{{'transport.weight' | translate}}</mat-label>
-                    <input type="number" matInput placeholder="tons" formControlName="weight">
-                    <mat-error *ngIf="transportForm.controls['weight'].hasError('required')">{{'error.weight' | translate}}</mat-error>
+                    <input type="number" matInput placeholder="totalWeight" formControlName="totalWeight">
+                    <mat-error *ngIf="transportForm.controls['totalWeight'].hasError('required')">{{'error.weight' | translate}}</mat-error>
                 </mat-form-field>
             </div>
 
@@ -61,12 +61,13 @@
                 <mat-form-field appearance="outline">
                     <mat-label>{{'transport.name' | translate}}</mat-label>
                     <input type="text" matInput formControlName="name">
+                    
                     <mat-error *ngIf="transportForm.controls['name'].hasError('required')">{{'error.firstName-required' | translate}}</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>{{'transport.phone' | translate}}</mat-label>
-                    <input type="text" matInput formControlName="phone">
-                    <mat-error *ngIf="transportForm.controls['phone'].hasError('required')">{{'error.phone' | translate}}</mat-error>
+                    <input type="text" matInput formControlName="phoneNumber">
+                    <mat-error *ngIf="transportForm.controls['phoneNumber'].hasError('required')">{{'error.phone' | translate}}</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>{{'transport.email' | translate}}</mat-label>
