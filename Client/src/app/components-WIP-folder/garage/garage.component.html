@@ -15,7 +15,10 @@
                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header bg-light py-1">
-                                        <p>Image {{i+1}}/{{photos.length}}</p>
+                                        <ng-container *ngIf="paginatedArray && paginatedArray.length>0">
+                                            <p class="small">{{'vehiclePark.modal-header-page' | translate}} {{currentPage}}/{{totalPages}}</p>
+                                            <p class="small ms-3">{{'vehiclePark.modal-header-image' | translate}} {{i+1}}/{{paginatedArray.length}}</p>
+                                        </ng-container>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
@@ -24,12 +27,14 @@
                                             class="img-preview img-fluid rounded-1">
                                     </div>
                                     <div class="modal-footer bg-light">
-                                        <button [disabled]="i<=0" class="btn btn-sm btn-outline-secondary"
-                                            [attr.data-bs-target]="'#exampleModalToggle'+(i-1)"
-                                            data-bs-toggle="modal">Previous</button>
-                                        <button [disabled]="i>=photos.length-1" class="btn btn-sm btn-outline-secondary"
-                                            [attr.data-bs-target]="'#exampleModalToggle'+(i+1)"
-                                            data-bs-toggle="modal">Next</button>
+                                        <ng-container *ngIf="paginatedArray && paginatedArray.length>0">
+                                            <button [disabled]="i<=0" class="btn btn-sm btn-outline-secondary"
+                                                [attr.data-bs-target]="'#exampleModalToggle'+(i-1)"
+                                                data-bs-toggle="modal">{{'vehiclePark.modal-btn-previous' | translate}}</button>
+                                            <button [disabled]="i>=paginatedArray.length-1" class="btn btn-sm btn-outline-secondary"
+                                                [attr.data-bs-target]="'#exampleModalToggle'+(i+1)"
+                                                data-bs-toggle="modal">{{'vehiclePark.modal-btn-next' | translate}}</button>
+                                        </ng-container>
                                     </div>
                                 </div>
                             </div>
@@ -37,7 +42,7 @@
 
                         <button class="preview" type="button" [attr.data-bs-target]="'#exampleModalToggle'+i"
                             data-bs-toggle="modal">
-                            <img src="assets/algona-photos/garage/{{photo}}" alt="Image from Algona gallery"
+                            <img ngSrc="assets/algona-photos/garage/{{photo}}" fill priority sizes="250w 200h" alt="Image from Algona gallery"
                                 class="img-fluid overflow-hidden rounded-1">
                         </button>
                     </article>
