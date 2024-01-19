@@ -10,6 +10,7 @@
     font-family: inherit;
     margin: auto;
     padding-top: 2em;
+    min-height: 100vh;
 }
 
 
@@ -61,7 +62,7 @@
     margin: 0.5em 1em;
     /* background-color: #E0F2F1; */
     background: linear-gradient(to left top, var(--primary-styling-color), transparent);
-
+    color: white;
     border-radius: 1em;
     text-align: center;
     border-radius: 2em 0 0 8em;

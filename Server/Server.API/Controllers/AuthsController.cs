@@ -9,6 +9,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
+using static Server.Common.Constants.GlobalConstants;
+
 namespace Server.API.Controllers
 {
     [Route("api/[controller]")]
@@ -39,7 +41,7 @@ namespace Server.API.Controllers
             userRepository = _userRepository;
         }
 
-    
+
         [AllowAnonymous]
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] CreateLoginRequest userLogin)
@@ -82,7 +84,7 @@ namespace Server.API.Controllers
             }
         }
 
-      
+
         [AllowAnonymous]
         [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] CreateRegisterRequest userRegister)
@@ -114,6 +116,7 @@ namespace Server.API.Controllers
 
                 if (result.Succeeded)
                 {
+                    await userManager.AddToRoleAsync(user, ClientRole);
                     await signInManager.PasswordSignInAsync(user, userRegister.Password, false, false);
                     var token = GenerateToken(new CreateLoginRequest { Email = userRegister.Email, Password = userRegister.Password });
                     this.HttpContext.Response.Cookies.Append($"{user.Id}", $"{token}", new CookieOptions

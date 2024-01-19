@@ -12,8 +12,8 @@ using Server.Data;
 namespace Server.Data.Migrations
 {
     [DbContext(typeof(AlgonaDbContext))]
-    [Migration("20240111193209_RestrictDeleteBehaviorAppliedToTruckAndCargo")]
-    partial class RestrictDeleteBehaviorAppliedToTruckAndCargo
+    [Migration("20240115220646_FeedRolesAndUser")]
+    partial class FeedRolesAndUser
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,6 +50,22 @@ namespace Server.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "caa85a15-7f5c-43a0-9af4-8b64844c201d",
+                            ConcurrencyStamp = "ac1b96c0-a4dd-47d2-ac7e-9a8cb53430fc",
+                            Name = "Administrator",
+                            NormalizedName = "ADMINISTRATOR"
+                        },
+                        new
+                        {
+                            Id = "98620bae-4e03-493a-80f7-adf53c08b3f8",
+                            ConcurrencyStamp = "c20198be-88e7-48e8-a58f-920717c23954",
+                            Name = "Client",
+                            NormalizedName = "CLIENT"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -139,6 +155,13 @@ namespace Server.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "afc48dd7-2c69-4333-a9cf-f1f769084f2e",
+                            RoleId = "caa85a15-7f5c-43a0-9af4-8b64844c201d"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -359,9 +382,31 @@ namespace Server.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "afc48dd7-2c69-4333-a9cf-f1f769084f2e",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "e821c43e-236a-4615-a454-7af10dd382e3",
+                            Email = "alex.ivanov@algona.ltd",
+                            EmailConfirmed = false,
+                            FirstName = "Alex",
+                            IsDeleted = false,
+                            LastName = "Ivanov",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ALEX.IVANOV@ALGONA.LTD",
+                            NormalizedUserName = "ALEX.IVANOV@ALGONA.LTD",
+                            PasswordHash = "AQAAAAIAAYagAAAAELiwcW7/RuK/vQGNOL32lh7eCqdbaKUwysfD33YIg6ymcPubwN4bVL4kiIh5l0+FQg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "d1062b93-9d07-42d9-9c56-f096968eb9fb",
+                            TwoFactorEnabled = false,
+                            Type = 0,
+                            UserName = "alex.ivanov@algona.ltd"
+                        });
                 });
 
-            modelBuilder.Entity("Server.Data.Entities.RequestSpedition", b =>
+            modelBuilder.Entity("Server.Data.Entities.Spedition", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)")
@@ -416,10 +461,10 @@ namespace Server.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RequestSpeditions");
+                    b.ToTable("Speditions");
                 });
 
-            modelBuilder.Entity("Server.Data.Entities.RequestTransport", b =>
+            modelBuilder.Entity("Server.Data.Entities.Transport", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -464,7 +509,7 @@ namespace Server.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RequestTransports");
+                    b.ToTable("Transports");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

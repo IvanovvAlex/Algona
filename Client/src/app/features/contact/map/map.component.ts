@@ -13,7 +13,7 @@ export class MapComponent implements AfterViewInit {
 
   @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow | undefined;
   mapOptions: google.maps.MapOptions = {
-    center: { lat: 43.86099666996757, lng: 25.978029847119984 },
+    center: { lat: 43.861051058621186, lng: 25.978069498762277 },
     zoom: 15.1
 
   }

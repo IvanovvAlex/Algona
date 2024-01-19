@@ -1,8 +1,8 @@
 footer {
     background-color: var(--primary-theme-color);
-    position: static;
-    bottom: 0;
-    left: 0;
+    /* position: static; */
+    /* bottom: 0;
+    left: 0; */
     height: fit-content;
     width: 100%;
     font-weight: 300;
@@ -26,6 +26,12 @@ p.text-small {
     font-size: 0.75rem;
     letter-spacing: 1px;
     margin-bottom: 0.5rem;
+}
+
+p.mono-space {
+    font-family: Courier, monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
 }
 
 footer .nav-link {

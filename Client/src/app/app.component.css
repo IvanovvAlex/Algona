@@ -1,0 +1,11 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.outlet-cont {
+    min-height: 100vh;
+}
+
+

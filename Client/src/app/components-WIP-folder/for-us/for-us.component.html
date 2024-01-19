@@ -1,82 +1,64 @@
-<section id="about-us"
-         class="container-fluid px-0 col-12 my-5">
+<div class="screen-cont">
+    <section id="about-us" class="container-fluid px-0 col-12 my-5">
 
-    <div class="mission-wrapper position-relative"
-         data-aos="fade-up"
-         data-aos-duration="1500"
-         data-aos-delay="200">
-        <div
-             class="mission d-flex flex-md-row flex-column gap-lg-5 gap-md-2 gap-1 justify-content-center align-items-center ">
-            <div class="d-flex flex-column justify-content-center align-items-center">
-                <h2 class="py-3 mt-4 border-bottom border-dark-subtle mb-4">{{'about.mission' | translate}}</h2>
-                <p lang="en">{{'about.mission-one' | translate}}</p>
-                <p lang="en"
-                   class="pb-lg-5 pb-md-3 pb-2">{{'about.mission-two' | translate}}</p>
+        <div class="mission-wrapper position-relative" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+            <div
+                class="mission d-flex flex-md-row flex-column gap-lg-5 gap-md-2 gap-1 justify-content-center align-items-center ">
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <h2 class="py-3 mt-4 border-bottom border-dark-subtle mb-4">{{'about.mission' | translate}}</h2>
+                    <p lang="en">{{'about.mission-one' | translate}}</p>
+                    <p lang="en" class="pb-lg-5 pb-md-3 pb-2">{{'about.mission-two' | translate}}</p>
+                </div>
+                <div class="col-lg-4 col-md-5">
+                    <img class="img-fluid shadow-sm" src="/assets/algona-photos/about-us/IMG_0707.jpg"
+                        alt="Algona Company Trucks">
+                </div>
             </div>
-            <div class="col-lg-4 col-md-5">
-                <img class="img-fluid shadow-sm"
-                     src="/assets/algona-photos/about-us/IMG_0707.jpg"
-                     alt="Algona Company Trucks">
+            <div class="line"></div>
+        </div>
+
+        <div class="story-wrapper" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="200">
+            <div class="story d-flex flex-lg-row flex-column gap-lg-5 gap-md-2 gap-1 align-items-center">
+                <div class="col-lg-4 col-md-8 col-11 py-md-3 py-2">
+                    <img class="img-fluid" src="/assets/logo-files/svg/logo-no-background.svg" alt="Algona logo">
+                </div>
+                <div class="d-flex flex-column justify-content-center align-items-center p-2">
+                    <h2 class="py-3 border-bottom border-dark-subtle mb-4">{{'about.story' | translate}}</h2>
+                    <p lang="en">{{'about.story-one' | translate}}</p>
+                    <p lang="en" class="mb-3">{{'about.story-two' | translate}}</p>
+                </div>
             </div>
         </div>
-        <div class="line"></div>
-    </div>
 
-    <div class="story-wrapper"
-         data-aos="fade-down"
-         data-aos-duration="1500"
-         data-aos-delay="200">
-        <div class="story d-flex flex-lg-row flex-column gap-lg-5 gap-md-2 gap-1 align-items-center">
-            <div class="col-lg-4 col-md-8 col-11 py-md-3 py-2">
-                <img class="img-fluid"
-                     src="/assets/logo-files/svg/logo-no-background.svg"
-                     alt="Algona logo">
+        <div class="services-wrapper mb-4 position-relative" data-aos="fade-up" data-aos-duration="1500"
+            data-aos-delay="200">
+            <div class="services-heading">
+                <h2 class="py-3 mt-3 border-bottom border-dark-subtle mb-3">{{'about.services' | translate}}</h2>
+                <h5>{{'about.service-one' | translate}}</h5>
             </div>
-            <div class="d-flex flex-column justify-content-center align-items-center p-2">
-                <h2 class="py-3 border-bottom border-dark-subtle mb-4">{{'about.story' | translate}}</h2>
-                <p lang="en">{{'about.story-one' | translate}}</p>
-                <p lang="en"
-                   class="mb-3">{{'about.story-two' | translate}}</p>
+            <div class="services d-flex flex-md-row flex-column justify-content-between">
+                <div class="d-flex flex-column justify-content-center gap-3 mx-auto col-md-4 col-10 mb-3">
+                    <button routerLink="/request/transport" mat-stroked-button class="btn-fluid">{{'about.transport' |
+                        translate}}</button>
+                    <button routerLink="/request/spedition" mat-stroked-button class="btn-fluid">{{'about.spedition' |
+                        translate}}</button>
+
+                    <!-- TODO: configure router link -->
+                    <button mat-stroked-button class="btn-fluid">{{'about.tracking' | translate}}</button>
+
+                    <button routerLink="/jobs" mat-stroked-button class="btn-fluid">{{'about.careers' |
+                        translate}}</button>
+                    <button routerLink="/features/contact" mat-stroked-button class="btn-fluid">{{'about.support' |
+                        translate}}</button>
+                </div>
+                <div class="col-lg-5 col-md-7 col-11 align-self-end">
+                    <img class="img-fluid shadow-sm" src="/assets/algona-photos/about-us/IMG_0708.jpg"
+                        alt="Algona Blue Truck">
+                </div>
             </div>
+            <div class="line"></div>
         </div>
-    </div>
+    </section>
 
-    <div class="services-wrapper mb-4 position-relative"
-         data-aos="fade-up"
-         data-aos-duration="1500"
-         data-aos-delay="200">
-        <div class="services-heading">
-            <h2 class="py-3 mt-3 border-bottom border-dark-subtle mb-3">{{'about.services' | translate}}</h2>
-            <h5>{{'about.service-one' | translate}}</h5>
-        </div>
-        <div class="services d-flex flex-md-row flex-column justify-content-between">
-            <div class="d-flex flex-column justify-content-center gap-3 mx-auto col-md-4 col-10 mb-3">
-                <button routerLink="/request/transport"
-                        mat-stroked-button
-                        class="btn-fluid">{{'about.transport' | translate}}</button>
-                <button routerLink="/request/spedition"
-                        mat-stroked-button
-                        class="btn-fluid">{{'about.spedition' | translate}}</button>
-
-                <!-- TODO: configure router link -->
-                <button mat-stroked-button
-                        class="btn-fluid">{{'about.tracking' | translate}}</button>
-
-                <button routerLink="/jobs"
-                        mat-stroked-button
-                        class="btn-fluid">{{'about.careers' | translate}}</button>
-                <button routerLink="/features/contact"
-                        mat-stroked-button
-                        class="btn-fluid">{{'about.support' | translate}}</button>
-            </div>
-            <div class="col-lg-5 col-md-7 col-11 align-self-end">
-                <img class="img-fluid shadow-sm"
-                     src="/assets/algona-photos/about-us/IMG_0708.jpg"
-                     alt="Algona Blue Truck">
-            </div>
-        </div>
-        <div class="line"></div>
-    </div>
-</section>
-
-<app-footer></app-footer>
+    <app-footer></app-footer>
+</div>
