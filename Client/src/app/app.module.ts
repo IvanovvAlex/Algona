@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { NgOptimizedImage } from '@angular/common';
 
 // Component imports
 import { AppComponent } from './app.component';
@@ -31,39 +32,39 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        ForUsComponent,
-        HeroComponent,
-        NotFoundComponent,
-        GarageComponent,
-        TransportRequestComponent,
-        SpeditionRequestComponent,
-        JobsComponent,
-        JobDetailsComponent,
-        PaginatorComponent
-        
-    ],
-    imports: [
-        CoreModule,
-        SharedModule,
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatInputModule,
-        TranslateModule.forRoot({
-            defaultLanguage: 'en', 
-            loader: {
-              provide: TranslateLoader,
-              useFactory: HttpLoaderFactory,
-              deps: [HttpClient]
-            }
-          })
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    ForUsComponent,
+    HeroComponent,
+    NotFoundComponent,
+    GarageComponent,
+    TransportRequestComponent,
+    SpeditionRequestComponent,
+    JobsComponent,
+    JobDetailsComponent,
+    PaginatorComponent,
+  ],
+  imports: [
+    CoreModule,
+    SharedModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
+    NgOptimizedImage,
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

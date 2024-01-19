@@ -1,14 +1,35 @@
+.transparent-filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3) 30%);
+    height: 80.33px;
+    width: 100%;
+    z-index: -1;
+    box-shadow: 0 0 8px -4px black;
+}
+
+.blend-mode {
+    backdrop-filter: blur(2px);
+}
+
 img {
-    height: 597px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    width: 100%;
+    object-fit: cover;
     overflow: hidden;
     object-position: center;
+    z-index: -100;
 }
 
 h5,
 p {
     line-height: normal;
     margin-bottom: 26px;
-    text-shadow: 0 0 5px rgb(60, 60, 60);
+    text-shadow: 0 0 5px rgb(12,12,12);
 }
 
 .caption-bg {
@@ -24,6 +45,10 @@ p {
     font-weight: 200;
 }
 
+.mdc-button {
+    background-color: var(--primary-theme-color) !important;
+}
+
 button.btn-fluid {
     background-color: var(--primary-theme-color);
 }
@@ -34,7 +59,7 @@ button.btn-fluid {
     cursor: pointer;
     position: relative;
     color: white;
-    z-index: 0;
+    z-index: 1;
     border: .5px solid var(--primary-theme-color) !important;
     border-radius: .2rem;
     background-color: transparent;
@@ -61,11 +86,21 @@ button.btn-fluid {
 }
 
 @media screen and (max-width: 580px) {
+    .transparent-filter {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+    }
+
     .caption-bg {
         background: radial-gradient(rgba(0, 0, 0, 0.2), transparent 60%);
     }
 
-    h5#custom {
+    h5 {
         font-size: 1.7rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .transparent-filter {
+        height: 70.33px;
     }
 }

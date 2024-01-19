@@ -25,6 +25,8 @@
                                 <ng-container *ngIf="hasErrors('firstName')">
                                     <mat-error *ngIf="formControl.firstName.errors?.['required']"
                                                [@fade]>{{'error.firstName-required' | translate}}</mat-error>
+                                    <mat-error *ngIf="formControl.firstName.errors?.['minlength']"
+                                                [@fade]>{{'error.firstName-length' | translate}}</mat-error>
                                 </ng-container>
                             </mat-form-field>
                             <mat-form-field class="flex-grow-1">
@@ -37,6 +39,8 @@
                                 <ng-container *ngIf="hasErrors('lastName')">
                                     <mat-error *ngIf="formControl.lastName.errors?.['required']"
                                                [@fade]>{{'error.lastName-required' | translate}}</mat-error>
+                                    <mat-error *ngIf="formControl.lastName.errors?.['minlength']"
+                                                [@fade]>{{'error.lastName-length' | translate}}</mat-error>
                                 </ng-container>
                             </mat-form-field>
                         </div>
@@ -73,7 +77,7 @@
                             </mat-form-field>
 
                             <mat-form-field>
-                                <mat-label><mat-icon>vpn_key</mat-icon>{{'register.form-rePassword' | translate}}</mat-label>
+                                <mat-label><mat-icon>vpn_key</mat-icon>{{'register.confirm-password' | translate}}</mat-label>
                                 <input formControlName="rePassword"
                                        name="rePassword"
                                        type="password"

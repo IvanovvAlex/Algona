@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="nav-line">
                 <div class="logo">
-                    <a class="nav-link icon-link-hover" routerLink="/">
+                    <a class="nav-link icon-link-hover" routerLink="/home" routerLinkActive="current-link">
                         <img src="../../../../assets/logo-files/png/logo-no-background.png">
                     </a>
                 </div>
@@ -21,34 +21,34 @@
     
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link icon-link-hover" routerLink="/home">{{'nav.home' | translate}}</a>
+                            <a class="nav-link icon-link-hover" routerLink="/home" routerLinkActive="current-link">{{'nav.home' | translate}}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="/about">{{'nav.about' | translate}}</a>
+                            <a class="nav-link" routerLink="/about" routerLinkActive="current-link">{{'nav.about' | translate}}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="/vehicles">{{'nav.vehiclePark' | translate}}</a>
+                            <a class="nav-link" routerLink="/vehicles" routerLinkActive="current-link">{{'nav.vehiclePark' | translate}}</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">{{'nav.request' | translate}}</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" (click)="toggleNavbar()"
-                                        routerLink="request/transport">{{'nav.transport' |
+                                        routerLink="request/transport" routerLinkActive="current-link">{{'nav.transport' |
                                         translate}}</a></li>
                                 <li><a class="dropdown-item" (click)="toggleNavbar()"
-                                        routerLink="request/spedition">{{'nav.spedition' |
+                                        routerLink="request/spedition" routerLinkActive="current-link">{{'nav.spedition' |
                                         translate}}</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="/jobs">{{'nav.careers' | translate}}</a>
+                            <a class="nav-link" routerLink="/jobs" routerLinkActive="current-link">{{'nav.careers' | translate}}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="features/contact">{{'nav.contact' | translate}}</a>
+                            <a class="nav-link" routerLink="features/contact" routerLinkActive="current-link">{{'nav.contact' | translate}}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="/auth/login">{{'nav.login' | translate}}</a>
+                            <a class="nav-link" routerLink="/auth/login" routerLinkActive="current-link">{{'nav.login' | translate}}</a>
                         </li>
                         <li class="nav-item dropdown languages">
                             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
