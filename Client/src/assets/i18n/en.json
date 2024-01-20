@@ -14,7 +14,7 @@
         "name": "ALGONA LTD",
         "action-one": "Transportation and Logistics Company",
         "question-one": "Why to choose us to be your transportation partner?",
-        "find": "Find out now.",
+        "find": "Find out now",
         "about": "about us",
         "action-two": "NEED SPEDITION SERVICES?",
         "question-two": "Optimize your supply chain with our expert logistics solutions.",
@@ -73,7 +73,11 @@
         "support": "Question Support"
     },
     "vehiclePark": {
-        "title": "Our vehicle park"
+        "title": "Our vehicle park",
+        "modal-btn-next": "Next",
+        "modal-btn-previous": "Previous",
+        "modal-header-page": "Page",
+        "modal-header-image": "Image"
     },
     "careers": {
         "title": "Available positions",
@@ -116,7 +120,7 @@
         "title": "REGISTER AN ACCOUNT",
         "form-firstName": "First Name",
         "form-lastName": "Last Name",
-        "form-name": "Email",
+        "form-email": "Email",
         "form-password": "Password",
         "confirm-password": "Confirm Password",
         "forgot-pass": "Forgot password?",
@@ -126,8 +130,8 @@
     },
     "forgot": {
         "forgot-password": "forgot password",
-        "email": "email",
-        "confirm": "confirm",
+        "email": "Email",
+        "confirm": "Confirm",
         "back": "Back to Login"
     },
     "footer": {
@@ -148,9 +152,11 @@
         "email-required": "The Email is required!",
         "email-notValid": "Email is not valid!",
         "firstName-required": "First Name is required!",
+        "firstName-length": "First Name must be at least 2 characters long!",
         "lastName-required": "Last Name is required!",
+        "lastName-length": "Last Name must be at least 2 characters long!",
         "password-required": "The Password is required!",
-        "password-lenght": "Password must be at least 6 characters long!",
+        "password-lenght": "Password must be at least 5 characters long!",
         "rePassword-required": "Confirm password is required!",
         "rePassword-notMatch": "Passwords don't match!",
         "from": "The From field is required!",

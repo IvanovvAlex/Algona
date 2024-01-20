@@ -35,6 +35,7 @@ mat-label mat-icon {
 /* start of messages links and errors */
 .mat-mdc-form-field-error {
     font-size: 0.8rem;
+    line-height: 1;
 }
 
 a {

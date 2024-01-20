@@ -16,61 +16,73 @@ import { JobDetailsComponent } from './components-WIP-folder/job-details/job-det
 
 
 const routes: Routes = [
-    {
-        path: '', component: HeroComponent,
-    },
-    {
-        path: 'home', component: HeroComponent,
-    },
-    {
-        path: 'about', component: ForUsComponent,
-    },
-    {
-        path: 'vehicles', component: GarageComponent,
-    },
-    {
-        path: 'orders', component: NotFoundComponent,
-    },
-    {
-        path: 'request',
-        children: [
-            {
-                path: 'spedition', component: SpeditionRequestComponent
-            },
-            {
-                path: 'transport', component: TransportRequestComponent,
-            }
-        ]
-
-    },
-    {
-        path: 'auth',
-        loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
-    },
-    {
-        path: 'features',
-        loadChildren: () => import('./features/features.module').then(m => m.FeaturesModule),
-    },
-    {
-        path: 'jobs',
-        children: [
-            {
-                path: '', pathMatch: 'full', component: JobsComponent,
-            },
-            {
-                path: 'details/:id', component: JobDetailsComponent,
-            },
-            {
-                path: 'apply/:id', component: NotFoundComponent
-            },
-        ]
-    },
-    {
-        path: '404', component: NotFoundComponent
-    },
-    {
-        path: '**', redirectTo: '/404'
-    }
+  {
+    path: '', pathMatch: 'full', redirectTo: 'home',
+  },
+  {
+    path: 'home',
+    component: HeroComponent,
+  },
+  {
+    path: 'about',
+    component: ForUsComponent,
+  },
+  {
+    path: 'vehicles',
+    component: GarageComponent,
+  },
+  {
+    path: 'orders',
+    component: NotFoundComponent,
+  },
+  {
+    path: 'request',
+    children: [
+      {
+        path: 'spedition',
+        component: SpeditionRequestComponent,
+      },
+      {
+        path: 'transport',
+        component: TransportRequestComponent,
+      },
+    ],
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
+    path: 'features',
+    loadChildren: () =>
+      import('./features/features.module').then((m) => m.FeaturesModule),
+  },
+  {
+    path: 'jobs',
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        component: JobsComponent,
+      },
+      {
+        path: 'details/:id',
+        component: JobDetailsComponent,
+      },
+      {
+        path: 'apply/:id',
+        component: NotFoundComponent,
+      },
+    ],
+  },
+  {
+    path: '404',
+    component: NotFoundComponent,
+  },
+  {
+    path: '**',
+    redirectTo: '/404',
+  },
 ];
 
 @NgModule({
