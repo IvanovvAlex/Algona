@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
 using Microsoft.IdentityModel.Tokens;
 using Server.Common.Requests.AuthRequests;
 using Server.Data.Entites;
@@ -50,14 +51,14 @@ namespace Server.API.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                    return StatusCode(403, "Not correct data!");
+                    return StatusCode(403, new { message = "Not correct data!" });
                 }
 
                 var user = await userManager.FindByEmailAsync(userLogin.Email);
 
                 if (user == null)
                 {
-                    return StatusCode(401, "Wrong email or password!");
+                    return StatusCode(401, new { message = "Wrong email or password!" });
                 }
 
                 if (user != null)
@@ -67,20 +68,26 @@ namespace Server.API.Controllers
                     if (result.Succeeded)
                     {
                         var token = GenerateToken(userLogin);
-                        this.HttpContext.Response.Cookies.Append($"{user.Id}", $"{token}", new CookieOptions
+                        this.HttpContext.Response.Cookies.Append("token", $"{token}", new CookieOptions
                         {
                             HttpOnly = true,
                             Secure = true
                         });
-                        return StatusCode(200, $"{token}");
+                        return StatusCode(200, new
+                        {
+                            firstName = user.FirstName,
+                            lastName = user.LastName,
+                            email = user.Email,
+                            token = token.ToString()
+                        });
                     }
                 }
 
-                return StatusCode(401, "Wrong email or password!");
+                return StatusCode(401, new { message = "Wrong email or password!" });
             }
             catch (Exception error)
             {
-                return StatusCode(500, error.Message);
+                return StatusCode(500, new { message = error.Message });
             }
         }
 
@@ -93,7 +100,7 @@ namespace Server.API.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                    return StatusCode(403, "Not correct data!");
+                    return StatusCode(403, new { message = "Not correct data!" });
                 }
 
                 var users = await userRepository.GetAllAsync();
@@ -101,7 +108,7 @@ namespace Server.API.Controllers
 
                 if (findUser != null)
                 {
-                    return StatusCode(409, "Email is already in use!");
+                    return StatusCode(409, new { message = "Email is already in use!" });
                 }
 
                 var user = new User()
@@ -119,18 +126,96 @@ namespace Server.API.Controllers
                     await userManager.AddToRoleAsync(user, ClientRole);
                     await signInManager.PasswordSignInAsync(user, userRegister.Password, false, false);
                     var token = GenerateToken(new CreateLoginRequest { Email = userRegister.Email, Password = userRegister.Password });
-                    this.HttpContext.Response.Cookies.Append($"{user.Id}", $"{token}", new CookieOptions
+                    this.HttpContext.Response.Cookies.Append("token", $"{token}", new CookieOptions
                     {
                         HttpOnly = true,
                         Secure = true
                     });
-                    return StatusCode(200, $"{token}");
+                    return StatusCode(200, new
+                    {
+                        firstName = user.FirstName,
+                        lastName = user.LastName,
+                        email = user.Email,
+                        token = token.ToString()
+                    });
                 }
-                return StatusCode(401, "Wrong input data!");
+                return StatusCode(401, new { message = "Wrong input data!" });
             }
             catch (Exception error)
             {
-                return StatusCode(500, error.Message);
+                return StatusCode(500, new { message = error.Message });
+            }
+        }
+
+        [HttpGet("User")]
+        public async Task<IActionResult> GetUserWithValidToken()
+        {
+            try
+            {
+                var hasCredentials = HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
+
+                if (!hasCredentials)
+                {
+                    return StatusCode(401, new { message = "Unauthorized Request!" });
+                }
+
+                var returnedEmail = this.ValidateToken(token);
+                if (returnedEmail == null)
+                {
+                    return StatusCode(401, new { message = "Unauthorized Request!" });
+                }
+
+                var users = await userRepository.GetAllAsync();
+                var findUser = users.FirstOrDefault(x => x.Email == returnedEmail);
+                if (findUser == null)
+                {
+                    return StatusCode(401, new { message = "Unauthorized Request!" });
+                }
+                return StatusCode(200, new { findUser.FirstName, findUser.LastName, findUser.Email, token });
+            }
+            catch (Exception error)
+            {
+                return StatusCode(500, new { message = error.Message });
+            }
+        }
+
+        /// <summary>
+        /// Logs the user out only if the user has credentials (in other words the user is currently logged in).
+        /// If so deletes authentication cookie attached to the response on Login/Register.
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost("Logout")]
+        public async Task<IActionResult> Logout()
+        {
+            try
+            {
+                var hasCredentials = HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues token);
+                if (!hasCredentials)
+                {
+                    return StatusCode(401, new { message = "Unauthorized Request!" });
+                }
+                if (token == "")
+                {
+                    return StatusCode(401, new { message = "Invalid Credentials!" });
+                }
+
+                var jwt = new JwtSecurityTokenHandler();
+                var readToken = jwt.ReadJwtToken(token);
+                if (readToken != null)
+                {
+                    HttpContext.Response.Cookies.Delete("token", new CookieOptions
+                    {
+                        HttpOnly = true,
+                        Secure = true
+                    });
+
+                    return StatusCode(200, new { message = "Logged out!" });
+                }
+                return StatusCode(401, new { message = "Unauthorized Request!" });
+            }
+            catch (Exception error)
+            {
+                return StatusCode(500, new { message = error.Message });
             }
         }
 
@@ -154,6 +239,44 @@ namespace Server.API.Controllers
                 signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        /// <summary>
+        /// Validates JWT. If JWT is valid returns user email via JWT's claims, otherwise returns null
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns>email(<see langword="string"/>) or null</returns>
+        private string? ValidateToken(string token)
+        {
+            if (token == null || token == "")
+            {
+                return null;
+            }
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+
+            try
+            {
+                var key = Encoding.UTF8.GetBytes(config["Jwt:Key"]);
+
+                tokenHandler.ValidateToken(token, new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ClockSkew = TimeSpan.Zero
+                }, out SecurityToken validatedToken);
+
+                var jwtToken = (JwtSecurityToken)validatedToken;
+                var email = jwtToken.Claims.Single(c => c.Type == ClaimTypes.Name).Value;
+
+                return email;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }

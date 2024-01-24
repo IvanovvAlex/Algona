@@ -8,7 +8,9 @@
         "spedition": "spedition",
         "careers": "cereers",
         "contact": "contact us",
-        "login": "login"
+        "login": "login",
+        "logout": "logout",
+        "greeting": "Hello"
     },
     "hero": {
         "name": "ALGONA LTD",
@@ -114,7 +116,9 @@
         "forgot-pass": "Forgot password?",
         "login": "Login",
         "notAMember": "Not a Member?",
-        "register": "Register Now"
+        "register": "Register Now",
+        "success-message": "Successfully logged in!",
+        "error-message": "There was an error. Please try again!"
     },
     "register": {
         "title": "REGISTER AN ACCOUNT",
@@ -126,13 +130,18 @@
         "forgot-pass": "Forgot password?",
         "register": "Register",
         "member": "Alredy a Member?",
-        "login": "Click here to login"
+        "login": "Click here to login",
+        "success-message": "Welcome! Your account has been created.",
+        "error-message": "There was an error. Please try again!"
     },
     "forgot": {
         "forgot-password": "forgot password",
         "email": "Email",
         "confirm": "Confirm",
         "back": "Back to Login"
+    },
+    "logout": {
+        "message": "Logout Successfull! Goodbye."
     },
     "footer": {
         "whoWeAre": "Who we are",

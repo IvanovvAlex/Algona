@@ -47,8 +47,17 @@
                         <li class="nav-item">
                             <a class="nav-link" routerLink="features/contact" routerLinkActive="current-link">{{'nav.contact' | translate}}</a>
                         </li>
-                        <li class="nav-item">
+                        <li *ngIf="authService.currentUserSignal() == null || authService.currentUserSignal() == undefined"
+                            class="nav-item">
                             <a class="nav-link" routerLink="/auth/login" routerLinkActive="current-link">{{'nav.login' | translate}}</a>
+                        </li>
+                        <li *ngIf="authService.currentUserSignal()" class="nav-item dropdown">
+                            <a class="nav-item-profile nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{'nav.greeting' | translate}}, {{authService.currentUserSignal()?.firstName}}!
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-item-profile dropdown-item" (click)="onLogout()" routerLink="">{{'nav.logout' | translate}}</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item dropdown languages">
                             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
