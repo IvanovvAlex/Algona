@@ -6,10 +6,8 @@ using Microsoft.IdentityModel.Tokens;
 using Server.Common.Requests.AuthRequests;
 using Server.Data.Entites;
 using Server.Data.Interfaces.Repositories;
-using Server.Domain.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text;
 
 using static Server.Common.Constants.GlobalConstants;
@@ -24,7 +22,6 @@ namespace Server.API.Controllers
         private readonly SignInManager<User> signInManager;
         private readonly IConfiguration config;
         private readonly IUserRepository userRepository;
-        private readonly ISharedService sharedService;
 
         /// <summary>
         /// Constructor
@@ -37,14 +34,12 @@ namespace Server.API.Controllers
           UserManager<User> _userManager,
           SignInManager<User> _signInManager,
           IConfiguration _config,
-          IUserRepository _userRepository,
-          ISharedService _sharedService)
+          IUserRepository _userRepository)
         {
             userManager = _userManager;
             signInManager = _signInManager;
             config = _config;
             userRepository = _userRepository;
-            sharedService = _sharedService;
         }
 
 
@@ -145,40 +140,6 @@ namespace Server.API.Controllers
                     });
                 }
                 return StatusCode(401, new { message = "Wrong input data!" });
-            }
-            catch (Exception error)
-            {
-                return StatusCode(500, new { message = error.Message });
-            }
-        }
-
-        [HttpPost("ForgotPassword")]
-        public async Task<IActionResult> ForgotPassword(string email)
-        {
-            try
-            {
-                var user = await userRepository.GetByEmailAsync(email);
-
-                if (user == null)
-                {
-                    return StatusCode(404, new { message = "User with such email does not exist" });
-                }
-
-                var resetToken = CreateRandomToken();
-                user.ResetPasswordToken = resetToken;
-                user.ResetPasswordTokenExpiration = DateTime.UtcNow.AddDays(1);
-
-                var updateResult = await userManager.UpdateAsync(user);
-                if (updateResult.Succeeded)
-                {
-                    await this.sharedService.SendResetPasswordEmail(email,resetToken);
-                    //TODO add reset password getmethod maybe
-                    return StatusCode(200, new { message = "Password reset email sent" });
-                }
-                else
-                {
-                    return StatusCode(400, new { message = "There was an error. Try again." });
-                }
             }
             catch (Exception error)
             {
@@ -316,13 +277,6 @@ namespace Server.API.Controllers
             {
                 return null;
             }
-        }
-
-        private string CreateRandomToken()
-        {
-            var token = Convert.ToHexString(RandomNumberGenerator.GetBytes(64));
-            //OPTIONAL TODO: To prevent dublicate tokens we can check if such exists in the database
-            return token;
         }
     }
 }

@@ -29,17 +29,10 @@ namespace Server.Data.Repositories
                 .FindAsync(id);
         }
 
-
         public override async void Remove(User entity)
         {
             this.AlgonaContext.Remove(entity);
             await this.AlgonaContext.SaveChangesAsync();
-        }
-
-        public async Task<User?> GetByEmailAsync(string email)
-        {
-            return await this.AlgonaContext.Users
-                .FirstOrDefaultAsync(u=> u.NormalizedEmail == email.ToUpper());
         }
     }
 }
