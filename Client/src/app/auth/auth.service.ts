@@ -14,7 +14,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
     login$(email: string, password: string): Observable<User> {
-        return this.http.post<User>(this.devBaseUrl + '/api/Auths/Login', {
+        return this.http.post<User>('/api/Auths/Login', {
             email,
             password,
         });
@@ -22,20 +22,20 @@ export class AuthService {
 
     register$(registerData: RegisterUser): Observable<User> {
         return this.http.post<User>(
-            this.devBaseUrl + '/api/Auths/Register',
+            '/api/Auths/Register',
             registerData
         );
     }
     
     getUser$(): Observable<User> {
-        return this.http.get<User>(this.devBaseUrl + '/api/Auths/User', {
+        return this.http.get<User>('/api/Auths/User', {
             withCredentials: true,
         });
     }
 
     logout$(): Observable<void> {
         return this.http.post<void>(
-            this.devBaseUrl + '/api/Auths/Logout',
+            '/api/Auths/Logout',
             {},
             { withCredentials: true }
         );
