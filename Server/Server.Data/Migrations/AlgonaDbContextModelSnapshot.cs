@@ -355,12 +355,6 @@ namespace Server.Data.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("ResetPasswordToken")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ResetPasswordTokenExpiration")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -400,9 +394,9 @@ namespace Server.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ALEX.IVANOV@ALGONA.LTD",
                             NormalizedUserName = "ALEX.IVANOV@ALGONA.LTD",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHosjPXiYhPROF3mdbMjmVVUul3cErvWtwo4kyGueJo/9I2l4c359rrSZ/blxFo+Zw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELiwcW7/RuK/vQGNOL32lh7eCqdbaKUwysfD33YIg6ymcPubwN4bVL4kiIh5l0+FQg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "42760322-e385-4c91-af4c-b2d2ae443290",
+                            SecurityStamp = "d1062b93-9d07-42d9-9c56-f096968eb9fb",
                             TwoFactorEnabled = false,
                             Type = 0,
                             UserName = "alex.ivanov@algona.ltd"
