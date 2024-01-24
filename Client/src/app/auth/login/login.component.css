@@ -70,6 +70,10 @@ button{
     width: 100%;
 }
 
+mat-snackbar {
+    font-family: 'Figtree' !important;
+}
+
 #border-line {
     position: absolute;
     bottom: 0;

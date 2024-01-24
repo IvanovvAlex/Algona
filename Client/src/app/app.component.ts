@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from './auth/auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 declare let AOS: any;
 
@@ -11,7 +13,7 @@ declare let AOS: any;
 export class AppComponent implements OnInit {
     title = 'Client';
 
-    constructor(private router: Router) {
+    constructor(private router: Router, public authService: AuthService) {
 
     }
 
@@ -28,11 +30,25 @@ export class AppComponent implements OnInit {
         else {
             return false
         }
-
-
     }
 
     ngOnInit(): void {
         AOS.init();
+
+        const localStorageToken = localStorage.getItem('token');
+        if (localStorageToken) {
+            this.authService.getUser$().subscribe({
+                next: userData => {
+                    this.authService.currentUserSignal.set(userData)
+                },
+                error: (res: HttpErrorResponse) => {
+                    this.authService.currentUserSignal.set(null);
+                    localStorage.removeItem('token');
+                }
+            })
+        }
+        else {
+            this.authService.currentUserSignal.set(undefined);
+        }
     }
 }

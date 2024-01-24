@@ -19,23 +19,32 @@
     white-space: nowrap;
 }
 
-nav .nav-link, nav .dropdown-item {
+nav .nav-link,
+nav .dropdown-item {
     text-transform: uppercase;
     --bs-dropdown-link-active-bg: rgba(128, 128, 128, 0.103) !important;
 }
 
-.languages a, .dropdown-item, a {
+.languages a,
+.dropdown-item,
+a {
     color: rgb(12, 12, 12);
+}
+
+.nav-item-profile {
+    font-size: .9rem;
 }
 
 .current-link {
     color: var(--primary-styling-color);
     text-shadow: 0.5px 0.5px 0px black;
 }
- 
-.dropdown-menu.langs,.dropdown-menu.langs>li {
+
+.dropdown-menu.langs,
+.dropdown-menu.langs > li {
     --bs-dropdown-min-width: 3rem !important;
 }
+
 .logo {
     width: 25%;
     min-width: 150px;
@@ -43,6 +52,10 @@ nav .nav-link, nav .dropdown-item {
 
 .logo img {
     width: 100%;
+}
+
+mat-snackbar {
+    font-family: 'Figtree' !important;
 }
 
 @media screen and (max-width: 990px) {
@@ -56,20 +69,23 @@ nav .nav-link, nav .dropdown-item {
         background-color: white;
         border: 1.3px solid transparent;
         margin: 1rem;
-        padding: 0 0.5em;;
+        padding: 0 0.5em;
+        ;
         border-radius: 6px;
         transition: border 0.01s ease;
-    } 
+    }
 
     .navbar-collapse.show {
         display: block;
         border: 1px solid rgba(128, 128, 128, 0.362);
     }
 
-    .navbar .nav-link, .navbar .nav-link.show,.navbar .dropdown-item {
+    .navbar .nav-link,
+    .navbar .nav-link.show,
+    .navbar .dropdown-item {
         /* color: white !important; */
         --bs-dropdown-link-active-bg: rgba(128, 128, 128, 0.103) !important;
-      }
+    }
 
     .navbar .dropdown-menu {
         /* background-color: var(--primary-theme-color); */
@@ -81,24 +97,29 @@ nav .nav-link, nav .dropdown-item {
     .nav-item {
         padding: 0 0.5rem;
     }
-    
+
+    .nav-item-profile {
+        text-wrap: wrap;
+    }
+
     .navbar .dropdown-menu li {
         display: block;
     }
 
-    .navbar .dropdown-item:hover, .navbar .nav-item:hover {
+    .navbar .dropdown-item:hover,
+    .navbar .nav-item:hover {
         /* background-color: var(--primary-theme-color);  */
         background-color: rgba(128, 128, 128, 0.099);
         color: var(--bs-navbar-hover-color);
         border-radius: 6px;
-     }
+    }
 
-     /* .navbar-toggler {
+    /* .navbar-toggler {
         color: var(--primary-theme-color);
     } */
 
     .languages a {
-        padding-right: 1rem; 
+        padding-right: 1rem;
     }
 
     .empty-space {
@@ -110,9 +131,3 @@ nav .nav-link, nav .dropdown-item {
     }
 
 }
-
-
-   
-
-
-

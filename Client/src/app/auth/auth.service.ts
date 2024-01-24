@@ -1,23 +1,43 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
+import { Observable } from 'rxjs';
+import { RegisterUser, User } from '../shared/typization/interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+  currentUserSignal = signal<User | undefined | null>(undefined);
   
+  private devBaseUrl = 'https://localhost:7169';
+    
   constructor(private http: HttpClient) { }
 
-  private url = 'api/Auths'
-
-
-  login(loginData:any) {
-    return this.http.post(`${this.url}/Login`, loginData, { observe: 'response' })
+    login$(email: string, password: string): Observable<User> {
+        return this.http.post<User>(this.devBaseUrl + '/api/Auths/Login', {
+            email,
+            password,
+        });
   }
 
-  register(registerData:any) {
-    return this.http.post(`${this.url}/Register`, registerData, { observe: 'response' })
-  }
+    register$(registerData: RegisterUser): Observable<User> {
+        return this.http.post<User>(
+            this.devBaseUrl + '/api/Auths/Register',
+            registerData
+        );
+    }
+    
+    getUser$(): Observable<User> {
+        return this.http.get<User>(this.devBaseUrl + '/api/Auths/User', {
+            withCredentials: true,
+        });
+    }
 
+    logout$(): Observable<void> {
+        return this.http.post<void>(
+            this.devBaseUrl + '/api/Auths/Logout',
+            {},
+            { withCredentials: true }
+        );
+    }
 }
