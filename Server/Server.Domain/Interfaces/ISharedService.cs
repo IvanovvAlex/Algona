@@ -5,5 +5,6 @@
     public interface ISharedService
     {
         Task EmailSender(CreateContactRequest request);
+        Task SendResetPasswordEmail(string toEmail, string resetToken);
     }
 }
