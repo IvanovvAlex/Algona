@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
-
-import { matchPasswordsValidator } from '../validators/matchPasswordsValidator';
+import { Component, OnDestroy } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Subscription } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+
 import { AuthService } from '../auth.service';
+import { RegisterUser, User } from 'src/app/shared/typization/interfaces';
+import { matchPasswordsValidator } from '../validators/matchPasswordsValidator';
 
 @Component({
   selector: 'app-register',
@@ -18,8 +22,11 @@ import { AuthService } from '../auth.service';
     ]),
   ],
 })
-export class RegisterComponent {
-  errorFormServer: string = '';
+export class RegisterComponent implements OnDestroy {
+    errorFormServer: string = '';
+    successMsgSubsc: Subscription = new Subscription();
+    errorMsgSubsc: Subscription = new Subscription();
+    registerSubsc: Subscription = new Subscription();
 
   registerForm = this.fb.group({
     firstName: [
@@ -46,7 +53,8 @@ export class RegisterComponent {
     private router: Router,
     private authService: AuthService,
     private fb: FormBuilder,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private translate: TranslateService
   ) {}
 
   get formControl() {
@@ -72,42 +80,53 @@ export class RegisterComponent {
     );
   }
 
-  //TODO: handle register request
   onSubmit() {
     if (this.registerForm.invalid) return;
 
+    let successMsg: string = '';
+    let errorMsg: string = '';
+
+    this.successMsgSubsc = this.translate.get('register.success-message').subscribe(msg => successMsg = msg);
+    this.errorMsgSubsc = this.translate.get('register.error-message').subscribe(msg => errorMsg = msg); 
+      
     const { firstName, lastName, email, passGroup } = this.registerForm.value;
-    const bodyValues: { [key: string]: string } = {
-      firstName: firstName!,
-      lastName: lastName!,
-      email: email!,
-      password: passGroup!.password!,
-      confirmPassword: passGroup!.rePassword!,
+    const bodyValues: RegisterUser = {
+        firstName: firstName!,
+        lastName: lastName!,
+        email: email!,
+        password: passGroup!.password!,
+        confirmPassword: passGroup!.rePassword!,
     };
 
-    this.authService.register(bodyValues).subscribe({
+    this.registerSubsc = this.authService.register$(bodyValues).subscribe({
       next: (response) => {
-        if (response.status !== 201) {
-          this.errorFormServer = `Error ${response.status}: ${response.statusText}`;
-        } else {
-          this.router.navigate(['/']);
-          this.snackBar.open('Succesfully logged in!', 'Close', {
-            duration: 3000,
-          });
-        }
+        localStorage.setItem('token', response.token);
+        this.authService.currentUserSignal.set(response as User);
+
+        this.snackBar.open(successMsg, ' X ', {
+            duration: 5000,
+        });
+        this.router.navigate([ '/home' ]);
       },
-      error: (error) => {
-        this.errorFormServer = `Error ${error.status}: ${error.statusText}`;
-      },
+        error: (response: HttpErrorResponse) => {
+            if (response.status == 409) {
+                this.errorFormServer = response.error.message;
+            } else {
+                this.errorFormServer = errorMsg;
+            }
+
+            this.snackBar.open(this.errorFormServer, ' X ', {
+                duration: 5000,
+            });
+
+            this.registerForm.reset();
+            this.registerForm.markAllAsTouched();
+        },
     });
-
-    if (this.errorFormServer !== '') {
-      this.snackBar.open(this.errorFormServer, 'Close', {
-        duration: 5000,
-      });
-
-      this.registerForm.reset();
-      this.registerForm.markAllAsTouched();
     }
-  }
+    ngOnDestroy(): void {
+        this.successMsgSubsc.unsubscribe();
+        this.errorMsgSubsc.unsubscribe();
+        this.registerSubsc.unsubscribe();
+    }
 }
