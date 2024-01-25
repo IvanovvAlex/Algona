@@ -4,12 +4,14 @@ using Microsoft.Extensions.Configuration;
 
 using Server.Common.Requests.ContactRequests;
 using Server.Domain.Interfaces;
+using static Server.Common.Constants.GlobalConstants;
 
 using System;
 using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+
 
 namespace Server.Domain.Services
 {
@@ -109,6 +111,54 @@ namespace Server.Domain.Services
         {
             byte[] imageBytes = File.ReadAllBytes(imagePath);
             return Convert.ToBase64String(imageBytes);
+        }
+
+        public async Task SendResetPasswordEmail(string toEmail, string resetToken)
+        {
+
+            // Create a message and set up the recipients.
+            var fromAddress = new MailAddress(MainEmail, $"{AdminFirstName} {AdminLastName}");
+            var toAddress = new MailAddress(toEmail);
+            const string subject = "Password Reset";
+            var body = $"Click the following link to reset your password: {GetResetPasswordLink(resetToken)}";
+
+
+            /*
+            //add this to user secrets
+              "MailSettings": {
+              "Mail": "someEmail@gmail.com",
+              "DisplayName": "Some name",
+              "Password": "somePassword",
+              "Host": "smtp.gmail.com",
+              "Port": 587
+            */
+            var mailSettings = this.configuration.GetSection("MailSettings");
+            var mail = mailSettings["Mail"];
+            var password = mailSettings["Password"];
+            var host = mailSettings["Host"];
+            var port = int.Parse(mailSettings["Port"]);
+
+
+            // Set up the SMTP client and send the email
+            SmtpClient smtpClient = new SmtpClient(host, port);
+            smtpClient.Credentials = new NetworkCredential(mail, password);
+            smtpClient.EnableSsl = true;
+
+            // Create a message and set up the recipients.
+            using (var message = new MailMessage(fromAddress, toAddress)
+            {
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            })
+            {
+                smtpClient.Send(message);
+            }
+        }
+
+        private static string GetResetPasswordLink(string resetToken)
+        {
+            return $"https://algona.ltd/resetpassword?token={resetToken}";
         }
     }
 }
