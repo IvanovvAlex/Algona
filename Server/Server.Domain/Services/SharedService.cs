@@ -116,28 +116,28 @@ namespace Server.Domain.Services
         public async Task SendResetPasswordEmail(string toEmail, string resetToken)
         {
 
-            // Create a message and set up the recipients.
-            var fromAddress = new MailAddress(MainEmail, $"{AdminFirstName} {AdminLastName}");
-            var toAddress = new MailAddress(toEmail);
-            const string subject = "Password Reset";
-            var body = $"Click the following link to reset your password: {GetResetPasswordLink(resetToken)}";
-
-
             /*
             //add this to user secrets
               "MailSettings": {
-              "Mail": "someEmail@gmail.com",
-              "DisplayName": "Some name",
-              "Password": "somePassword",
+              "Mail": "yourEmail@gmail.com",
+              "DisplayName": "Your name",
+              "Password": "yourEmailPassword",
               "Host": "smtp.gmail.com",
               "Port": 587
+            //might have some problems with 2FA emails
             */
             var mailSettings = this.configuration.GetSection("MailSettings");
             var mail = mailSettings["Mail"];
+            var displayName = mailSettings["DisplayName"];
             var password = mailSettings["Password"];
             var host = mailSettings["Host"];
             var port = int.Parse(mailSettings["Port"]);
 
+            // Create a message and set up the recipients.
+            var fromAddress = new MailAddress(mail,displayName );
+            var toAddress = new MailAddress(toEmail);
+            const string subject = "Password Reset";
+            var body = $"Click the following link to reset your password: {GetResetPasswordLink(resetToken)}";
 
             // Set up the SMTP client and send the email
             SmtpClient smtpClient = new SmtpClient(host, port);
