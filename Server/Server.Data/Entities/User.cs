@@ -27,6 +27,11 @@ namespace Server.Data.Entites
         [Required, EmailAddress]
         public override string Email { get; set; } = null!;
 
+        public string? ResetPasswordToken { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime? ResetPasswordTokenExpiration { get; set; }
+
         /// <summary>
         /// Type of user
         /// </summary>

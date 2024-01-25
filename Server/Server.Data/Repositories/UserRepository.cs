@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Server.Data.Entites;
 using Server.Data.Interfaces.Repositories;
+using System.Linq.Expressions;
 
 namespace Server.Data.Repositories
 {
@@ -29,10 +30,17 @@ namespace Server.Data.Repositories
                 .FindAsync(id);
         }
 
+
         public override async void Remove(User entity)
         {
             this.AlgonaContext.Remove(entity);
             await this.AlgonaContext.SaveChangesAsync();
+        }
+
+        public async Task<User?> GetAsync(Expression<Func<User?, bool>> predicate) 
+        {
+            return await this.AlgonaContext.Users
+                .FirstOrDefaultAsync(predicate);
         }
     }
 }
