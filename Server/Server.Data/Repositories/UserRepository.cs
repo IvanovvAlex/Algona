@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Server.Data.Entites;
 using Server.Data.Interfaces.Repositories;
+using System.Linq.Expressions;
 
 namespace Server.Data.Repositories
 {
@@ -36,10 +37,10 @@ namespace Server.Data.Repositories
             await this.AlgonaContext.SaveChangesAsync();
         }
 
-        public async Task<User?> GetByEmailAsync(string email)
+        public async Task<User?> GetAsync(Expression<Func<User?, bool>> predicate) 
         {
             return await this.AlgonaContext.Users
-                .FirstOrDefaultAsync(u=> u.NormalizedEmail == email.ToUpper());
+                .FirstOrDefaultAsync(predicate);
         }
     }
 }

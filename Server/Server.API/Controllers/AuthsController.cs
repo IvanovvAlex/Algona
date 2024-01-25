@@ -9,7 +9,6 @@ using Server.Data.Interfaces.Repositories;
 using Server.Domain.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text;
 
 using static Server.Common.Constants.GlobalConstants;
@@ -157,22 +156,26 @@ namespace Server.API.Controllers
         {
             try
             {
-                var user = await userRepository.GetByEmailAsync(email);
+                if (!ModelState.IsValid)
+                {
+                    return StatusCode(403, new { message = "Not correct data!" });
+                }
+
+                var user = await userManager.FindByEmailAsync(email);
 
                 if (user == null)
                 {
                     return StatusCode(404, new { message = "User with such email does not exist" });
                 }
 
-                var resetToken = CreateRandomToken();
+                var resetToken =await userManager.GeneratePasswordResetTokenAsync(user);
                 user.ResetPasswordToken = resetToken;
                 user.ResetPasswordTokenExpiration = DateTime.UtcNow.AddDays(1);
 
                 var updateResult = await userManager.UpdateAsync(user);
                 if (updateResult.Succeeded)
                 {
-                    await this.sharedService.SendResetPasswordEmail(email,resetToken);
-                    //TODO add reset password getmethod maybe
+                    await this.sharedService.SendResetPasswordEmail(email, resetToken);
                     return StatusCode(200, new { message = "Password reset email sent" });
                 }
                 else
@@ -184,6 +187,47 @@ namespace Server.API.Controllers
             {
                 return StatusCode(500, new { message = error.Message });
             }
+        }
+
+        [HttpPost("ResetPassword")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequest request)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return StatusCode(403, new { message = "Not correct data!" });
+                }
+
+                var user = await userRepository.GetAsync(u => u.ResetPasswordToken == request.Token);
+
+                if (user == null || user.ResetPasswordTokenExpiration < DateTime.UtcNow)
+                {
+                    return StatusCode(404, new { message = "Invalid or expired token." });
+                }
+
+                var resetPasswordResult = await userManager.ResetPasswordAsync(user, request.Token, request.Password);
+
+                if (resetPasswordResult.Succeeded)
+                {
+                    user.ResetPasswordToken = null;
+                    user.ResetPasswordTokenExpiration = null;
+
+                    await userManager.UpdateAsync(user);
+
+                    return StatusCode(200, new { message = "Password reset successfully" });
+                }
+                else
+                {
+                    return StatusCode(400, new { message = "There was an error. Try again." });
+                }
+
+            }
+            catch (Exception error)
+            {
+                return StatusCode(500, new { message = error.Message });
+            }
+            
         }
 
         [HttpGet("User")]
@@ -318,11 +362,6 @@ namespace Server.API.Controllers
             }
         }
 
-        private string CreateRandomToken()
-        {
-            var token = Convert.ToHexString(RandomNumberGenerator.GetBytes(64));
-            //OPTIONAL TODO: To prevent dublicate tokens we can check if such exists in the database
-            return token;
-        }
+        
     }
 }
