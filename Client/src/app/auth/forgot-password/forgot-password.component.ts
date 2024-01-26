@@ -34,7 +34,7 @@ export class ForgotPasswordComponent implements OnDestroy {
     
     let successMsg: string = '';
     let errorMsg: string = '';
-debugger
+
     this.successMsgSubsc = this.translate.get('forgot.success-msg').subscribe(msg => successMsg = msg);
     this.errorMsgSubsc = this.translate.get('forgot.error-msg').subscribe(msg => errorMsg = msg);
 
