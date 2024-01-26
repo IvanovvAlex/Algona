@@ -61,7 +61,6 @@ export class ResetPasswordComponent implements OnDestroy {
             });
           },
           error: (error) => {
-            debugger
             this.errorFromServer = errorMsg;
             
             this.snackBar.open(this.errorFromServer, 'Ok', {
