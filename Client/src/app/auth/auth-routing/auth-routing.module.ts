@@ -19,7 +19,7 @@ const routes: Routes = [
         path: 'forgottenPassword', component: ForgotPasswordComponent
     },
     {
-        path: 'reset', component: ResetPasswordComponent //only for test
+        path: 'resetPassword', component: ResetPasswordComponent 
     }
 
 
