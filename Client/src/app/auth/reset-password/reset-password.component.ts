@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { matchPasswordsValidator } from '../validators/matchPasswordsValidator';
 import { AuthService } from '../auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-reset-password',
@@ -20,7 +21,7 @@ export class ResetPasswordComponent implements OnDestroy {
     errorMsgSubsc: Subscription = new Subscription();
 
 
-    constructor(private fb: FormBuilder, private authService: AuthService, private route: ActivatedRoute,private snackBar: MatSnackBar,private translate: TranslateService) {
+    constructor(private fb: FormBuilder, private authService: AuthService, private route: ActivatedRoute,private router: Router,private snackBar: MatSnackBar,private translate: TranslateService) {
       this.resetPasswordForm = this.fb.group({
         passwordGroup: this.fb.group({
           newPassword: ['', [Validators.required, Validators.minLength(5)]],
@@ -31,7 +32,7 @@ export class ResetPasswordComponent implements OnDestroy {
       });
       
       this.route.queryParams.subscribe(params => {
-        this.resetToken = params['token'];
+        this.resetToken = this.decodeQueryParams(params[ 'token' ]);
       });
     }
 
@@ -59,6 +60,9 @@ export class ResetPasswordComponent implements OnDestroy {
               verticalPosition: 'top',
               duration: 5000,
             });
+
+            this.resetPasswordForm.reset();
+            this.router.navigate([ '/home' ]);
           },
           error: (error) => {
             this.errorFromServer = errorMsg;
@@ -74,6 +78,15 @@ export class ResetPasswordComponent implements OnDestroy {
       formDirevtive.resetForm();
       this.resetPasswordForm.reset();
     }
+
+    private decodeQueryParams(paramsValue: string): string { 
+      let decoded = decodeURIComponent(paramsValue)    
+      let decodedWithPlus = decoded.replace(/\s/g, "+");
+     
+      return decodedWithPlus;
+   }
+
+
     ngOnDestroy(): void {
       this.successMsgSubsc.unsubscribe();
       this.errorMsgSubsc.unsubscribe();
