@@ -58,3 +58,20 @@ button {
 .description {
     text-align: center;
 }
+
+@media screen and (min-width:320px) and (max-width:516px) {
+    .row {
+        padding-bottom: 1.5rem;
+    }
+
+    .button {
+        margin-top: 2.5rem;
+    } 
+}
+
+@media screen and (min-width:517px) and (max-width:724px) {
+
+    .button {
+        margin-top: 1.5rem;
+    }
+}
