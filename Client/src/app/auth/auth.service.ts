@@ -40,4 +40,12 @@ export class AuthService {
             { withCredentials: true }
         );
     }
+
+    sendForgotPasswordEmail(email:string): Observable<any> {
+      return this.http.post(`/api/Auths/ForgotPassword?email=${email}`, {})
+    }
+
+    resetPassword(token: string, password: string, confirmPassword:string): Observable<any> {
+      return this.http.post(`/api/Auths/ResetPassword`, { token,password,confirmPassword });
+    }
 }

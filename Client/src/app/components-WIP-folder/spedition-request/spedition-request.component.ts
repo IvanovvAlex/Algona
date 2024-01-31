@@ -74,7 +74,7 @@ export class SpeditionRequestComponent implements OnInit {
           if (response.status !== 200) {
              this.popUp(`Error ${response.status}: ${response.statusText}`)
           } else {
-             this.popUp('Succes - Your request for transport has been sent to us!')
+             this.popUp('Success - Your request for transport has been sent to us!')
           }
         },
         error: (error) => {
@@ -82,8 +82,6 @@ export class SpeditionRequestComponent implements OnInit {
           if(error.status !== 200 && error.error.errors) {
 
             this.errorFormServer = error.error.errors;
-            console.log(this.errorFormServer)
-
             
             this.errorMessage =  Object.entries(this.errorFormServer)
               .map(([key, value]) => `${key}: ${value}`)
@@ -91,7 +89,7 @@ export class SpeditionRequestComponent implements OnInit {
           this.snackBar.open(this.errorMessage, 'Ok', {
             horizontalPosition: 'center',
             verticalPosition: 'top',
-            // duration: 5000,
+            duration: 5000,
           });
           
           }

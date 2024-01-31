@@ -6,7 +6,7 @@
         "request": "request",
         "transport": "transport",
         "spedition": "spedition",
-        "careers": "cereers",
+        "careers": "careers",
         "contact": "contact us",
         "login": "login",
         "logout": "logout",
@@ -138,7 +138,18 @@
         "forgot-password": "forgot password",
         "email": "Email",
         "confirm": "Confirm",
-        "back": "Back to Login"
+        "back": "Back to Login",
+        "success-msg": "You will receive an email to reset your password!",
+        "error-msg": "There was an error. Please try again!"
+    },
+    "reset": {
+        "reset-password": "reset your passsword",
+        "new-pass": "new password",
+        "confirm-pass": "confirm password",
+        "confirm": "confirm",
+        "back": "Back to login",
+        "success-msg": "You have successfully changed your password!",
+        "error-msg": "There was an error. Please try again!"
     },
     "logout": {
         "message": "Logout Successfull! Goodbye."
