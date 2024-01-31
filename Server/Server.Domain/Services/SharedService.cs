@@ -158,7 +158,7 @@ namespace Server.Domain.Services
 
         private static string GetResetPasswordLink(string resetToken)
         {
-            return $"https://algona.ltd/resetpassword?token={resetToken}";
+            return $"https://algona.ltd/auth/resetPassword?token={resetToken}";
         }
     }
 }
