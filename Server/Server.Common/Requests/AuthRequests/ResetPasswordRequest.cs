@@ -6,11 +6,9 @@ namespace Server.Common.Requests.AuthRequests
     public class ResetPasswordRequest
     {
         /// <summary>
-        /// User's email address
+        /// User's token
         /// </summary>
-        [Required, EmailAddress]
-        [MinLength(Register.EmailMinLength)]
-        [MaxLength(Register.EmailMaxLength)]
+        [Required]
         public string Token { get; set; } = null!;
 
         /// <summary>
