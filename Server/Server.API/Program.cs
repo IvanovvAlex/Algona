@@ -46,6 +46,15 @@ builder.Services.AddCors(options =>
         policy.AllowAnyMethod();
         policy.AllowCredentials();
     });
+
+    options.AddPolicy(name: "ProdCorsPolicy",
+      policy =>
+      {
+          policy.WithOrigins("https://algona.ltd");
+          policy.AllowAnyHeader();
+          policy.AllowAnyMethod();
+          policy.AllowCredentials();
+      });
 });
 
 builder.Services.AddDefaultIdentity<User>(options =>
@@ -67,7 +76,7 @@ builder.Services.AddSwaggerGen();
 
 //JWT Authentication
 
- var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]);
+var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]);
 builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -93,6 +102,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
     app.UseCors("DevCorsPolicy");
+}
+
+if (app.Environment.IsProduction())
+{
+    app.UseCors("ProdCorsPolicy");
 }
 
 using (var scope = app.Services.CreateScope())
