@@ -82,6 +82,21 @@
         public string Email { get; set; } = null!;
 
         /// <summary>
+        /// Current Time
+        /// </summary>
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime CurrentTime { get; set; }
+
+        /// <summary>
+        /// Transport status
+        /// </summary>
+        [Required]
+        [MinLength(EntityValidationConstants.Transport.StatusMinLength)]
+        [MaxLength(EntityValidationConstants.Transport.StatusMaxLength)]
+        public string Status { get; set; } = null!;
+
+        /// <summary>
         /// Soft delete of the RequestTransport
         /// </summary>
         public bool IsDeleted { get; set; } = false;

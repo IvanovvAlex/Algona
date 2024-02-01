@@ -35,5 +35,17 @@ namespace Server.API.Controllers
 
             return request;
         }
+
+        /// <summary>
+        /// Gets all speditions
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("All")]
+        public async Task<IEnumerable<Spedition>> All()
+        {
+            IEnumerable<Spedition> requests = await _requestSpeditionService.GetAll();
+
+            return requests;
+        }
     }
 }
