@@ -7,6 +7,9 @@ using Server.Data.Entites;
 using Server.Data.Interfaces.Repositories;
 using Server.Domain.Interfaces;
 using System.Linq;
+using Type = Server.Core.Enums.Type;
+using static Server.Common.Constants.GlobalConstants;
+using System.Data;
 
 namespace Server.API.Controllers
 {
@@ -28,12 +31,33 @@ namespace Server.API.Controllers
             adminService = _adminService;
         }
 
-        [AllowAnonymous]
+        [Authorize(Roles = AdminRole)]
         [HttpGet("AdminUsers")]
         public async Task<IEnumerable<User>> AdminUsers()
         {
+           IEnumerable<User> users = await adminService.GetAllUsers();
+
+            return users.Where(u => u.Type == Type.Admin)
+                .ToList();               
+        }
+
+        [Authorize(Roles = AdminRole)]
+        [HttpGet("NonAdminUsers")]
+        public async Task<IEnumerable<User>> NonAdminUsers()
+        {
+            IEnumerable<User> users = await adminService.GetAllUsers();
+
+            return users.Where(u => u.Type != Type.Admin)
+                .ToList();
+        }
+
+        [Authorize(Roles = AdminRole)]
+        [HttpGet("AllUsers")]
+        public async Task<IEnumerable<User>> AllUsers()
+        {
             return await adminService.GetAllUsers();
         }
+
 
         //[HttpPost("Add")]
         //public async Task<IActionResult> Add()
