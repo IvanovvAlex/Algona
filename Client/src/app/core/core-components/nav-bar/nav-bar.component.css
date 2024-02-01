@@ -58,6 +58,24 @@ mat-snackbar {
     font-family: 'Figtree' !important;
 }
 
+@media screen and (min-width: 769px) and (max-width: 990px) {
+   .nav {
+      padding-top: 8px;
+   }
+}
+
+@media screen and (min-width: 991px) and (max-width: 991px) {
+   .nav {
+      padding-top: 0px;
+   }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1440px) {
+   .nav {
+      padding-top: 8px;
+   }
+}
+
 @media screen and (max-width: 990px) {
     .navbar-collapse {
         display: none;
@@ -69,8 +87,7 @@ mat-snackbar {
         background-color: white;
         border: 1.3px solid transparent;
         margin: 1rem;
-        padding: 0 0.5em;
-        ;
+        padding: 0 0.5em; 
         border-radius: 6px;
         transition: border 0.01s ease;
     }

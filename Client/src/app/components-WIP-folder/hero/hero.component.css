@@ -85,6 +85,18 @@ button.btn-fluid {
     transition: all .9s;
 }
 
+@media screen and (min-width: 769px) and (max-width: 908px) {
+   .transparent-filter {
+      height: 87.33px;
+   }
+}
+
+@media screen and (min-width: 909px) and (max-width: 1440px) {
+   .transparent-filter {
+      height: 89.33px;
+   }
+}
+
 @media screen and (max-width: 580px) {
     .transparent-filter {
         background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
