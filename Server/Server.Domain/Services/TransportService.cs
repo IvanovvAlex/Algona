@@ -37,8 +37,6 @@
                 FromDate = transport.FromDate,
                 ToDate = transport.ToDate,
                 Email = transport.Email,
-                CurrentTime = DateTime.UtcNow,
-                Status = "Waiting for approval"
             };
 
             await unitOfWork.Transports.AddAsync(request);

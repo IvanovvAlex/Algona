@@ -13,5 +13,7 @@ namespace Server.Data.Interfaces
         ITransportRepository Transports { get; }
         
         ISpeditionRepository Speditions { get; }
+
+        IAdminRepository Admins { get; }
     }
 }
