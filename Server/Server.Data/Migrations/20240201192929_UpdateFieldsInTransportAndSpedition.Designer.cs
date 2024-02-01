@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Server.Data;
 
@@ -11,9 +12,11 @@ using Server.Data;
 namespace Server.Data.Migrations
 {
     [DbContext(typeof(AlgonaDbContext))]
-    partial class AlgonaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240201192929_UpdateFieldsInTransportAndSpedition")]
+    partial class UpdateFieldsInTransportAndSpedition
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -457,9 +460,6 @@ namespace Server.Data.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasComment("Spedition Status: Approved, Pending, Rejected");
 
-
-
-
                     b.Property<string>("ToAddress")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -481,11 +481,11 @@ namespace Server.Data.Migrations
 
             modelBuilder.Entity("Server.Data.Entities.Transport", b =>
                 {
-                    b.Property<DateTime>("CurrentTime")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CurrentTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -513,12 +513,10 @@ namespace Server.Data.Migrations
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-
-
 
                     b.Property<string>("ToAddress")
                         .IsRequired()
