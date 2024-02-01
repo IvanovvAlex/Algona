@@ -25,12 +25,8 @@ namespace Server.Data.Repositories
 
         public override async Task<IEnumerable<User>> GetAllAsync()
         {
-            var userRoles = await this.AlgonaContext.UserRoles
-                .ToListAsync();
-
             return await this.AlgonaContext.Users
                     .Include(u => u.Cargos)
-                    .Where(u => userRoles.Any(ur => ur.RoleId == AdminRoleId))
                     .ToListAsync();
         }
     }
