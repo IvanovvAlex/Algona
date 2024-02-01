@@ -14,8 +14,6 @@
             public const int TotalWeightMaxValue = 1000000;
             public const int NameMinLength = 3;
             public const int NameMaxLength = 100;
-            public const int StatusMinLength = 2;
-            public const int StatusMaxLength = 30;
         }
 
         public static class Spedition
@@ -30,8 +28,6 @@
             public const int TotalWeightMaxValue = 1000000;
             public const int NameMinLength = 3;
             public const int NameMaxLength = 100;
-            public const int StatusMinLength = 2;
-            public const int StatusMaxLength = 30;
         }
         
         public static class Contact
