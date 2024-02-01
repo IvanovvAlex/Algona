@@ -35,8 +35,6 @@ namespace Server.Domain.Services
                 FromDate = spedition.FromDate,
                 ToDate = spedition.ToDate,
                 Email = spedition.Email,
-                CurrentTime = DateTime.UtcNow,
-                Status = "Waiting for approval"
             };
 
             await unitOfWork.Speditions.AddAsync(request);
@@ -48,10 +46,9 @@ namespace Server.Domain.Services
         /// <summary>
         /// Gets all requests for spedition
         /// </summary>
-        public async Task<IEnumerable<Spedition>> GetAll()
+        public Task<IEnumerable<Spedition>> GetAll()
         {
-            var requests = await unitOfWork.Speditions.GetAllAsync();
-            return requests;
+            throw new NotImplementedException();
         }
 
         /// <summary>

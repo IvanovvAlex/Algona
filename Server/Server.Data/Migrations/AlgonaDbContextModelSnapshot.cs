@@ -400,9 +400,9 @@ namespace Server.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ALEX.IVANOV@ALGONA.LTD",
                             NormalizedUserName = "ALEX.IVANOV@ALGONA.LTD",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJlUR0KcrqiXuznYT+gDc6z6trbf29WowzV5tDNTVriIQ3wqpHO/WfEvjG9gFbpDjA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHosjPXiYhPROF3mdbMjmVVUul3cErvWtwo4kyGueJo/9I2l4c359rrSZ/blxFo+Zw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "06c7dce7-7773-48b0-aea9-a8b18e4b03bb",
+                            SecurityStamp = "42760322-e385-4c91-af4c-b2d2ae443290",
                             TwoFactorEnabled = false,
                             Type = 0,
                             UserName = "alex.ivanov@algona.ltd"
@@ -414,10 +414,6 @@ namespace Server.Data.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)")
                         .HasComment("Spedition id");
-
-                    b.Property<DateTime>("CurrentTime")
-                        .HasColumnType("datetime2")
-                        .HasComment("Current time");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -452,12 +448,6 @@ namespace Server.Data.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasComment("Phone number");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)")
-                        .HasComment("Spedition Status");
-
                     b.Property<string>("ToAddress")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -481,9 +471,6 @@ namespace Server.Data.Migrations
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CurrentTime")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -511,11 +498,6 @@ namespace Server.Data.Migrations
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("ToAddress")
                         .IsRequired()

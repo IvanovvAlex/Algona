@@ -18,12 +18,15 @@ namespace Server.Data
 
         private ISpeditionRepository speditionRepository;
 
+        private IAdminRepository adminRepository;
+
         public UnitOfWork(AlgonaDbContext context,
             ICargoRepository cargoRepository,
             ITruckRepository truckRepository,
             IJobRepository jobRepository,
             ITransportRepository transportRepository,
-            ISpeditionRepository speditionRepository)
+            ISpeditionRepository speditionRepository,
+            IAdminRepository adminRepository)
         {
             this.context = context;
             this.cargoRepository = cargoRepository;
@@ -31,6 +34,8 @@ namespace Server.Data
             this.jobRepository = jobRepository;
             this.transportRepository = transportRepository;
             this.speditionRepository = speditionRepository;
+            this.adminRepository = adminRepository;
+
         }
 
         public ITruckRepository Trucks => truckRepository ?? new TruckRepository(context);
@@ -42,6 +47,8 @@ namespace Server.Data
         public ITransportRepository Transports => transportRepository ?? new TransportRepository(context);
 
         public ISpeditionRepository Speditions => speditionRepository ?? new SpeditionRepository(context);
+
+        public IAdminRepository Admins => adminRepository ?? new AdminRepository(context);
 
         public void Dispose()
         {

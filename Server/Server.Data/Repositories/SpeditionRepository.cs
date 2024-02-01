@@ -24,8 +24,6 @@ namespace Server.Data.Repositories
                 Name = entity.Name,
                 PhoneNumber = entity.PhoneNumber,
                 Email = entity.Email,
-                CurrentTime = entity.CurrentTime,
-                Status = entity.Status,
                 IsDeleted = false
             };
 
