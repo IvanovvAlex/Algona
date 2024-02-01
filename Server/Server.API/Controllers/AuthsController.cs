@@ -77,11 +77,13 @@ namespace Server.API.Controllers
                             HttpOnly = true,
                             Secure = true
                         });
+
                         return StatusCode(200, new
                         {
                             firstName = user.FirstName,
                             lastName = user.LastName,
                             email = user.Email,
+                            isAdmin = User.IsInRole(AdminRole),
                             token = token.ToString()
                         });
                     }
@@ -168,7 +170,7 @@ namespace Server.API.Controllers
                     return StatusCode(404, new { message = "User with such email does not exist" });
                 }
 
-                var resetToken =await userManager.GeneratePasswordResetTokenAsync(user);
+                var resetToken = await userManager.GeneratePasswordResetTokenAsync(user);
                 user.ResetPasswordToken = resetToken;
                 user.ResetPasswordTokenExpiration = DateTime.UtcNow.AddDays(1);
 
@@ -227,7 +229,7 @@ namespace Server.API.Controllers
             {
                 return StatusCode(500, new { message = error.Message });
             }
-            
+
         }
 
         [HttpGet("User")]
@@ -254,7 +256,8 @@ namespace Server.API.Controllers
                 {
                     return StatusCode(401, new { message = "Unauthorized Request!" });
                 }
-                return StatusCode(200, new { findUser.FirstName, findUser.LastName, findUser.Email, token });
+
+                return StatusCode(200, new { findUser.FirstName, findUser.LastName, findUser.Email, isAdmin = User.IsInRole(AdminRole), token });
             }
             catch (Exception error)
             {
@@ -362,6 +365,6 @@ namespace Server.API.Controllers
             }
         }
 
-        
+
     }
 }
