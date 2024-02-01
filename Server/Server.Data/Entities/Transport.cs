@@ -91,10 +91,13 @@
         /// <summary>
         /// Transport status
         /// </summary>
+        /// Approved, Pending, Rejected
         [Required]
-        [MinLength(EntityValidationConstants.Transport.StatusMinLength)]
-        [MaxLength(EntityValidationConstants.Transport.StatusMaxLength)]
-        public string Status { get; set; } = null!;
+        [AllowedValues(EntityValidationConstants.Transport.StatusPending,
+            EntityValidationConstants.Transport.StatusApproved,
+            EntityValidationConstants.Transport.StatusRejected)]
+        public string Status { get; set; } = EntityValidationConstants.Transport.StatusPending;
+
 
         /// <summary>
         /// Soft delete of the RequestTransport

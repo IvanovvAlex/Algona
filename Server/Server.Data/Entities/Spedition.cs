@@ -105,10 +105,11 @@ namespace Server.Data.Entities
         /// Spedition status
         /// </summary>
         [Required]
-        [MinLength(EntityValidationConstants.Spedition.StatusMinLength)]
-        [MaxLength(EntityValidationConstants.Spedition.StatusMaxLength)]
-        [Comment("Spedition Status")]
-        public string Status { get; set; } = null!;
+        [Comment("Spedition Status: Approved, Pending, Rejected")]
+        [AllowedValues(EntityValidationConstants.Spedition.StatusPending,
+                       EntityValidationConstants.Spedition.StatusApproved,
+                       EntityValidationConstants.Spedition.StatusRejected)]
+        public string Status { get; set; } = EntityValidationConstants.Spedition.StatusPending;
 
         public bool IsDeleted { get; set; } = false;
 

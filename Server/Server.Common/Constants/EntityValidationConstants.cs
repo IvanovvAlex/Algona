@@ -16,6 +16,10 @@
             public const int NameMaxLength = 100;
             public const int StatusMinLength = 2;
             public const int StatusMaxLength = 30;
+            public const string StatusPending = "Waiting for approval";
+            public const string StatusApproved = "Approved";
+            public const string StatusRejected = "Rejected";
+            public const string RequestFor = "request for transport";
         }
 
         public static class Spedition
@@ -32,6 +36,10 @@
             public const int NameMaxLength = 100;
             public const int StatusMinLength = 2;
             public const int StatusMaxLength = 30;
+            public const string StatusPending = "Waiting for approval";
+            public const string StatusApproved = "Approved";
+            public const string StatusRejected = "Rejected";
+            public const string RequestFor = "request for spedition";
         }
         
         public static class Contact

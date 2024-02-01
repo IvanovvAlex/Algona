@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
+    using Server.Common.Constants;
     using Server.Common.Requests.TransportRequest;
     using Server.Data.Entities;
     using Server.Data.Interfaces;
@@ -47,6 +48,7 @@
             return request;
         }
 
+
         /// <summary>
         /// Gets all requests for transport
         /// </summary>
@@ -72,6 +74,33 @@
             }
             
             return request;
+        }
+
+        /// <summary>
+        /// Updates the status of the request
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="isApproved"></param>
+        /// <returns></returns>
+        public async Task<Transport?> UpdateStatus(string id, bool isApproved)
+        {
+            var requestTransport = await GetById(id);
+            if (requestTransport == null)
+            {
+                return null;
+            }
+            
+            if(isApproved)
+            {
+                requestTransport.Status = EntityValidationConstants.Transport.StatusApproved;
+            }
+            else
+            {
+                requestTransport.Status = EntityValidationConstants.Transport.StatusRejected;
+            }
+
+            await unitOfWork.CommitAsync();
+            return requestTransport;
         }
     }
 }
