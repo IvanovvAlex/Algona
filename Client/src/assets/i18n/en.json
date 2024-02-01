@@ -151,6 +151,14 @@
         "success-msg": "You have successfully changed your password!",
         "error-msg": "There was an error. Please try again!"
     },
+    "admin": {
+        "title": "Administrator",
+        "subtitle": "As an administrator, you have the following rights",
+        "line-users": "You can see all register users",
+        "line-requests":"You can see all requests",
+        "button-users": "Users",
+        "button-requests": "Requests"
+    },
     "logout": {
         "message": "Logout Successfull! Goodbye."
     },

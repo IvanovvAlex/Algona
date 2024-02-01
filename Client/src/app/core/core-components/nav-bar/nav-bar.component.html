@@ -56,6 +56,7 @@
                                 {{'nav.greeting' | translate}}, {{authService.currentUserSignal()?.firstName}}!
                             </a>
                             <ul class="dropdown-menu">
+                                <li *ngIf="authService.currentUserSignal()?.isAdmin"><a class="nav-item-profile dropdown-item"  routerLink="auth/admin">Admin</a></li>
                                 <li><a class="nav-item-profile dropdown-item" (click)="onLogout()" routerLink="">{{'nav.logout' | translate}}</a></li>
                             </ul>
                         </li>

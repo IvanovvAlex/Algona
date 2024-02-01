@@ -1,0 +1,33 @@
+<div class="screen-cont">
+    <section @fade id="admin-section" class="container-fluid pt-4 mb-5">
+        <div class="pb-4 pt-4">
+            <h1 class="px-4">{{'admin.title' | translate}}</h1>
+            <h6 class="px-4"><span>{{'admin.subtitle' | translate}}</span>
+            </h6>
+            <hr class="mb-2 col-6 mx-auto">
+        </div>
+        <div class="d-flex justify-content-center my-5 col-lg-6 col-md-8 m-auto">
+            <table id="table" class="flex-grow-1">
+                <tbody>
+                    <tr>
+                        <td id="line" class="fw-semibold px-md-4 px-1"><span>{{'admin.line-users' | translate}}</span>
+                            <mat-icon>people</mat-icon>
+                        </td>
+
+                        <td class="w-auto px-md-4 px-1"><a [routerLink]="[]" mat-raised-button
+                                color="primary" class="custom-button-width" id="button">{{'admin.button-users' | translate}}</a></td>
+                    </tr>
+                    <tr>
+                        <td id="line" class="fw-semibold px-md-4 px-1"><span>{{'admin.line-requests' | translate}}</span>
+                            <mat-icon>assignment</mat-icon>
+                        </td>
+
+                        <td class="w-auto px-md-4 px-1"><a [routerLink]="[]" mat-raised-button
+                                color="primary" class="custom-button-width" id="button">{{'admin.button-requests' | translate}}</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <app-footer></app-footer>
+</div>
