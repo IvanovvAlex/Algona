@@ -92,6 +92,24 @@ namespace Server.Data.Entities
         [Comment("Email address")]
         public string Email { get; set; } = null!;
 
+
+        /// <summary>
+        /// Current time
+        /// </summary>
+        [Required]
+        [DataType(DataType.Date)]
+        [Comment("Current time")]
+        public DateTime CurrentTime { get; set; }
+
+        /// <summary>
+        /// Spedition status
+        /// </summary>
+        [Required]
+        [MinLength(EntityValidationConstants.Spedition.StatusMinLength)]
+        [MaxLength(EntityValidationConstants.Spedition.StatusMaxLength)]
+        [Comment("Spedition Status")]
+        public string Status { get; set; } = null!;
+
         public bool IsDeleted { get; set; } = false;
 
     }
