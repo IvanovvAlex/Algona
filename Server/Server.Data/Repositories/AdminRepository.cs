@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Server.Data.Entites;
 using Server.Data.Interfaces.Repositories;
@@ -11,16 +10,34 @@ namespace Server.Data.Repositories
     {
         private AlgonaDbContext AlgonaContext => (Context as AlgonaDbContext)!;
 
-        public AdminRepository(AlgonaDbContext context) : base(context) { }
+        private readonly UserManager<User> userManager;
 
-        public async void Remove(User entity)
+        public AdminRepository(AlgonaDbContext context, UserManager<User> userManager) 
+            : base(context) 
         {
-            //TODO
+            this.userManager = userManager;
         }
 
-        public async void Add(User entity)
+        public override async void Remove(User entity)
         {
-            //TODO
+            var result = await this.userManager.RemoveFromRoleAsync(entity, AdminRole);
+
+            if (!result.Succeeded)
+            {
+                string errorMessage = string.Join("; ", result.Errors.Select(e => e.Description));
+                throw new InvalidOperationException(errorMessage);
+            }
+        }
+
+        public override async Task AddAsync(User entity)
+        {
+            var result = await this.userManager.AddToRoleAsync(entity, AdminRole);
+
+            if (!result.Succeeded)
+            {
+                string errorMessage = string.Join("; ", result.Errors.Select(e => e.Description));
+                throw new InvalidOperationException(errorMessage);
+            }
         }
 
         public override async Task<IEnumerable<User>> GetAllAsync()

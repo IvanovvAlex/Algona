@@ -1,4 +1,6 @@
-﻿using Server.Data.Interfaces;
+﻿using Microsoft.AspNetCore.Identity;
+using Server.Data.Entites;
+using Server.Data.Interfaces;
 using Server.Data.Interfaces.Repositories;
 using Server.Data.Repositories;
 
@@ -14,11 +16,15 @@ namespace Server.Data
 
         private readonly IJobRepository jobRepository;
 
-        private ITransportRepository transportRepository;
+        private readonly ITransportRepository transportRepository;
 
-        private ISpeditionRepository speditionRepository;
+        private readonly ISpeditionRepository speditionRepository;
 
-        private IAdminRepository adminRepository;
+        private readonly IAdminRepository adminRepository;
+
+        private readonly IUserRepository userRepository;
+
+        private readonly UserManager<User> userManager;
 
         public UnitOfWork(AlgonaDbContext context,
             ICargoRepository cargoRepository,
@@ -26,7 +32,9 @@ namespace Server.Data
             IJobRepository jobRepository,
             ITransportRepository transportRepository,
             ISpeditionRepository speditionRepository,
-            IAdminRepository adminRepository)
+            IAdminRepository adminRepository,
+            IUserRepository userRepository,
+            UserManager<User> userManager)
         {
             this.context = context;
             this.cargoRepository = cargoRepository;
@@ -35,7 +43,8 @@ namespace Server.Data
             this.transportRepository = transportRepository;
             this.speditionRepository = speditionRepository;
             this.adminRepository = adminRepository;
-
+            this.userRepository = userRepository;
+            this.userManager = userManager;
         }
 
         public ITruckRepository Trucks => truckRepository ?? new TruckRepository(context);
@@ -48,7 +57,9 @@ namespace Server.Data
 
         public ISpeditionRepository Speditions => speditionRepository ?? new SpeditionRepository(context);
 
-        public IAdminRepository Admins => adminRepository ?? new AdminRepository(context);
+        public IAdminRepository Admins => adminRepository ?? new AdminRepository(context, userManager);
+
+        public IUserRepository Users => userRepository ?? new UserRepository(context);
 
         public void Dispose()
         {
