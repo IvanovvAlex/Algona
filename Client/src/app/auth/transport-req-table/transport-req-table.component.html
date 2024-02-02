@@ -1,0 +1,71 @@
+
+<section>
+    <div class="container mt-5 ">
+        <table id="table" class="table table-hover table-borderless">
+            <thead class="table-dark">
+                <tr class="text-white">
+                    <th scope="col">#</th>
+                    <th scope="col">Client</th>
+                    <th scope="col" *ngIf="!showEmail">Phone</th>
+                    <th scope="col" *ngIf="showEmail">Email</th>
+                    <th scope="col" *ngIf="!showPallets">Total Weight</th>
+                    <th scope="col" *ngIf="showPallets">Amount of Pallets</th>
+                    <th scope="col" *ngIf="!showDate">Destination</th>
+                    <th scope="col" *ngIf="showDate">Dates</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" class="text-center ">Actions</th>
+                </tr>
+                <tr class="text-white">
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>
+                        <button mat-raised-button color="primary" (click)="showEmail=!showEmail">Switch Column</button>
+                    </th>
+                    <th>
+                        <button mat-raised-button color="primary" (click)="showPallets=!showPallets">Switch
+                            Column</button>
+                    </th>
+                    <th>
+                        <button mat-raised-button color="primary" (click)="showDate=!showDate">Switch Column</button>
+                    </th>
+                    <th>
+                        &nbsp;
+                    </th>
+                    <th>
+                        &nbsp;
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of paginatedArray; let i = index" [ngClass]="{
+                    'table-warning' : row.status === 'Approved',
+                    'table-success' : row.status === 'Complete',
+                    'table-danger' : row.status === 'Rejected'
+                    }">
+                    <td>{{i+1}} </td>
+                    <td>{{ row.name }}</td>
+                    <td *ngIf="showEmail">{{ row.email }}</td>
+                    <td *ngIf="!showEmail">{{ row.phone }}</td>
+                    <td *ngIf="showPallets">{{ row.pallets }} pieces</td>
+                    <td *ngIf="!showPallets">{{ row.weight }} tons</td>
+                    <td *ngIf="showDate">{{ row.date }}</td>
+                    <td *ngIf="!showDate">{{ row.destination }}</td>
+                    <td >
+                        <mat-spinner style="margin-left: 1rem;" diameter="30" *ngIf="row.status == 'Waiting for approval'"></mat-spinner> 
+                        <span *ngIf="row.status !== 'Waiting for approval'">{{ row.status }}</span>
+                    </td>
+                    <td class="text-center">
+                        <div class="btns">
+                            <button class="btn" mat-raised-button color="primary" *ngIf="row.status == 'Waiting for approval'" (click)="acceptSpdRequest(row.id, row.status)">Approve</button>
+                            <button class="btn" mat-raised-button color="primary" *ngIf="row.status == 'Approved'" (click)="completeSpdRequest(row.id, row.status)">Complete</button>
+                            <button class="btn" mat-raised-button color="warn" *ngIf="row.status !== 'Rejected'" (click)="rejectSpdRequest(row.id)">Reject</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <app-paginator [currentPage]="currentPage" [totalPages]="totalPages" (pageChanged)="onPageChanged($event)">
+        </app-paginator>
+
+    </div>
+</section>

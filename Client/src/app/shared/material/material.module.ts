@@ -14,6 +14,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 //TODO: Here can add more modules if needed
 
 @NgModule({
@@ -33,6 +34,7 @@ import { MatNativeDateModule } from '@angular/material/core';
         MatIconModule,
         MatDatepickerModule,
         MatNativeDateModule,
+        MatProgressSpinnerModule,
     ],
 
 
