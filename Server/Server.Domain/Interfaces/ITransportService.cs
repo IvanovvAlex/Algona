@@ -9,6 +9,6 @@ namespace Server.Domain.Interfaces
         Task<IEnumerable<Transport>> GetAll();
         Task<Transport?> GetById(string id);
         Task<Transport?> Add(TransportRequest request);
-        Task<Transport?> UpdateStatus(string id, bool isApproved);
+        Task<Transport?> UpdateStatus(string id, string status);
     }
 }

@@ -72,9 +72,9 @@ namespace Server.Domain.Services
         /// Updates the status of the request
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="isApproved"></param>
+        /// <param name="status"></param>
         /// <returns></returns>
-        public async Task<Spedition?> UpdateStatus(string id, bool isApproved)
+        public async Task<Spedition?> UpdateStatus(string id, string status)
         {
             var requestTransport = await GetById(id);
             if (requestTransport == null)
@@ -82,13 +82,17 @@ namespace Server.Domain.Services
                 return null;
             }
 
-            if (isApproved)
+            if (status == EntityValidationConstants.Spedition.StatusApproved)
             {
                 requestTransport.Status = EntityValidationConstants.Spedition.StatusApproved;
             }
-            else
+            else if (status == EntityValidationConstants.Spedition.StatusRejected)
             {
                 requestTransport.Status = EntityValidationConstants.Spedition.StatusRejected;
+            }
+            else
+            {
+                requestTransport.Status = EntityValidationConstants.Spedition.StatusComplete;
             }
 
             await unitOfWork.CommitAsync();

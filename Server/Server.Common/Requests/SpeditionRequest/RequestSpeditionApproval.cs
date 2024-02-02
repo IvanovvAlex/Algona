@@ -11,8 +11,8 @@
         public string Id { get; set; } = null!;
 
         /// <summary>
-        /// Is the spedition request approved
+        /// Status
         /// </summary>
-        public bool IsApproved { get; set; }
+        public string Status { get; set; } = null!;
     }
 }
