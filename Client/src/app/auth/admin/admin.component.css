@@ -1,0 +1,145 @@
+.screen-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+#admin-section {
+    min-height: 500px;
+}
+
+.custom-button-width {
+    width: 150px; 
+}
+
+#table {
+    background: linear-gradient(to top left, var(--primary-styling-color), transparent 55%);
+    box-shadow: 0em 0em 1em -0.4em rgb(39, 39, 39);
+}
+h1,
+h6 {
+    text-align: center;
+    padding-bottom: 0px;
+    font-weight: 300;
+    color: #494949;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+h6 {
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+h6 span {
+    color: var(--primary-styling-color);
+    font-weight: 700;
+}
+
+tr:not(:last-of-type) {
+    border-bottom: .5px solid var(--primary-styling-color);
+}
+
+tr {
+    display: flex;
+    justify-content: space-between;
+}
+
+table td {
+    padding: 34px 10px 34px 10px;
+}
+
+td#line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-wrap: nowrap;
+    gap: 10px;
+    color: var(--primary-theme-color);
+}
+
+td#line span{
+    width: 80%;
+    font-size: 1.2rem;
+}
+
+td#line mat-icon {
+    opacity: 0.5;
+    transform: scale(0.9);
+    color: var(--primary-styling-color);
+}
+
+span + span {
+    margin-left: 2px;
+}
+
+table a {
+    text-transform: uppercase;
+    height: auto;
+    padding: 6px;
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+
+@media screen and (max-width: 420px) {
+
+    table#table {
+        font-size: .7rem;
+    }
+
+    table#table td {
+        max-width: 156px;
+        padding:1rem;
+    }
+
+    td#line span{
+        font-size: 0.7rem;
+    }
+
+    td#line {
+        gap: 1rem;
+    }
+
+    a#button {
+        width: 60px;
+    }
+
+    mat-icon {
+        padding-left: 1rem;
+        min-width: 50px;
+    }
+
+    table a {
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    table a.mdc-button {
+        font-size: 0.4rem;
+    }
+}
+
+@media screen and (min-width: 421px)and (max-width: 768px) {
+
+    tr td:first-of-type {
+        padding-left: 16px !important;
+    }
+
+    td#line {
+        gap: 0;
+    }
+
+    tr td:last-of-type {
+        padding-right: 16px !important;
+    }
+
+    a#button {
+        max-width: 80px;
+    }
+}

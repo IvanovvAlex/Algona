@@ -6,6 +6,8 @@ import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from '../reset-password/reset-password.component';
+import { AdminComponent } from '../admin/admin.component';
+import { AdminGuard } from '../auth.guard';
 
 
 const routes: Routes = [
@@ -20,6 +22,9 @@ const routes: Routes = [
     },
     {
         path: 'resetPassword', component: ResetPasswordComponent 
+    },
+    {
+        path: 'admin', component: AdminComponent, canActivate: [AdminGuard] 
     }
 
 
