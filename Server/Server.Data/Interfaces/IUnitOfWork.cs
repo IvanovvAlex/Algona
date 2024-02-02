@@ -15,5 +15,7 @@ namespace Server.Data.Interfaces
         ISpeditionRepository Speditions { get; }
 
         IAdminRepository Admins { get; }
+
+        IUserRepository Users { get; }
     }
 }

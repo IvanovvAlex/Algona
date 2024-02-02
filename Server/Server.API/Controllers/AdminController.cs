@@ -58,17 +58,36 @@ namespace Server.API.Controllers
             return await adminService.GetAllUsers();
         }
 
+        [Authorize(Roles = AdminRole)]
+        [HttpPost("Add")]
+        public async Task<IActionResult> Add(string userId)
+        {
+            try
+            {
+                await this.adminService.MakeAdminAsync(userId);
 
-        //[HttpPost("Add")]
-        //public async Task<IActionResult> Add()
-        //{
-        //    //TODo
-        //}
+                return Ok(new { message = $"User with ID '{userId}' is now an administrator." });
+            }
+            catch (InvalidOperationException ioe)
+            {
+                return BadRequest(ioe.Message);
+            }
+        }
 
-        //[HttpPost("Remove")]
-        //public async Task<IActionResult> Remove()
-        //{
-        //    //TODO
-        //}
+        [Authorize(Roles = AdminRole)]
+        [HttpPost("Remove")]
+        public async Task<IActionResult> Remove(string userId)
+        {
+            try
+            {
+                await this.adminService.RemoveFromAdminAsync(userId);
+
+                return Ok(new { message = $"User with ID '{userId}' is no longer an administrator." });
+            }
+            catch (InvalidOperationException ioe)
+            {
+                return BadRequest(ioe.Message);
+            }
+        }
     }
 }
