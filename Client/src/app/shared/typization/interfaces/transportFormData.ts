@@ -9,3 +9,8 @@ export interface TransportFormData {
     phoneNumber: string;
     email: string;
 }
+
+export interface TransportFormDataWithId extends TransportFormData {
+    status: string,
+    id: string
+}

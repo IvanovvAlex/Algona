@@ -4,8 +4,8 @@ import { ContactFormData } from 'src/app/shared/typization/interfaces/ContactFor
 import { Observable } from 'rxjs';
 import { Job } from 'src/app/shared/typization/interfaces';
 import { JobDetails } from 'src/app/shared/typization/interfaces/jobDetails';
-import { TransportFormData } from 'src/app/shared/typization/interfaces/transportFormData';
-import { SpeditionFormData } from 'src/app/shared/typization/interfaces/speditionFormData';
+import { TransportFormData, TransportFormDataWithId } from 'src/app/shared/typization/interfaces/transportFormData';
+import { SpeditionFormData, SpeditionFormDataWithId } from 'src/app/shared/typization/interfaces/speditionFormData';
 
 @Injectable({
     providedIn: 'root'
@@ -32,15 +32,34 @@ export class ApiService {
         return this.http.get<Job[]>('/api/Jobs/Index');
     }
 
-    getJobById(jobId:string): Observable<JobDetails> {
+    getJobById(jobId: string): Observable<JobDetails> {
         return this.http.get<JobDetails>(`/api/Jobs/details/${jobId}`);
+    }
+
+
+
+
+    getTransportRequests(): Observable<TransportFormDataWithId[]> {
+        return this.http.get<TransportFormDataWithId[]>('/api/Transports/All');
+    }
+
+    getSpeditionRequests(): Observable<SpeditionFormDataWithId[]> {
+        return this.http.get<SpeditionFormDataWithId[]>('/api/Speditions/All');
     }
 
     sendTransportRequest(transportData: TransportFormData) {
         return this.http.post('/api/Transports/Add', transportData, { observe: 'response' })
     }
 
+    updateTransportRequest(updateData: any) {
+        return this.http.post('/api/Transports/Send', updateData, { observe: 'response' })
+    }
+
     sendSpeditionRequest(speditionData: SpeditionFormData) {
         return this.http.post('/api/Speditions/Add', speditionData, { observe: 'response' })
+    }
+
+    updateSpeditionRequest(updateData: any) {
+        return this.http.post('/api/Speditions/Send', updateData, { observe: 'response' })
     }
 }

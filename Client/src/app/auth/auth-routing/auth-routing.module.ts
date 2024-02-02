@@ -25,6 +25,9 @@ const routes: Routes = [
     },
     {
         path: 'admin', component: AdminComponent, canActivate: [AdminGuard] 
+    },
+    {
+        path: 'admin-tables', component: AdminComponent, canActivate: [AdminGuard] 
     }
 
 

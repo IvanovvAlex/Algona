@@ -1,0 +1,27 @@
+
+.text-center {
+    text-align: center;
+}
+
+.btn {
+    min-width: 7rem;
+}
+
+.btns {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+}
+
+#table {
+    box-shadow: 0em 0em 1em -0.4em rgb(39, 39, 39);
+}
+
+@media screen and (max-width: 420px) {
+
+}

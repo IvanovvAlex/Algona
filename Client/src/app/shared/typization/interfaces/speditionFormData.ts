@@ -9,3 +9,8 @@ export interface SpeditionFormData {
     phoneNumber: string;
     email: string;
 }
+
+export interface SpeditionFormDataWithId extends SpeditionFormData {
+    status: string,
+    id: string
+}

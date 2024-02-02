@@ -23,10 +23,10 @@ import { SpeditionRequestComponent } from './components-WIP-folder/spedition-req
 import { TransportRequestComponent } from './components-WIP-folder/transport-request/transport-request.component';
 import { JobsComponent } from './components-WIP-folder/jobs/jobs.component';
 import { JobDetailsComponent } from './components-WIP-folder/job-details/job-details.component';
-import { PaginatorComponent } from './components-WIP-folder/paginator/paginator.component';
 
 //Providers
 import { apiInterceptorProvider } from './interceptors/api.interceptor';
+
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -45,7 +45,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SpeditionRequestComponent,
     JobsComponent,
     JobDetailsComponent,
-    PaginatorComponent,
+
   ],
   imports: [
     CoreModule,
