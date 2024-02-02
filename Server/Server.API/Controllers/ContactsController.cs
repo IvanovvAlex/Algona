@@ -20,7 +20,7 @@ namespace Server.API.Controllers
         }
 
    
-        [HttpPost]
+        [HttpPost("Send")]
         public async Task Send(CreateContactRequest request)
         {
             await this.sharedService.EmailSender(request);
