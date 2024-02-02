@@ -8,6 +8,8 @@ import { ForgotPasswordComponent } from '../forgot-password/forgot-password.comp
 import { ResetPasswordComponent } from '../reset-password/reset-password.component';
 import { AdminComponent } from '../admin/admin.component';
 import { AdminGuard } from '../auth.guard';
+import { AdminRequestPageComponent } from '../admin-request-page/admin-request-page.component'
+
 
 
 const routes: Routes = [
@@ -27,10 +29,8 @@ const routes: Routes = [
         path: 'admin', component: AdminComponent, canActivate: [AdminGuard] 
     },
     {
-        path: 'admin/tables', component: AdminComponent, canActivate: [AdminGuard] 
+        path: 'admin/tables', component: AdminRequestPageComponent, canActivate: [AdminGuard] 
     }
-
-
 ];
 
 @NgModule({
