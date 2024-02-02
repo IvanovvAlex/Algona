@@ -8,7 +8,7 @@ namespace Server.Domain.Interfaces
         Task<IEnumerable<Spedition>> GetAll();
         Task<Spedition?> GetById(string id);
         Task<Spedition?> Add(SpeditionRequest request);
-        Task<Spedition?> UpdateStatus(string id, bool isApproved);
+        Task<Spedition?> UpdateStatus(string id, string status);
 
     }
 }

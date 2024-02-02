@@ -3,7 +3,7 @@ using System.Net.Mail;
 using System.Text;
 
 using Microsoft.Extensions.Configuration;
-
+using Server.Common.Constants;
 using Server.Common.Requests.ContactRequests;
 using Server.Domain.Interfaces;
 
@@ -151,7 +151,7 @@ namespace Server.Domain.Services
             }
         }
 
-        public async Task SendStatusRequestEmail(string toEmail, string requestForTransportOrSpedition, bool status, string name)
+        public async Task SendStatusRequestEmail(string toEmail, string requestForTransportOrSpedition, string status, string name)
         {
             /*
              //add this to user secrets
@@ -176,12 +176,26 @@ namespace Server.Domain.Services
             mailMessage.To.Add(toEmail);
             mailMessage.Subject = "ALGONA - " + requestForTransportOrSpedition;
 
-            //Set the html message body.
-            string htmlBody = "<html><body>";
+            string message = "";
+            if (status == EntityValidationConstants.Spedition.StatusApproved )
+            {
+                message = "<p>We are pleased to inform you that your " + requestForTransportOrSpedition + " has been approved.</p>";
+            }
+            else if(status == EntityValidationConstants.Spedition.StatusRejected)
+            {
+                message = "<p>We are sorry to inform you that your " + requestForTransportOrSpedition + " has been rejected.</p>";
+            }
+            else
+            {
+                message = "<p>We are excited to inform you that your " + requestForTransportOrSpedition + " has been completed.</p>";
+            }
+
+                //Set the html message body.
+                string htmlBody = "<html><body>";
             htmlBody += "<h3>Dear ";
             htmlBody += name;
             htmlBody += ",</h3>";
-            htmlBody += status ? "<p>We are pleased to inform you that your " + requestForTransportOrSpedition + " has been approved.</p>" : "<p>We are sorry to inform you that your " + requestForTransportOrSpedition + " has been rejected.</p>";
+            htmlBody += message;
             htmlBody += "<p>Thank you for choosing <b>ALGONA</b>. We look forward to serving you and addressing your needs promptly. If you have any further questions or concerns, please don't hesitate to reach out to us.</p>";
             htmlBody += "<h3>Best regards,<br>The ALGONA team</h3>";
 

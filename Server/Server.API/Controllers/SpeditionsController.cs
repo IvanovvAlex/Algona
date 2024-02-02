@@ -60,14 +60,14 @@ namespace Server.API.Controllers
         public async Task<RequestSpeditionApproval> Send(RequestSpeditionApproval request)
         {
             var id = request.Id;
-            var isApproved = request.IsApproved;
-            var requestSpedition = await _requestSpeditionService.UpdateStatus(id, isApproved);
+            var status = request.Status;
+            var requestSpedition = await _requestSpeditionService.UpdateStatus(id, status);
             if (requestSpedition == null)
             {
                 throw new HttpRequestException($"Spedition request with id {id} not found");
             }
 
-            await this.sharedService.SendStatusRequestEmail(requestSpedition.Email, EntityValidationConstants.Spedition.RequestFor, isApproved, requestSpedition.Name);
+            await this.sharedService.SendStatusRequestEmail(requestSpedition.Email, EntityValidationConstants.Spedition.RequestFor, status, requestSpedition.Name);
 
             return request;
         }

@@ -62,14 +62,14 @@
         public async Task<RequestTransportApproval> Send(RequestTransportApproval request)
         {
             var id = request.Id;
-            var isApproved = request.IsApproved;
-            var requestTransport = await requestTransportService.UpdateStatus(id, isApproved);
+            var status = request.Status;
+            var requestTransport = await requestTransportService.UpdateStatus(id, status);
             if (requestTransport == null)
             {
                 throw new HttpRequestException($"Transport request with id {id} not found");
             }
 
-            await this.sharedService.SendStatusRequestEmail(requestTransport.Email, EntityValidationConstants.Transport.RequestFor, isApproved, requestTransport.Name);
+            await this.sharedService.SendStatusRequestEmail(requestTransport.Email, EntityValidationConstants.Transport.RequestFor, status, requestTransport.Name);
 
             return request;
         }

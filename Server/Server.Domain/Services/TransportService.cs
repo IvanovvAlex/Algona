@@ -78,23 +78,27 @@
         /// Updates the status of the request
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="isApproved"></param>
+        /// <param name="status"></param>
         /// <returns></returns>
-        public async Task<Transport?> UpdateStatus(string id, bool isApproved)
+        public async Task<Transport?> UpdateStatus(string id, string status)
         {
             var requestTransport = await GetById(id);
             if (requestTransport == null)
             {
                 return null;
             }
-            
-            if(isApproved)
+
+            if (status == EntityValidationConstants.Transport.StatusApproved)
             {
                 requestTransport.Status = EntityValidationConstants.Transport.StatusApproved;
             }
-            else
+            else if (status == EntityValidationConstants.Transport.StatusRejected)
             {
                 requestTransport.Status = EntityValidationConstants.Transport.StatusRejected;
+            }
+            else
+            {
+                requestTransport.Status = EntityValidationConstants.Transport.StatusComplete;
             }
 
             await unitOfWork.CommitAsync();

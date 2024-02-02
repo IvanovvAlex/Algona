@@ -19,6 +19,7 @@
             public const string StatusPending = "Waiting for approval";
             public const string StatusApproved = "Approved";
             public const string StatusRejected = "Rejected";
+            public const string StatusComplete = "Complete";
             public const string RequestFor = "request for transport";
         }
 
@@ -39,6 +40,7 @@
             public const string StatusPending = "Waiting for approval";
             public const string StatusApproved = "Approved";
             public const string StatusRejected = "Rejected";
+            public const string StatusComplete = "Complete";
             public const string RequestFor = "request for spedition";
         }
         
