@@ -21,7 +21,7 @@ export class ApiService {
     }
 
     sendContactData(contactFormData: ContactFormData) {
-        return this.http.post('api/Contacts/', contactFormData, { observe: 'response' })
+        return this.http.post('api/Contacts/Send', contactFormData, { observe: 'response' })
     }
 
     getGaragePhotos() {
