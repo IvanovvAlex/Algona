@@ -27,11 +27,13 @@ builder.Services.AddScoped<IJobRepository, JobRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ITransportRepository, TransportRepository>();
 builder.Services.AddScoped<ISpeditionRepository, SpeditionRepository>();
+builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 
 builder.Services.AddTransient<ISharedService, SharedService>();
 builder.Services.AddTransient<IJobService, JobService>();
 builder.Services.AddTransient<ITransportService, TransportService>();
 builder.Services.AddTransient<ISpeditionService, SpeditionService>();
+builder.Services.AddTransient<IAdminService, AdminService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
