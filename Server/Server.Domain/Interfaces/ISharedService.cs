@@ -6,5 +6,6 @@
     {
         Task EmailSender(CreateContactRequest request);
         Task SendResetPasswordEmail(string toEmail, string resetToken);
+        Task SendStatusRequestEmail(string toEmail, string requestForTransportOrSpedition, bool status, string name);
     }
 }

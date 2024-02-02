@@ -1,4 +1,5 @@
-﻿using Server.Common.Requests.SpeditionRequest;
+﻿using Server.Common.Constants;
+using Server.Common.Requests.SpeditionRequest;
 using Server.Data.Entities;
 using Server.Data.Interfaces;
 using Server.Domain.Interfaces;
@@ -65,5 +66,34 @@ namespace Server.Domain.Services
             }
             return request;
         }
+
+
+        /// <summary>
+        /// Updates the status of the request
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="isApproved"></param>
+        /// <returns></returns>
+        public async Task<Spedition?> UpdateStatus(string id, bool isApproved)
+        {
+            var requestTransport = await GetById(id);
+            if (requestTransport == null)
+            {
+                return null;
+            }
+
+            if (isApproved)
+            {
+                requestTransport.Status = EntityValidationConstants.Spedition.StatusApproved;
+            }
+            else
+            {
+                requestTransport.Status = EntityValidationConstants.Spedition.StatusRejected;
+            }
+
+            await unitOfWork.CommitAsync();
+            return requestTransport;
+        }
+
     }
 }
