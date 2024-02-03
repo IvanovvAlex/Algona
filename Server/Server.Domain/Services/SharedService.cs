@@ -60,10 +60,7 @@ namespace Server.Domain.Services
             client.Credentials = new NetworkCredential(mail, password);
             client.EnableSsl = true;
 
-            await client.SendMailAsync(mailToAdmin);
-
-
-
+            client.SendMailAsync(mailToAdmin);
 
             // Create a message and set up the recipients.
             MailMessage mailMessage = new MailMessage();
@@ -94,11 +91,11 @@ namespace Server.Domain.Services
             mailMessage.IsBodyHtml = true;
 
             // Set up the SMTP client and send the email
-            // SmtpClient smtpClient = new SmtpClient(host, port);
-            // smtpClient.Credentials = new NetworkCredential(mail, password);
-            // smtpClient.EnableSsl = true;
+            SmtpClient smtpClient = new SmtpClient(host, port);
+            smtpClient.Credentials = new NetworkCredential(mail, password);
+            smtpClient.EnableSsl = true;
 
-            await client.SendMailAsync(mailMessage);
+            smtpClient.SendMailAsync(mailMessage);
         }
 
         // Function to convert an image to base64
