@@ -8,7 +8,7 @@
             </div>
             <hr>
 
-            <form [formGroup]="contactForm" (ngSubmit)="sendData()">
+            <form [formGroup]="contactForm"  #formDirective="ngForm"  (ngSubmit)="sendData(formDirective)">
                 <div class="form-cont">
 
 
@@ -49,7 +49,7 @@
                             <mat-error class="mat-err" *ngIf="contactForm.get('email')?.errors?.['required']">
                                 Email field is required!
                             </mat-error>
-                            <mat-error class="mat-err" *ngIf="contactForm.get('email')?.errors?.['emailVdtr']">
+                            <mat-error class="mat-err" *ngIf="contactForm.get('email')?.errors?.['emailVdtr'] && !contactForm.get('email')?.errors?.['required']">
                                 Not a valid email!
                             </mat-error>
                         </mat-form-field>
