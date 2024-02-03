@@ -18,11 +18,9 @@
                             <input matInput autocomplete="Name" id="name" type="text" name="name"
                                 formControlName="name">
 
-                            <mat-error class="mat-err" *ngIf="contactForm.get('name')?.errors?.['required']">Name field is
-                                required!
+                            <mat-error class="mat-err" *ngIf="contactForm.get('name')?.errors?.['required']">&nbsp;
                             </mat-error>
-                            <mat-error class="mat-err" *ngIf="contactForm.get('name')?.errors?.['minlength']">Name is too short!
-                                Should be atleast 2 characters
+                            <mat-error class="mat-err" *ngIf="contactForm.get('name')?.errors?.['minlength']">&nbsp;
                             </mat-error>
                         </mat-form-field>
 
@@ -30,11 +28,9 @@
                             <mat-label for="companyName">{{'contact.form-company' | translate}}</mat-label>
                             <input matInput autocomplete="Company Name" id="companyName" type="text" name="companyName"
                                 formControlName="companyName">
-                            <mat-error class="mat-err" *ngIf="contactForm.get('companyName')?.errors?.['required']">
-                                Company Name field is required!
+                            <mat-error class="mat-err" *ngIf="contactForm.get('companyName')?.errors?.['required']">&nbsp;
                             </mat-error>
-                            <mat-error class="mat-err" *ngIf="contactForm.get('companyName')?.errors?.['minlength']">
-                                Company name is too short! Should be atleast 2 characters
+                            <mat-error class="mat-err" *ngIf="contactForm.get('companyName')?.errors?.['minlength']">&nbsp;
                             </mat-error>
                         </mat-form-field>
 
@@ -46,11 +42,9 @@
                             <mat-label for="email">{{'contact.form-email' | translate}}</mat-label>
                             <input matInput autocomplete="Email" id="email" type="email" name="email"
                                 formControlName="email">
-                            <mat-error class="mat-err" *ngIf="contactForm.get('email')?.errors?.['required']">
-                                Email field is required!
+                            <mat-error class="mat-err" *ngIf="contactForm.get('email')?.errors?.['required']">&nbsp;
                             </mat-error>
-                            <mat-error class="mat-err" *ngIf="contactForm.get('email')?.errors?.['emailVdtr']">
-                                Not a valid email!
+                            <mat-error class="mat-err" *ngIf="contactForm.get('email')?.errors?.['emailVdtr']">&nbsp;
                             </mat-error>
                         </mat-form-field>
 
@@ -58,11 +52,9 @@
                             <mat-label for="phone">{{'contact.form-phone' | translate}}</mat-label>
                             <input matInput autocomplete="Phone" id="phone" type="phone" name="phone"
                                 formControlName="phone">
-                            <mat-error class="mat-err" *ngIf="contactForm.get('phone')?.errors?.['required']">
-                                Phone field is required!
+                            <mat-error class="mat-err" *ngIf="contactForm.get('phone')?.errors?.['required']">&nbsp;
                             </mat-error>
-                            <mat-error class="mat-err" *ngIf="contactForm.get('phone')?.errors?.['minlength']">
-                                Phone should be atleast 10 characters!
+                            <mat-error class="mat-err" *ngIf="contactForm.get('phone')?.errors?.['minlength']">&nbsp;
                             </mat-error>
                         </mat-form-field>
 
@@ -74,11 +66,9 @@
                         <mat-form-field appearance="outline">
                             <mat-label for="data" >{{'contact.form-message' | translate}}</mat-label>
                             <textarea matInput autocomplete="Message" name="data" id="data" formControlName="data"></textarea>
-                                <mat-error class="mat-err" *ngIf="contactForm.get('data')?.errors?.['required']">
-                                    Message field is required!
+                                <mat-error class="mat-err" *ngIf="contactForm.get('data')?.errors?.['required']">&nbsp;
                                 </mat-error>
-                                <mat-error class="mat-err" *ngIf="contactForm.get('data')?.errors?.['minlength']">
-                                    Message should be atleast 10 characters!
+                                <mat-error class="mat-err" *ngIf="contactForm.get('data')?.errors?.['minlength']">&nbsp;
                                 </mat-error>
                         </mat-form-field>
                         <button mat-raised-button class="sndBtn" [disabled]="contactForm.invalid"
