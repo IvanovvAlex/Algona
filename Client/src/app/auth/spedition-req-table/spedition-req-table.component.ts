@@ -94,8 +94,18 @@ export class SpeditionReqTableComponent implements OnInit, OnDestroy{
       status: 'Approved'
     }
 
-    this.apiService.updateSpeditionRequest(payload)
-    this.getData()
+    this.apiService.updateSpeditionRequest(payload).subscribe(
+      {
+        next: (response) => {
+          if (response.status === 200) {
+            this.getData()
+          }
+        },
+        error: (error) => {
+          this.router.navigate(['/404']);
+        }
+      }
+    )
   }
 
   completeSpdRequest(id: string, status: string) {
@@ -108,8 +118,18 @@ export class SpeditionReqTableComponent implements OnInit, OnDestroy{
       status: 'Complete'
     }
 
-    this.apiService.updateSpeditionRequest(payload)
-    this.getData()
+    this.apiService.updateSpeditionRequest(payload).subscribe(
+      {
+        next: (response) => {
+          if (response.status === 200) {
+            this.getData()
+          }
+        },
+        error: (error) => {
+          this.router.navigate(['/404']);
+        }
+      }
+    )
   }
 
   rejectSpdRequest(id: string) {
@@ -123,8 +143,18 @@ export class SpeditionReqTableComponent implements OnInit, OnDestroy{
       status: 'Rejected'
     }
 
-    this.apiService.updateSpeditionRequest(payload)
-    this.getData()
+    this.apiService.updateSpeditionRequest(payload).subscribe(
+      {
+        next: (response) => {
+          if (response.status === 200) {
+            this.getData()
+          }
+        },
+        error: (error) => {
+          this.router.navigate(['/404']);
+        }
+      }
+    )
 
   }
 
