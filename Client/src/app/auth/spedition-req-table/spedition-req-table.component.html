@@ -43,9 +43,9 @@
                     <td>{{i+1}} </td>
                     <td>{{ row.name }}</td>
                     <td *ngIf="showEmail">{{ row.email }}</td>
-                    <td *ngIf="!showEmail">{{ row.phone }}</td>
-                    <td *ngIf="showPallets">{{ row.pallets }} pieces</td>
-                    <td *ngIf="!showPallets">{{ row.weight }} tons</td>
+                    <td *ngIf="!showEmail">{{ row.phoneNumber }}</td>
+                    <td *ngIf="showPallets">{{ row.numberOfPallets }} pallets</td>
+                    <td *ngIf="!showPallets">{{ row.totalWeight }} tons</td>
                     <td *ngIf="showDate">{{ row.date }}</td>
                     <td *ngIf="!showDate">{{ row.destination }}</td>
                     <td >
