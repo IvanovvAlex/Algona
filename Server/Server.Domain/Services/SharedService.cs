@@ -60,7 +60,7 @@ namespace Server.Domain.Services
             client.Credentials = new NetworkCredential(mail, password);
             client.EnableSsl = true;
 
-            client.Send(mailToAdmin);
+            await client.SendMailAsync(mailToAdmin);
 
 
 
@@ -81,7 +81,7 @@ namespace Server.Domain.Services
             htmlBody += "<p>Here at <b>ALGONA</b>, we are committed to delivering excellent customer service, and your feedback is invaluable to us. We are constantly striving to improve our products, and your input plays a crucial role in this process.</p>";
             htmlBody += "<p>Thank you once again for choosing <b>ALGONA</b>. We look forward to serving you and addressing your needs promptly. If you have any further questions or concerns, please don't hesitate to reach out to us.</p>";
             htmlBody += "<h3>Best regards,<br>The ALGONA team</h3>";
-            
+
             //Encode the image to base64 string.
             string imagePath = "./Images/logo-no-background.png";
             string base64Image = ConvertImageToBase64(imagePath);
@@ -94,11 +94,11 @@ namespace Server.Domain.Services
             mailMessage.IsBodyHtml = true;
 
             // Set up the SMTP client and send the email
-            SmtpClient smtpClient = new SmtpClient(host, port);
-            smtpClient.Credentials = new NetworkCredential(mail, password);
-            smtpClient.EnableSsl = true;
+            // SmtpClient smtpClient = new SmtpClient(host, port);
+            // smtpClient.Credentials = new NetworkCredential(mail, password);
+            // smtpClient.EnableSsl = true;
 
-            smtpClient.Send(mailMessage);
+            await client.SendMailAsync(mailMessage);
         }
 
         // Function to convert an image to base64
@@ -129,7 +129,7 @@ namespace Server.Domain.Services
             var port = int.Parse(mailSettings["Port"]);
 
             // Create a message and set up the recipients.
-            var fromAddress = new MailAddress(mail,displayName );
+            var fromAddress = new MailAddress(mail, displayName);
             var toAddress = new MailAddress(toEmail);
             const string subject = "Password Reset";
             var body = $"Click the following link to reset your password: {GetResetPasswordLink(resetToken)}";
@@ -177,11 +177,11 @@ namespace Server.Domain.Services
             mailMessage.Subject = "ALGONA - " + requestForTransportOrSpedition;
 
             string message = "";
-            if (status == EntityValidationConstants.Spedition.StatusApproved )
+            if (status == EntityValidationConstants.Spedition.StatusApproved)
             {
                 message = "<p>We are pleased to inform you that your " + requestForTransportOrSpedition + " has been approved.</p>";
             }
-            else if(status == EntityValidationConstants.Spedition.StatusRejected)
+            else if (status == EntityValidationConstants.Spedition.StatusRejected)
             {
                 message = "<p>We are sorry to inform you that your " + requestForTransportOrSpedition + " has been rejected.</p>";
             }
@@ -190,8 +190,8 @@ namespace Server.Domain.Services
                 message = "<p>We are excited to inform you that your " + requestForTransportOrSpedition + " has been completed.</p>";
             }
 
-                //Set the html message body.
-                string htmlBody = "<html><body>";
+            //Set the html message body.
+            string htmlBody = "<html><body>";
             htmlBody += "<h3>Dear ";
             htmlBody += name;
             htmlBody += ",</h3>";
