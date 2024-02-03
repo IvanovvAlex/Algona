@@ -47,9 +47,10 @@ namespace Server.Domain.Services
         /// <summary>
         /// Gets all requests for spedition
         /// </summary>
-        public Task<IEnumerable<Spedition>> GetAll()
+        public async Task<IEnumerable<Spedition>> GetAll()
         {
-            throw new NotImplementedException();
+            var requests = await unitOfWork.Speditions.GetAllAsync();
+            return requests;
         }
 
         /// <summary>
