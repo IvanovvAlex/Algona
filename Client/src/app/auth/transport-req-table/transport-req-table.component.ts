@@ -49,7 +49,7 @@ export class TransportReqTableComponent implements OnInit, OnDestroy {
           const statusOrder: any = { 'Waiting for approval': 1, 'Approved': 2, 'Complete': 3, 'Rejected': 4 };
           return statusOrder[a.status] - statusOrder[b.status];
         })
-    
+
         this.totalPages = Math.ceil(this.sortedArray.length / 5);
         this.paginatedArray = this.sortedArray.slice(0, 5);
       },
@@ -93,8 +93,18 @@ export class TransportReqTableComponent implements OnInit, OnDestroy {
       status: 'Approved'
     }
 
-    this.apiService.updateSpeditionRequest(payload)
-    this.getData()
+    this.apiService.updateSpeditionRequest(payload).subscribe(
+      {
+        next: (response) => {
+          if (response.status === 200) {
+            this.getData()
+          }
+        },
+        error: (error) => {
+          this.router.navigate(['/404']);
+        }
+      }
+    )
 
   }
 
@@ -108,8 +118,18 @@ export class TransportReqTableComponent implements OnInit, OnDestroy {
       status: 'Complete'
     }
 
-    this.apiService.updateSpeditionRequest(payload)
-    this.getData()
+    this.apiService.updateSpeditionRequest(payload).subscribe(
+      {
+        next: (response) => {
+          if (response.status === 200) {
+            this.getData()
+          }
+        },
+        error: (error) => {
+          this.router.navigate(['/404']);
+        }
+      }
+    )
 
   }
 
@@ -124,8 +144,18 @@ export class TransportReqTableComponent implements OnInit, OnDestroy {
       status: 'Rejected'
     }
 
-    this.apiService.updateSpeditionRequest(payload)
-    this.getData()
+    this.apiService.updateSpeditionRequest(payload).subscribe(
+      {
+        next: (response) => {
+          if (response.status === 200) {
+            this.getData()
+          }
+        },
+        error: (error) => {
+          this.router.navigate(['/404']);
+        }
+      }
+    )
 
   }
 
