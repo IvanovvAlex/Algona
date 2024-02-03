@@ -46,6 +46,13 @@ export class SpeditionReqTableComponent implements OnInit, OnDestroy{
           return x
         })
         this.speditionRequests = mappedDataTwo;
+        this.sortedArray = this.speditionRequests.sort((a, b) => {
+          const statusOrder: any = { 'Waiting for approval': 1, 'Approved': 2, 'Complete': 3 };
+          return statusOrder[a.status] - statusOrder[b.status];
+        })
+    
+        this.totalPages = Math.ceil(this.sortedArray.length / 5);
+        this.paginatedArray = this.sortedArray.slice(0, 5);
       },
       error: (err) => {
         this.router.navigate(['/404']);
@@ -53,13 +60,7 @@ export class SpeditionReqTableComponent implements OnInit, OnDestroy{
     });
 
 
-    this.sortedArray = this.speditionRequests.sort((a, b) => {
-      const statusOrder: any = { 'Waiting for approval': 1, 'Approved': 2, 'Complete': 3 };
-      return statusOrder[a.status] - statusOrder[b.status];
-    })
-
-    this.totalPages = Math.ceil(this.sortedArray.length / 5);
-    this.paginatedArray = this.sortedArray.slice(0, 5);
+    
   }
 
   ngOnInit(): void {
