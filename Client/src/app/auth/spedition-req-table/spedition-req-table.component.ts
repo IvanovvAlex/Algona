@@ -35,12 +35,24 @@ export class SpeditionReqTableComponent implements OnInit, OnDestroy{
   getData():void {
     this.subscription = this.apiService.getSpeditionRequests().subscribe({
       next: (data) => {
-        this.speditionRequests = data;
+        console.log(data);
+        
+        const mappedDataOne = data.map((x) => {
+          x.date = `${x.fromDate} to ${x.toDate}`
+          return x
+        })
+        const mappedDataTwo = mappedDataOne.map((x) => {
+          x.destination = `${x.fromAddress} to ${x.toAddress}`
+          return x
+        })
+        this.speditionRequests = mappedDataTwo;
       },
       error: (err) => {
         this.router.navigate(['/404']);
       },
     });
+
+
     this.sortedArray = this.speditionRequests.sort((a, b) => {
       const statusOrder: any = { 'Waiting for approval': 1, 'Approved': 2, 'Complete': 3 };
       return statusOrder[a.status] - statusOrder[b.status];

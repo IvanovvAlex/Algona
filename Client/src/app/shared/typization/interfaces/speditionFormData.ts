@@ -12,5 +12,7 @@ export interface SpeditionFormData {
 
 export interface SpeditionFormDataWithId extends SpeditionFormData {
     status: string,
-    id: string
+    id: string,
+    date?: string,
+    destination?: string
 }
