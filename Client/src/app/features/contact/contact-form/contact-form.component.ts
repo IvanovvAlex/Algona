@@ -51,7 +51,7 @@ import { emailVdtr } from 'src/app/auth/validators/emailValidator';
             this.popUp(`Error ${error.status}: ${error.statusText}`)
             
             this.contactForm.reset();
-            this.contactForm.markAllAsTouched();
+            // this.contactForm.markAllAsTouched();
             
             // this.popUp('Succes - Your message has been sent to us!')
             // ^^ to test visuals until a working API response is present
