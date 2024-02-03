@@ -35,14 +35,14 @@ import { emailVdtr } from 'src/app/auth/validators/emailValidator';
         companyName: companyName as string,
         email: email as string,
         phone: phone as string,
-        data: data as string
+        description: data as string
       }
 
       this.apiService.sendContactData(contactFormData).subscribe(
         {
           next: (response) => {
             if (response.status !== 201) {
-              this.popUp(`Error ${response.status}: ${response.statusText}`)
+              this.popUp(`Error ${response.status}: ${response.type}`)
             } else {
               this.popUp('Succes - Your message has been sent to us!')
             }

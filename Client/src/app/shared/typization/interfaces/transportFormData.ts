@@ -12,5 +12,7 @@ export interface TransportFormData {
 
 export interface TransportFormDataWithId extends TransportFormData {
     status: string,
-    id: string
+    id: string,
+    date?: string,
+    destination?: string
 }
