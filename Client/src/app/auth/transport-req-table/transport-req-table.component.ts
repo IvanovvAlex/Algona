@@ -93,7 +93,7 @@ export class TransportReqTableComponent implements OnInit, OnDestroy {
       status: 'Approved'
     }
 
-    this.apiService.updateSpeditionRequest(payload).subscribe(
+    this.apiService.updateTransportRequest(payload).subscribe(
       {
         next: (response) => {
           if (response.status === 200) {
@@ -118,7 +118,7 @@ export class TransportReqTableComponent implements OnInit, OnDestroy {
       status: 'Complete'
     }
 
-    this.apiService.updateSpeditionRequest(payload).subscribe(
+    this.apiService.updateTransportRequest(payload).subscribe(
       {
         next: (response) => {
           if (response.status === 200) {
@@ -144,7 +144,7 @@ export class TransportReqTableComponent implements OnInit, OnDestroy {
       status: 'Rejected'
     }
 
-    this.apiService.updateSpeditionRequest(payload).subscribe(
+    this.apiService.updateTransportRequest(payload).subscribe(
       {
         next: (response) => {
           if (response.status === 200) {
